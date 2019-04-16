@@ -1,0 +1,74 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_016IB3VRJ0X1767cUAovAbETYlxKA4zdNHG",
+    "name": "REST API Call",
+    "title": "REST API Call",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "REST API Call",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_016IB3YR2RRKQ1W3hFHkO1BYvhIwf2DoOnD",
+        "name": "HTTP Request",
+        "title": "HTTP Request - Action Orchestrator",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "description": "AO Web service description",
+          "display_name": "HTTP Request - Action Orchestrator",
+          "method": "GET",
+          "relative_url": "/posts",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016IB56CIP9XM5VT8vhrItOPCUvHjVllizz"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_016IB56CIP9XM5VT8vhrItOPCUvHjVllizz": {
+      "unique_name": "definition_target_016IB56CIP9XM5VT8vhrItOPCUvHjVllizz",
+      "name": "JSON placeholder",
+      "title": "JSON placeholder",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "JSON placeholder",
+        "host": "jsonplaceholder.typicode.com",
+        "no_runtime_user": true,
+        "protocol": "https"
+      }
+    }
+  }
+}
