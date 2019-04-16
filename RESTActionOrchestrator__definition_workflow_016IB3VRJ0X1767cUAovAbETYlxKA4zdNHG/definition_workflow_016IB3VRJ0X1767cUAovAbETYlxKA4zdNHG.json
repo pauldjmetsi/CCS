@@ -48,6 +48,19 @@
           }
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_016IBO7TF1RUP59bYg8hySbuwLMoVFdJkns",
+        "name": "Convert Json to Xml",
+        "title": "Convert Json to Xml",
+        "type": "core.json2xml",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Convert Json to Xml",
+          "input_json": "$activity.definition_activity_016IB3YR2RRKQ1W3hFHkO1BYvhIwf2DoOnD.output.response_body$"
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
