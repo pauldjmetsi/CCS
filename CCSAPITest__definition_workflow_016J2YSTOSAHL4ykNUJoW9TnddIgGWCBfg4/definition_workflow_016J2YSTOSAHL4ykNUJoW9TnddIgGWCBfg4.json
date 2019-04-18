@@ -11,10 +11,10 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "CC_RUN_ID",
+          "name": "NODE_ID",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_016K25LZU6IAP4ylsM7rS2KGDSkpl28uAkV",
+        "unique_name": "variable_workflow_016K25XI72FI62pVNqawLE9PjE8vOQreM6P",
         "object_type": "variable_workflow"
       },
       {
@@ -22,10 +22,10 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "NODE_ID",
+          "name": "CC_RUN_ID",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_016K25XI72FI62pVNqawLE9PjE8vOQreM6P",
+        "unique_name": "variable_workflow_016K25LZU6IAP4ylsM7rS2KGDSkpl28uAkV",
         "object_type": "variable_workflow"
       }
     ],
@@ -34,7 +34,6 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "depends_on": "CC",
       "description": "Author: PDJ",
       "display_name": "CCS API Requests ",
       "favorite": false,
@@ -127,51 +126,6 @@
           "continue_on_failure": false,
           "display_name": "CCS API - Job",
           "relative_url": "cloudcenter-ccm-backend/api/v1/jobs/$workflow.definition_workflow_016J2YSTOSAHL4ykNUJoW9TnddIgGWCBfg4.input.variable_workflow_016K25LZU6IAP4ylsM7rS2KGDSkpl28uAkV$",
-          "runtime_user": {
-            "override_target_runtime_user": false,
-            "target_default": true
-          },
-          "target": {
-            "override_workflow_target": true,
-            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
-          }
-        },
-        "object_type": "definition_activity"
-      },
-      {
-        "unique_name": "definition_activity_016K29J38N8UW0M4wRC10yMVexjUG7cFQ7R",
-        "name": "Get Workload Manager Context",
-        "title": "Get Workload Manager Context",
-        "type": "ccs.get_cloud_context",
-        "base_type": "activity",
-        "properties": {
-          "action_id": "54",
-          "action_timeout": 180,
-          "cc_configuration": {
-            "execute_action": "on_vm",
-            "reboot_vm": false,
-            "resource_mappings": [
-              {
-                "applied_to": {
-                  "app_ids": [
-                    {
-                      "id": "74",
-                      "name": "PetClinic AO"
-                    }
-                  ]
-                },
-                "resource_type": "app_profile",
-                "resource_type_meta_info": {
-                  "app_profile": {}
-                }
-              }
-            ],
-            "sync_vm": false,
-            "wf_availability_type": "lifecycle"
-          },
-          "cc_run_id": "$activity.definition_activity_016K25C6KXH4S0PCMlvvLlbDezxyW7ylbbw.output.response_body$",
-          "continue_on_failure": false,
-          "display_name": "Get Workload Manager Context",
           "runtime_user": {
             "override_target_runtime_user": false,
             "target_default": true
