@@ -16,6 +16,17 @@
         },
         "unique_name": "variable_workflow_016ERUY8V3X5K2wG3MHORNaNwn23hwtdhil",
         "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "NODE_ID",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_016J97SYKRKQO3FIxRjXr3utMNUI0un9pE1",
+        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -92,74 +103,52 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_016HFWCRI1M4Y2Ei6PjA385ZHlEI78hqxLG",
-        "name": "Execute Linux/Unix SSH Command",
-        "title": "Execute Linux/Unix SSH Command",
-        "type": "terminal.ssh_command",
+        "unique_name": "definition_activity_016J2NRHN27PA6Klxa71DrzMkoBG4F4OG6P",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request",
+        "type": "ccs.api_request",
         "base_type": "activity",
         "properties": {
           "action_timeout": 180,
-          "command_timeout": 60,
+          "api_call_method": "GET",
           "continue_on_failure": false,
-          "display_name": "Execute Linux/Unix SSH Command",
+          "display_name": "Generic CCS API Request",
+          "relative_url": "cloudcenter-ccm-backend/api/v1/jobs/$workflow.definition_workflow_016ERPL1JCDU71bQapguOmIQ5RQp780isnj.input.variable_workflow_016ERUY8V3X5K2wG3MHORNaNwn23hwtdhil$",
           "runtime_user": {
-            "override_target_runtime_user": false,
-            "target_default": true
+            "override_target_runtime_user": true,
+            "runtime_user_id": "definition_runtime_user_016J2UBE5MNC13AwWHPyfO0IwLmZ2BQXv4i"
           },
           "target": {
-            "override_workflow_target": true
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
           }
         },
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_016HFWE9DYCUO3im22PdWNdYcvekP4ULou5",
-        "name": "Execute Linux/Unix SSH Script",
-        "title": "Execute Linux/Unix SSH Script",
-        "type": "terminal.ssh_script",
-        "base_type": "activity",
+        "unique_name": "definition_activity_016JXXFUVQG7H4wyWyYe4chENn0myLINuuX",
+        "name": "Execute Action on Virtual Machine",
+        "title": "Execute Action on Virtual Machine",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
         "properties": {
-          "action_timeout": 180,
           "continue_on_failure": false,
-          "display_name": "Execute Linux/Unix SSH Script",
-          "failed_completed": [
-            ""
-          ],
-          "runtime_user": {
-            "override_target_runtime_user": false,
-            "target_default": true
+          "display_name": "Execute Action on Virtual Machine",
+          "input": {
+            "variable_workflow_015O9MPWA93B45Wbd5Ga6NXdHHROkuISJxC": "$workflow.definition_workflow_016ERPL1JCDU71bQapguOmIQ5RQp780isnj.input.variable_workflow_016J97SYKRKQO3FIxRjXr3utMNUI0un9pE1$",
+            "variable_workflow_01gYxTTIiozpeC0G7XGX3h938xWZW4k92": "$activity.definition_activity_016ERPROXOA9O3fe3SCipI3cQbKW4vxcTOI.output.action_type$",
+            "variable_workflow_01gmGB1E79m7TfL8YMDUFjfBqxcIAKSbf": "$workflow.definition_workflow_016ERPL1JCDU71bQapguOmIQ5RQp780isnj.output.instance_id$",
+            "variable_workflow_01gmT7gkCb94ey8Tqd849LGeJvdfmsYrq": 10,
+            "variable_workflow_01gmUjEx0Z3LZOPK3u01H2tmZyv1QIFk6": 30,
+            "variable_workflow_01gmgK3LkOa8JMelklBT5K2eV29ZlPpqv": "#!/bin/bash\nsudo yum install java -y\nsudo mv /opt/remoteFiles/appPackage/petclinic.service /usr/lib/systemd/system/\nsudo systemctl daemon-reload\nsudo systemctl enable petclinic.service \nsudo systemctl start petclinic.service"
           },
           "target": {
+            "execute_on_this_target": true,
             "override_workflow_target": false,
-            "override_workflow_target_group_criteria": false,
-            "use_workflow_target": true,
-            "use_workflow_target_group": false
-          }
-        },
-        "object_type": "definition_activity"
-      },
-      {
-        "unique_name": "definition_activity_016HFWFGZNVFQ76IRFBA9cvXALezIzHzKFs",
-        "name": "Write File",
-        "title": "Write File",
-        "type": "terminal.write_file",
-        "base_type": "activity",
-        "properties": {
-          "action_timeout": 180,
-          "continue_on_failure": false,
-          "display_name": "Write File",
-          "encoding": "utf-8",
-          "options": "not_overwrite",
-          "runtime_user": {
-            "override_target_runtime_user": false,
-            "target_default": true
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q",
+            "target_type": "ccsuite.integration_endpoint"
           },
-          "target": {
-            "override_workflow_target": false,
-            "override_workflow_target_group_criteria": false,
-            "use_workflow_target": true,
-            "use_workflow_target_group": false
-          }
+          "workflow_id": "definition_workflow_01gD85jbeDkSP5TO2AYeuvkAJkbgBWyhY"
         },
         "object_type": "definition_activity"
       }
@@ -167,5 +156,21 @@
     "categories": [
       "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
     ]
-  }
+  },
+  "runtime_users": {
+    "definition_runtime_user_016J2UBE5MNC13AwWHPyfO0IwLmZ2BQXv4i": {
+      "unique_name": "definition_runtime_user_016J2UBE5MNC13AwWHPyfO0IwLmZ2BQXv4i",
+      "name": "CCS Admin",
+      "title": "CCS Admin",
+      "type": "runtime_user.ccs_explicit_user",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "CCS Admin"
+      }
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01gD85jbeDkSP5TO2AYeuvkAJkbgBWyhY"
+  ]
 }
