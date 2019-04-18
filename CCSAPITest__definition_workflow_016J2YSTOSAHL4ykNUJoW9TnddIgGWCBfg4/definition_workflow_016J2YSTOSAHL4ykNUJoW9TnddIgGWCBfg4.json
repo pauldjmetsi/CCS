@@ -11,10 +11,10 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "NODE_ID",
+          "name": "CC_RUN_ID",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_016K25XI72FI62pVNqawLE9PjE8vOQreM6P",
+        "unique_name": "variable_workflow_016K25LZU6IAP4ylsM7rS2KGDSkpl28uAkV",
         "object_type": "variable_workflow"
       },
       {
@@ -22,10 +22,10 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "CC_RUN_ID",
+          "name": "NODE_ID",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_016K25LZU6IAP4ylsM7rS2KGDSkpl28uAkV",
+        "unique_name": "variable_workflow_016K25XI72FI62pVNqawLE9PjE8vOQreM6P",
         "object_type": "variable_workflow"
       }
     ],
@@ -34,7 +34,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "description": "Author: PDJ",
+      "description": "Author: PDJ\nCCS API - App Info = gets deployed app's details",
       "display_name": "CCS API Requests ",
       "favorite": false,
       "target": {
@@ -117,14 +117,15 @@
       {
         "unique_name": "definition_activity_016K27MT5NPH205mFHOkdDavIZBjnhir2va",
         "name": "Generic CCS API Request",
-        "title": "CCS API - Job",
+        "title": "CCS API - App Info",
         "type": "ccs.api_request",
         "base_type": "activity",
         "properties": {
           "action_timeout": 180,
           "api_call_method": "GET",
           "continue_on_failure": false,
-          "display_name": "CCS API - Job",
+          "description": "Output = app info, IPs, VM names, etc..",
+          "display_name": "CCS API - App Info",
           "relative_url": "cloudcenter-ccm-backend/api/v1/jobs/$workflow.definition_workflow_016J2YSTOSAHL4ykNUJoW9TnddIgGWCBfg4.input.variable_workflow_016K25LZU6IAP4ylsM7rS2KGDSkpl28uAkV$",
           "runtime_user": {
             "override_target_runtime_user": false,
