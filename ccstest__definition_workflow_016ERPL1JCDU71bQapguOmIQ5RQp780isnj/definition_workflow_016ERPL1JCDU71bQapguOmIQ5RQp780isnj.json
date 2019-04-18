@@ -11,10 +11,10 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "CC_RUN_ID",
+          "name": "NODE_ID",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_016ERUY8V3X5K2wG3MHORNaNwn23hwtdhil",
+        "unique_name": "variable_workflow_016J97SYKRKQO3FIxRjXr3utMNUI0un9pE1",
         "object_type": "variable_workflow"
       },
       {
@@ -22,10 +22,10 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "NODE_ID",
+          "name": "CC_RUN_ID",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_016J97SYKRKQO3FIxRjXr3utMNUI0un9pE1",
+        "unique_name": "variable_workflow_016ERUY8V3X5K2wG3MHORNaNwn23hwtdhil",
         "object_type": "variable_workflow"
       }
     ],
@@ -57,31 +57,21 @@
           "action_id": "51",
           "action_timeout": 180,
           "cc_configuration": {
-            "execute_action": "on_vm",
+            "execute_action": "external",
             "reboot_vm": false,
             "resource_mappings": [
               {
                 "applied_to": {
                   "app_ids": [
                     {
-                      "id": "31",
-                      "name": "CentOS 6"
-                    },
-                    {
-                      "id": "29",
-                      "name": "CentOS 7"
-                    },
-                    {
-                      "id": "33",
-                      "name": "WordPress"
+                      "id": "74",
+                      "name": "PetClinic AO"
                     }
                   ]
                 },
                 "resource_type": "app_profile",
                 "resource_type_meta_info": {
-                  "app_profile": {
-                    "app_ids": "All"
-                  }
+                  "app_profile": {}
                 }
               }
             ],
@@ -137,10 +127,10 @@
           "input": {
             "variable_workflow_015O9MPWA93B45Wbd5Ga6NXdHHROkuISJxC": "$workflow.definition_workflow_016ERPL1JCDU71bQapguOmIQ5RQp780isnj.input.variable_workflow_016J97SYKRKQO3FIxRjXr3utMNUI0un9pE1$",
             "variable_workflow_01gYxTTIiozpeC0G7XGX3h938xWZW4k92": "$activity.definition_activity_016ERPROXOA9O3fe3SCipI3cQbKW4vxcTOI.output.action_type$",
-            "variable_workflow_01gmGB1E79m7TfL8YMDUFjfBqxcIAKSbf": "$workflow.definition_workflow_016ERPL1JCDU71bQapguOmIQ5RQp780isnj.output.instance_id$",
+            "variable_workflow_01gmGB1E79m7TfL8YMDUFjfBqxcIAKSbf": "$activity.definition_activity_016ERPROXOA9O3fe3SCipI3cQbKW4vxcTOI.output.response_body$",
             "variable_workflow_01gmT7gkCb94ey8Tqd849LGeJvdfmsYrq": 10,
             "variable_workflow_01gmUjEx0Z3LZOPK3u01H2tmZyv1QIFk6": 30,
-            "variable_workflow_01gmgK3LkOa8JMelklBT5K2eV29ZlPpqv": "#!/bin/bash\nsudo yum install java -y\nsudo mv /opt/remoteFiles/appPackage/petclinic.service /usr/lib/systemd/system/\nsudo systemctl daemon-reload\nsudo systemctl enable petclinic.service \nsudo systemctl start petclinic.service"
+            "variable_workflow_01gmgK3LkOa8JMelklBT5K2eV29ZlPpqv": "sudo yum install java-1.8.0-openjdk-headless -y\nsudo mv /opt/remoteFiles/appPackage/petclinic.service /usr/lib/systemd/system/\nsudo systemctl daemon-reload\nsudo systemctl enable petclinic.service \nsudo systemctl start petclinic.service"
           },
           "target": {
             "execute_on_this_target": true,
