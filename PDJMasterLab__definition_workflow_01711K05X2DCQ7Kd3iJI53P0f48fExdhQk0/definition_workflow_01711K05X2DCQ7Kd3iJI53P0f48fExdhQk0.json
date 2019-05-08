@@ -1,0 +1,229 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01711K05X2DCQ7Kd3iJI53P0f48fExdhQk0",
+    "name": "PDJ Master Lab",
+    "title": "PDJ Master Lab",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "name",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_01711KXYXIY6Z29EckmimoIytvrYGupEoNX",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "AO Training day 2",
+      "display_name": "PDJ Master Lab",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01711KAYP7F6I7ACqwjaMhlUZZ7NwC76ABz",
+        "name": "PDJ Get JSON HTTP",
+        "title": "PDJ Get JSON HTTP",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "PDJ Get JSON HTTP",
+          "input": {
+            "variable_workflow_0170FCO98RAOJ50SfbxK1GPKQCGGnBRUWXA": "users"
+          },
+          "target": {
+            "no_target": true,
+            "override_workflow_target": false
+          },
+          "workflow_id": "definition_workflow_0170FBODIVQW94Di0TgdhyiBgs1hEL7qCl2"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01711LBCDSK7F7CB85OxMc1n4Q76rqBWwQ3",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "JSONPath Query",
+          "input_json": "$activity.definition_activity_01711KAYP7F6I7ACqwjaMhlUZZ7NwC76ABz.output.variable_workflow_0170FCY6C4VFX5eaNDqWTyg7vdeD42eLDTs$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.[?(@.username==\"$workflow.definition_workflow_01711K05X2DCQ7Kd3iJI53P0f48fExdhQk0.input.variable_workflow_01711KXYXIY6Z29EckmimoIytvrYGupEoNX$\")]",
+              "jsonpath_query_name": "username",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01711MD1XJ9BC76ZtF4NC6vrDVz7GUryrsq",
+        "name": "Condition Block",
+        "title": "IF USER FOUND",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "IF USER FOUND"
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01711MD4VRN5K50D8Xt7052UUn5rDexqRRe",
+            "name": "Condition Branch",
+            "title": "THEN",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01711LBCDSK7F7CB85OxMc1n4Q76rqBWwQ3.output.succeeded$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": false,
+              "display_name": "THEN"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01711N2UJ8H3N1ZF0b8WWosjvcN29cBj2Jq",
+                "name": "Send Email",
+                "title": "Send Email Found User",
+                "type": "email.smtp_send_email",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "body": "We found the user!",
+                  "continue_on_failure": false,
+                  "display_name": "Send Email Found User",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "subject": "User Found",
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_0170CQ6HEUDVZ0SCIP6L1GrXDiEWIG0qnWE"
+                  },
+                  "to": "pauldj@metsi.co.uk"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01711MD6CLPPM3XkLtOhgSADbGPVnjbIyLh",
+            "name": "Condition Branch",
+            "title": "ELSE",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01711LBCDSK7F7CB85OxMc1n4Q76rqBWwQ3.output.succeeded$",
+                "operator": "eq",
+                "right_operand": false
+              },
+              "continue_on_failure": false,
+              "display_name": "ELSE"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01711NPTRENWU3hDgUKWyPUfVrRv5cwgnIK",
+                "name": "Send Email",
+                "title": "Send Email User Not Found",
+                "type": "email.smtp_send_email",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "body": "We did not find the user!",
+                  "continue_on_failure": false,
+                  "display_name": "Send Email User Not Found",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "subject": "User Not Found",
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_0170CQ6HEUDVZ0SCIP6L1GrXDiEWIG0qnWE"
+                  },
+                  "to": "pauldj@metsi.co.uk"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_0170C4NF18PV86st8xtM1Ub5hIOac5F7Ubs"
+    ]
+  },
+  "categories": {
+    "category_0170C4NF18PV86st8xtM1Ub5hIOac5F7Ubs": {
+      "unique_name": "category_0170C4NF18PV86st8xtM1Ub5hIOac5F7Ubs",
+      "name": "pauldj",
+      "title": "pauldj",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "targets": {
+    "definition_target_0170CQ6HEUDVZ0SCIP6L1GrXDiEWIG0qnWE": {
+      "unique_name": "definition_target_0170CQ6HEUDVZ0SCIP6L1GrXDiEWIG0qnWE",
+      "name": "Test SMTP",
+      "title": "Test SMTP",
+      "type": "email.smtp_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_0170CPNNMO9V3431OLvZbKZarqL2qPJBfFR",
+        "display_name": "Test SMTP",
+        "port": 25,
+        "protocol": "SMTP",
+        "server": "metsi-co-uk.mail.protection.outlook.com"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_0170CPNNMO9V3431OLvZbKZarqL2qPJBfFR": {
+      "unique_name": "definition_runtime_user_0170CPNNMO9V3431OLvZbKZarqL2qPJBfFR",
+      "name": "None",
+      "title": "None",
+      "type": "runtime_user.email_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "None"
+      }
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_0170FBODIVQW94Di0TgdhyiBgs1hEL7qCl2"
+  ]
+}
