@@ -5,7 +5,20 @@
     "title": "Andrew Test",
     "type": "generic.workflow",
     "base_type": "workflow",
-    "variables": null,
+    "variables": [
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 1,
+          "scope": "local",
+          "name": "value",
+          "type": "datatype.integer",
+          "description": "test"
+        },
+        "unique_name": "variable_workflow_018KEZKF9LQY95TqKRiPLPXh7KnR1ui8tP6",
+        "object_type": "variable_workflow"
+      }
+    ],
     "properties": {
       "atomic": {
         "is_atomic": false
@@ -24,32 +37,26 @@
     "object_type": "definition_workflow",
     "actions": [
       {
-        "unique_name": "definition_activity_018KEIGOR4AJO6sTFeTD6plwWhnqJXGfmYp",
-        "name": "AndrewTest",
-        "title": "AndrewTest",
-        "description": "AndrewTest",
+        "unique_name": "definition_activity_018KEZ74SXKUN2DoffKcnpIkYAfNJvU9f0w",
+        "name": "Condition Block",
+        "title": "Condition Block",
         "type": "logic.if_else",
         "base_type": "activity",
         "properties": {
-          "continue_on_failure": true,
-          "description": "test logic",
-          "display_name": "test",
-          "group": "Logic",
-          "id": "",
-          "schema_id": "016E39BEXRG712OqE3H0zAOPbJbxqw9Mwxh",
-          "type": "logic.if_else"
+          "continue_on_failure": false,
+          "display_name": "Condition Block"
         },
         "object_type": "definition_activity",
         "blocks": [
           {
-            "unique_name": "definition_activity_018KEXY21U8IG7lEehTIkc4aC7vFksKd0p9",
+            "unique_name": "definition_activity_018KEZ77IRDE94OhYqtBjRUMuTX1IJuVHe0",
             "name": "Condition Branch",
             "title": "Condition Branch",
             "type": "logic.condition_block",
             "base_type": "activity",
             "properties": {
               "condition": {
-                "left_operand": "$env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b.env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b$",
+                "left_operand": "$workflow.definition_workflow_018K9R06TKOMQ5t0BDVe3FJOTnthtB6Sdzp.local.variable_workflow_018KEZKF9LQY95TqKRiPLPXh7KnR1ui8tP6$",
                 "operator": "eq",
                 "right_operand": 1
               },
