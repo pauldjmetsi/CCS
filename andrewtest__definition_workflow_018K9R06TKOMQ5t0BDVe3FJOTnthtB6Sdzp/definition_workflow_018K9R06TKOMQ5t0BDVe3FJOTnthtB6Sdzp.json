@@ -1,0 +1,95 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_018K9R06TKOMQ5t0BDVe3FJOTnthtB6Sdzp",
+    "name": "Andrew Test",
+    "title": "Andrew Test",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This is a test",
+      "display_name": "Andrew Test",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_018KEIGOR4AJO6sTFeTD6plwWhnqJXGfmYp",
+        "name": "AndrewTest",
+        "title": "AndrewTest",
+        "description": "AndrewTest",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "description": "test logic",
+          "display_name": "test",
+          "group": "Logic",
+          "id": "",
+          "schema_id": "016E39BEXRG712OqE3H0zAOPbJbxqw9Mwxh",
+          "type": "logic.if_else"
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_018KEIGRDHGF52o7mmi3pcfJ5AM2tdxwhJ8",
+            "name": "fred",
+            "title": "hello",
+            "description": "fred",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b.env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b$",
+                "operator": "eq",
+                "right_operand": "1"
+              },
+              "continue_on_failure": false,
+              "description": "hello",
+              "display_name": "hello",
+              "group": "Logic",
+              "schema_id": "016E39B8PH06A1cgWer4isSOrMHUsbG0I29",
+              "type": "logic.condition_block"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_018KEIGSJP2ES6p7Qk16061VkYvQKlByrHX",
+            "name": "fred",
+            "title": "hello",
+            "description": "fred",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b.env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b$",
+                "operator": "eq",
+                "right_operand": "1"
+              },
+              "continue_on_failure": false,
+              "description": "hello",
+              "display_name": "hello",
+              "group": "Logic",
+              "schema_id": "016E39B8PH06A1cgWer4isSOrMHUsbG0I29",
+              "type": "logic.condition_block"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
