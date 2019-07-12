@@ -42,46 +42,19 @@
         "object_type": "definition_activity",
         "blocks": [
           {
-            "unique_name": "definition_activity_018KEIGRDHGF52o7mmi3pcfJ5AM2tdxwhJ8",
-            "name": "fred",
-            "title": "hello",
-            "description": "fred",
+            "unique_name": "definition_activity_018KEXY21U8IG7lEehTIkc4aC7vFksKd0p9",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
             "type": "logic.condition_block",
             "base_type": "activity",
             "properties": {
               "condition": {
                 "left_operand": "$env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b.env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b$",
                 "operator": "eq",
-                "right_operand": "1"
+                "right_operand": 1
               },
               "continue_on_failure": false,
-              "description": "hello",
-              "display_name": "hello",
-              "group": "Logic",
-              "schema_id": "016E39B8PH06A1cgWer4isSOrMHUsbG0I29",
-              "type": "logic.condition_block"
-            },
-            "object_type": "definition_activity"
-          },
-          {
-            "unique_name": "definition_activity_018KEIGSJP2ES6p7Qk16061VkYvQKlByrHX",
-            "name": "fred",
-            "title": "hello",
-            "description": "fred",
-            "type": "logic.condition_block",
-            "base_type": "activity",
-            "properties": {
-              "condition": {
-                "left_operand": "$env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b.env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b$",
-                "operator": "eq",
-                "right_operand": "1"
-              },
-              "continue_on_failure": false,
-              "description": "hello",
-              "display_name": "hello",
-              "group": "Logic",
-              "schema_id": "016E39B8PH06A1cgWer4isSOrMHUsbG0I29",
-              "type": "logic.condition_block"
+              "display_name": "Condition Branch"
             },
             "object_type": "definition_activity"
           }
