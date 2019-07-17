@@ -1,0 +1,84 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_018OLCNP6UD6T0Pw8HBbb7te2QIxvD4DUFp",
+    "name": "VM_Naming_AO",
+    "title": "VM_Naming_AO",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "name",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_018OLDD6BBECY3qhGqQzgaPQUyIGc5ipYnK",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "VM Name Output",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_018OLE4ZXUI7N5UMLmg59SQMB9ttyVbKyay",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "VM_Naming_AO",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_018OLEN79K2G02NwLBYWQXPRPVlClhCn4zA",
+        "name": "To Upper",
+        "title": "To Upper",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "To Upper",
+          "source": "$workflow.definition_workflow_018OLCNP6UD6T0Pw8HBbb7te2QIxvD4DUFp.input.variable_workflow_018OLDD6BBECY3qhGqQzgaPQUyIGc5ipYnK$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018OLDN11PECK6W3StFI0kyZFvE5fqaRqVz",
+        "name": "Set Variables",
+        "title": "Set Variables",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables",
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_018OLCNP6UD6T0Pw8HBbb7te2QIxvD4DUFp.output.variable_workflow_018OLE4ZXUI7N5UMLmg59SQMB9ttyVbKyay$",
+              "variable_value_new": "{ \"vmname\":  \"$activity.definition_activity_018OLEN79K2G02NwLBYWQXPRPVlClhCn4zA.output.uppercase_text$\"}"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
