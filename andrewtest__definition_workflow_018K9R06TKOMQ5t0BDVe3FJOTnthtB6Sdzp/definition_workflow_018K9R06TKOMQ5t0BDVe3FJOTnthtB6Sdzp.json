@@ -17,6 +17,28 @@
         },
         "unique_name": "variable_workflow_018KEZKF9LQY95TqKRiPLPXh7KnR1ui8tP6",
         "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_01gmhoxrCBjzGHtG1A5P7TOAjFkwkyaBD",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Id": "1"
+              }
+            },
+            {
+              "column_data": {
+                "Id": "2"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "Andrew Pye",
+          "type": "datatype.table"
+        },
+        "unique_name": "variable_workflow_018PJXFBVU5384x1n77J9S8yj4bBeuUSmPe",
+        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -35,72 +57,28 @@
       }
     },
     "object_type": "definition_workflow",
-    "actions": [
-      {
-        "unique_name": "definition_activity_018PH68T047OZ0Sz8oi5D8jYgNeDDQCvNjI",
-        "name": "Web HTTP Request",
-        "title": "Web HTTP Request",
-        "description": "Web HTTP Request",
-        "type": "web-service.http_request",
-        "base_type": "activity",
-        "properties": {
-          "accept": "application/json",
-          "action_timeout": 100,
-          "allow_auto_redirect": true,
-          "content_type": "application/xml",
-          "continue_on_error_status_code": false,
-          "continue_on_failure": false,
-          "custom_headers": [
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            },
-            {
-              "name": "Authorization",
-              "value": "Basic MzI3Njg6ZWYzNWY5OTQtNDkzZi00YjZkLWJlY2ItMzhmNTMxYzU4OTY0"
-            }
-          ],
-          "description": "Web HTTP Request",
-          "display_name": "Web HTTP Request",
-          "method": "GET",
-          "relative_url": "schemas/016E39FEEBJ0R63ozsO7iWGtn12KHvlCKgj",
-          "runtime_user": {
-            "override_target_runtime_user": false,
-            "target_default": true
-          },
-          "tap_id": "1feb3838-424c-44e2-acc2-dafce6f9ca5a",
-          "target": {
-            "override_workflow_target": true,
-            "target_id": "definition_target_018ON8B0HSS614UmzYmrvQnTErLViSff2ol"
-          }
-        },
-        "object_type": "definition_activity"
-      }
-    ],
     "categories": [
       "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
     ]
   },
-  "targets": {
-    "definition_target_018ON8B0HSS614UmzYmrvQnTErLViSff2ol": {
-      "unique_name": "definition_target_018ON8B0HSS614UmzYmrvQnTErLViSff2ol",
-      "name": "AO Web API",
-      "title": "AO Web API",
-      "description": "AO Web API",
-      "type": "web-service.endpoint",
-      "base_type": "target",
-      "object_type": "definition_target",
-      "properties": {
-        "description": "AO Web API",
-        "disable_certificate_validation": true,
-        "display_name": "AO Web API",
-        "host": "172.21.8.94",
-        "no_runtime_user": true,
-        "path": "/be-console/api/v1/",
-        "port": 17565,
-        "protocol": "https",
-        "tap_id": "e4648024-f17c-408e-87f9-0b0ae6909022"
-      }
+  "table_types": {
+    "tabletype_01gmhoxrCBjzGHtG1A5P7TOAjFkwkyaBD": {
+      "unique_name": "tabletype_01gmhoxrCBjzGHtG1A5P7TOAjFkwkyaBD",
+      "data_type": "datatype.tabletype",
+      "display_name": "CCS Virtual Machine",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "name": "Id",
+          "title": "Id",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
     }
   }
 }
