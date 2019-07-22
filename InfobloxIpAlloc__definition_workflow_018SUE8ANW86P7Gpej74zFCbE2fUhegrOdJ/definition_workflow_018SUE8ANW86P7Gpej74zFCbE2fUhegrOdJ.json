@@ -1,0 +1,298 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_018SUE8ANW86P7Gpej74zFCbE2fUhegrOdJ",
+    "name": "Infoblox_IP_Alloc",
+    "title": "Infoblox_IP_Alloc",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "172.21.8.0/24",
+          "scope": "input",
+          "name": "Subnet",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_018SWCGZVY9ZO6qLNz2WXUW8t5wpu79UIPa",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Hostname",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_018SWCPQ77P1O0BgWnPnkCPjyokkmm1mnoA",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "Infoblox IP Allocation ",
+      "display_name": "Infoblox_IP_Alloc",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_018SWARQHWZ0U6QY3Aad66q1TH3OzJj4w7c",
+        "name": "HTTP Request",
+        "title": "Reserve IP Address",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n        \"ipv4addrs\": [\n            {\n                \"ipv4addr\": \"func:nextavailableip:$workflow.definition_workflow_018SUE8ANW86P7Gpej74zFCbE2fUhegrOdJ.input.variable_workflow_018SWCGZVY9ZO6qLNz2WXUW8t5wpu79UIPa$\"\n            }\n        ],\n        \"name\": \"$workflow.definition_workflow_018SUE8ANW86P7Gpej74zFCbE2fUhegrOdJ.input.variable_workflow_018SWCPQ77P1O0BgWnPnkCPjyokkmm1mnoA$.nic1.metsilabs.local\",\n        \"configure_for_dns\":true\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "Reserve IP Address",
+          "method": "POST",
+          "relative_url": "record:host",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_018SWAHNZN1372gBFfx33VylhD4AOL1EbQw"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018SX32KK7BGD1fqcZWynn8YaRJnClY9rD8",
+        "name": "Replace String",
+        "title": "Replace String",
+        "type": "core.replacestring",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Replace String",
+          "input_string": "$activity.definition_activity_018SWARQHWZ0U6QY3Aad66q1TH3OzJj4w7c.output.response_body$",
+          "replace_list": [
+            {
+              "replaced_string": "\"record:host/",
+              "replacement_string": ""
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018SX2MENMZTK6caUzJaFY16cKO6bnSqCHW",
+        "name": "Split String",
+        "title": "Split String",
+        "type": "core.splitstring",
+        "base_type": "activity",
+        "properties": {
+          "boundaries": [
+            {
+              "boundary": ":"
+            }
+          ],
+          "continue_on_failure": false,
+          "display_name": "Split String",
+          "input_string": "$activity.definition_activity_018SX32KK7BGD1fqcZWynn8YaRJnClY9rD8.output.result_string$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018SWDKEZF4UJ0AKg0HozTNzLacrQc6LpOM",
+        "name": "HTTP Request",
+        "title": "Get IP Address",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "Get IP Address",
+          "method": "GET",
+          "relative_url": "record:host?name~=$workflow.definition_workflow_018SUE8ANW86P7Gpej74zFCbE2fUhegrOdJ.input.variable_workflow_018SWCPQ77P1O0BgWnPnkCPjyokkmm1mnoA$.nic1.metsilabs.local",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_018SWAHNZN1372gBFfx33VylhD4AOL1EbQw"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018SWVW82C4DD6gRvLjEsQrsb7siIACGKAY",
+        "name": "Convert Json to Xml",
+        "title": "Convert Json to Xml",
+        "type": "core.json2xml",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Convert Json to Xml",
+          "input_json": "{\"root\":$activity.definition_activity_018SWDKEZF4UJ0AKg0HozTNzLacrQc6LpOM.output.response_body$}"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018SWWI3REI912tZjrZfNqqo9PPZfIhENjQ",
+        "name": "XPath Query",
+        "title": "XPath Query",
+        "type": "core.xpathquery",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "XPath Query",
+          "input_xml": "$activity.definition_activity_018SWVW82C4DD6gRvLjEsQrsb7siIACGKAY.output.output_xml$",
+          "xpath_queries": [
+            {
+              "xpath_query": "/root/ipv4addrs/ipv4addr",
+              "xpath_query_name": "ipaddress",
+              "xpath_query_type": "string"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018SX9LJAKBJZ0d84gQnRCT3CSubF6KKUss",
+        "name": "Add Row to Table",
+        "title": "Add Row to Table",
+        "type": "core.addrowtotable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Add Row to Table",
+          "input_table": "$global.variable_018SXACOF8QKX5eZORsGXFHimbUyX7Vu041.global.variable_018SXACOF8QKX5eZORsGXFHimbUyX7Vu041$",
+          "row": [
+            {
+              "key": "hostname",
+              "type": "string",
+              "value": "$workflow.definition_workflow_018SUE8ANW86P7Gpej74zFCbE2fUhegrOdJ.input.variable_workflow_018SWCPQ77P1O0BgWnPnkCPjyokkmm1mnoA$"
+            },
+            {
+              "key": "hostid",
+              "type": "string",
+              "value": "$activity.definition_activity_018SX2MENMZTK6caUzJaFY16cKO6bnSqCHW.output.parts[0]$"
+            },
+            {
+              "key": "ipaddr",
+              "type": "string",
+              "value": "$activity.definition_activity_018SWWI3REI912tZjrZfNqqo9PPZfIhENjQ.output.xpath_queries.ipaddress$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_018SWAHNZN1372gBFfx33VylhD4AOL1EbQw": {
+      "unique_name": "definition_target_018SWAHNZN1372gBFfx33VylhD4AOL1EbQw",
+      "name": "Infoblox",
+      "title": "Infoblox",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_018SUR5Q1A9H314wdkPLx9YoxgMdMHIIpOZ",
+        "description": "MPC Infoblox",
+        "disable_certificate_validation": true,
+        "display_name": "Infoblox",
+        "host": "172.20.2.11",
+        "no_runtime_user": false,
+        "path": "/wapi/v2.7.1/",
+        "port": 443,
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_018SUR5Q1A9H314wdkPLx9YoxgMdMHIIpOZ": {
+      "unique_name": "definition_runtime_user_018SUR5Q1A9H314wdkPLx9YoxgMdMHIIpOZ",
+      "name": "Infoblox",
+      "title": "Infoblox",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "basic_password": "*****",
+        "basic_username": "*****",
+        "description": "MPC Infoblox",
+        "display_name": "Infoblox"
+      }
+    }
+  },
+  "variables": {
+    "variable_018SXACOF8QKX5eZORsGXFHimbUyX7Vu041": {
+      "unique_name": "variable_018SXACOF8QKX5eZORsGXFHimbUyX7Vu041",
+      "schema_id": "tabletype_018SX96996IK55Dsz1tN22D9CuLuD9GCdMC",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLmFvdGVzdDU",
+              "hostname": "aotest5",
+              "ipaddr": "172.21.8.61"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "Infoblox",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_018SX96996IK55Dsz1tN22D9CuLuD9GCdMC": {
+      "unique_name": "tabletype_018SX96996IK55Dsz1tN22D9CuLuD9GCdMC",
+      "data_type": "datatype.tabletype",
+      "display_name": "Infoblox",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "is_required": true,
+          "name": "hostid",
+          "title": "hostid",
+          "type": "string"
+        },
+        {
+          "is_required": true,
+          "name": "hostname",
+          "title": "hostname",
+          "type": "string"
+        },
+        {
+          "name": "ipaddr",
+          "title": "ipaddr",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
