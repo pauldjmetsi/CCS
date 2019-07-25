@@ -5,7 +5,20 @@
     "title": "Andrew Test",
     "type": "generic.workflow",
     "base_type": "workflow",
-    "variables": null,
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "123456",
+          "scope": "input",
+          "name": "url",
+          "type": "datatype.string",
+          "description": "my test"
+        },
+        "unique_name": "variable_workflow_018VAXEYBTALI7RVsMfvDegcCwpof2CaGTm",
+        "object_type": "variable_workflow"
+      }
+    ],
     "properties": {
       "atomic": {
         "is_atomic": false
@@ -52,7 +65,7 @@
           ],
           "display_name": "HTTP Request",
           "method": "GET",
-          "relative_url": "schemas/016E39FEEBJ0R63ozsO7iWGtn12KHvlCKgj",
+          "relative_url": "$workflow.definition_workflow_018K9R06TKOMQ5t0BDVe3FJOTnthtB6Sdzp.input.variable_workflow_018VAXEYBTALI7RVsMfvDegcCwpof2CaGTm$",
           "runtime_user": {
             "override_target_runtime_user": false,
             "target_default": true
