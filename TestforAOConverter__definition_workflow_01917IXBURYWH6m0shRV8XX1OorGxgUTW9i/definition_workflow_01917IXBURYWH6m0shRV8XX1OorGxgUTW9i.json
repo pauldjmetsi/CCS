@@ -106,13 +106,21 @@
             "properties": {
               "condition": {
                 "left_operand": {
-                  "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
-                  "operator": "eq",
-                  "right_operand": "test"
+                  "left_operand": {
+                    "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
+                    "operator": "eq",
+                    "right_operand": "test"
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
+                    "operator": "eq",
+                    "right_operand": "test"
+                  }
                 },
                 "operator": "and",
                 "right_operand": {
-                  "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
+                  "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.output.variable_workflow_01917IXBJ5L1I40GS7pDX4WLjeixF0Ty0Yp$",
                   "operator": "eq",
                   "right_operand": "test"
                 }
