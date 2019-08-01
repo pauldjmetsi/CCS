@@ -1,0 +1,326 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i",
+    "name": "Test for AO Converter Web Request",
+    "title": "Test for AO Converter Web Request",
+    "description": "This is the description for Main \\Workflow",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "scope": "output",
+          "name": "result",
+          "type": "datatype.string",
+          "description": "\n      \n      \n      \n      \n      \n      \n      \n      \n    "
+        },
+        "unique_name": "variable_workflow_01917IXBJ5L1I40GS7pDX4WLjeixF0Ty0Yp",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "schemas",
+          "scope": "local",
+          "name": "scope",
+          "type": "datatype.string",
+          "description": "\n      \n      \n      \n      \n      \n      \n    "
+        },
+        "unique_name": "variable_workflow_01917IXBJ5PMJ48OQjpHaBhnBLS1shkNdK5",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "016E39FEEBJ0R63ozsO7iWGtn12KHvlCKgj",
+          "scope": "local",
+          "name": "workflowid",
+          "type": "datatype.string",
+          "description": "\n      \n      \n      \n      \n      \n      \n    "
+        },
+        "unique_name": "variable_workflow_01917IXBJ5TYI2EJpAQy3IgZ4EN3baZHbah",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "schemas/016E39FEEBJ0R63ozsO7iWGtn12KHvlCKgj",
+          "scope": "input",
+          "name": "URL",
+          "type": "datatype.string",
+          "description": "THisis the input URL"
+        },
+        "unique_name": "variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "schemas/016E39FEEBJ0R63ozsO7iWGtn12KHvlCKgj",
+          "scope": "local",
+          "name": "LocalURL",
+          "type": "datatype.string",
+          "description": "\n      \n      \n      \n      \n      \n      \n      \n    "
+        },
+        "unique_name": "variable_workflow_01917IXBJ5C0R6rDuaRbtMEgKaPg1hwCI4C",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "",
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This is the description for Main \\Workflow",
+      "display_name": "Test for AO Converter Web Request",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01917O9NPFV4B75tXbCdx2GSPabnxV35yWj",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block"
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01917O9QR8V6B2Cy5sdG9WhH6S5wxPOc52C",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
+                  "operator": "eq",
+                  "right_operand": "test"
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
+                  "operator": "eq",
+                  "right_operand": "test"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01917O9RRUYV12v5r1kMSBZu8pVUtFPgRgR",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
+                "operator": "eq",
+                "right_operand": "test"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01917IXN711Z93z8VedWndS3Kqy8XrClmnp",
+        "name": "Web HTTP Request",
+        "title": "Web HTTP Request",
+        "description": "Web HTTP Request",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "accept": "application/json",
+          "action_timeout": 100,
+          "allow_auto_redirect": true,
+          "content_type": "application/xml",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Basic MzI3Njg6ZWYzNWY5OTQtNDkzZi00YjZkLWJlY2ItMzhmNTMxYzU4OTY0"
+            }
+          ],
+          "description": "Web HTTP Request",
+          "display_name": "Web HTTP Request",
+          "method": "GET",
+          "relative_url": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
+          "runtime_user": {
+            "_clean": false,
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "tap_id": "1feb3838-424c-44e2-acc2-dafce6f9ca5a",
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_018VE4HPFQW6M42tg2KBd1Wu4Hhenondqly"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01917IXYTW1443CD9WKoEphmj3tcf8Xr01C",
+        "name": "Web HTTP Request (2)",
+        "title": "Web HTTP Request (2)",
+        "description": "Web HTTP Request (2)",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "accept": "application/json",
+          "action_timeout": 100,
+          "allow_auto_redirect": true,
+          "content_type": "application/xml",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Basic MzI3Njg6ZWYzNWY5OTQtNDkzZi00YjZkLWJlY2ItMzhmNTMxYzU4OTY0"
+            }
+          ],
+          "description": "Web HTTP Request (2)",
+          "display_name": "Web HTTP Request (2)",
+          "method": "GET",
+          "relative_url": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.local.variable_workflow_01917IXBJ5C0R6rDuaRbtMEgKaPg1hwCI4C$",
+          "runtime_user": {
+            "_clean": false,
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "tap_id": "d663705b-8fa2-4d5b-aa81-0215f4483f0c",
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_018VE4HPFQW6M42tg2KBd1Wu4Hhenondqly"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01917IYAJOQ2P71rDy80a3nZK6zNkPXIIf0",
+        "name": "Web HTTP Request (3)",
+        "title": "Web HTTP Request (3)",
+        "description": "Web HTTP Request (3)",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "accept": "application/json",
+          "action_timeout": 100,
+          "allow_auto_redirect": true,
+          "content_type": "application/xml",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Basic MzI3Njg6ZWYzNWY5OTQtNDkzZi00YjZkLWJlY2ItMzhmNTMxYzU4OTY0"
+            }
+          ],
+          "description": "Web HTTP Request (3)",
+          "display_name": "Web HTTP Request (3)",
+          "method": "GET",
+          "relative_url": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.local.variable_workflow_01917IXBJ5PMJ48OQjpHaBhnBLS1shkNdK5$/$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.local.variable_workflow_01917IXBJ5TYI2EJpAQy3IgZ4EN3baZHbah$",
+          "runtime_user": {
+            "_clean": false,
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "tap_id": "a167f341-0566-4811-b2e8-66c50d214517",
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_018VE4HPFQW6M42tg2KBd1Wu4Hhenondqly"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01917IYKOJZHC5saNYTWJfOH1ZgpdoSjNWH",
+        "name": "Set Variable",
+        "title": "Set Variable",
+        "description": "Set Variable",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variable",
+          "tap_id": "6fe0f89b-a4f9-43b8-80cd-bdad0d49152b",
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.output.variable_workflow_01917IXBJ5L1I40GS7pDX4WLjeixF0Ty0Yp$",
+              "variable_value_new": "$activity.definition_activity_01917IYAJOQ2P71rDy80a3nZK6zNkPXIIf0.output.response_body$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_018UDMB2NY40Q3CNjZDB9gaF9WlZwsVoEL9"
+    ]
+  },
+  "categories": {
+    "category_018UDMB2NY40Q3CNjZDB9gaF9WlZwsVoEL9": {
+      "unique_name": "category_018UDMB2NY40Q3CNjZDB9gaF9WlZwsVoEL9",
+      "name": "CPO AO Converter",
+      "title": "CPO AO Converter",
+      "type": "basic.category",
+      "base_type": "category",
+      "description": "Cpo to ao converter tool",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "targets": {
+    "definition_target_018VE4HPFQW6M42tg2KBd1Wu4Hhenondqly": {
+      "unique_name": "definition_target_018VE4HPFQW6M42tg2KBd1Wu4Hhenondqly",
+      "name": "AO Web API",
+      "title": "AO Web API",
+      "description": "AO Web API",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "AO Web API",
+        "disable_certificate_validation": true,
+        "display_name": "AO Web API",
+        "host": "172.21.8.94",
+        "no_runtime_user": true,
+        "path": "/be-console/api/v1/",
+        "port": 17565,
+        "protocol": "https",
+        "tap_id": "e4648024-f17c-408e-87f9-0b0ae6909022"
+      }
+    }
+  }
+}
