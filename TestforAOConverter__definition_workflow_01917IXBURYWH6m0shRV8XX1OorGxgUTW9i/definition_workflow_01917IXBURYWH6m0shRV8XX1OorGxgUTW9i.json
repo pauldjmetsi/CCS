@@ -10,6 +10,30 @@
       {
         "schema_id": "datatype.string",
         "properties": {
+          "value": "schemas",
+          "scope": "local",
+          "name": "scope",
+          "type": "datatype.string",
+          "description": "\n      \n      \n      \n      \n      \n      \n    "
+        },
+        "unique_name": "variable_workflow_01917IXBJ5PMJ48OQjpHaBhnBLS1shkNdK5",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "016E39FEEBJ0R63ozsO7iWGtn12KHvlCKgj",
+          "scope": "local",
+          "name": "workflowid",
+          "type": "datatype.string",
+          "description": "\n      \n      \n      \n      \n      \n      \n    "
+        },
+        "unique_name": "variable_workflow_01917IXBJ5TYI2EJpAQy3IgZ4EN3baZHbah",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
           "value": "schemas/016E39FEEBJ0R63ozsO7iWGtn12KHvlCKgj",
           "scope": "input",
           "name": "URL",
@@ -40,30 +64,6 @@
           "description": "\n      \n      \n      \n      \n      \n      \n      \n      \n    "
         },
         "unique_name": "variable_workflow_01917IXBJ5L1I40GS7pDX4WLjeixF0Ty0Yp",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "schemas",
-          "scope": "local",
-          "name": "scope",
-          "type": "datatype.string",
-          "description": "\n      \n      \n      \n      \n      \n      \n    "
-        },
-        "unique_name": "variable_workflow_01917IXBJ5PMJ48OQjpHaBhnBLS1shkNdK5",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "016E39FEEBJ0R63ozsO7iWGtn12KHvlCKgj",
-          "scope": "local",
-          "name": "workflowid",
-          "type": "datatype.string",
-          "description": "\n      \n      \n      \n      \n      \n      \n    "
-        },
-        "unique_name": "variable_workflow_01917IXBJ5TYI2EJpAQy3IgZ4EN3baZHbah",
         "object_type": "variable_workflow"
       }
     ],
@@ -107,30 +107,22 @@
               "condition": {
                 "left_operand": {
                   "left_operand": {
-                    "left_operand": {
-                      "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
-                      "operator": "eq",
-                      "right_operand": "1"
-                    },
-                    "operator": "and",
-                    "right_operand": {
-                      "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.local.variable_workflow_01917IXBJ5C0R6rDuaRbtMEgKaPg1hwCI4C$",
-                      "operator": "eq",
-                      "right_operand": "2"
-                    }
+                    "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.input.variable_workflow_01917IXBJ5Y274iUlxJDfAyjUn4Ezf50uX9$",
+                    "operator": "eq",
+                    "right_operand": "1"
                   },
                   "operator": "and",
                   "right_operand": {
-                    "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.output.variable_workflow_01917IXBJ5L1I40GS7pDX4WLjeixF0Ty0Yp$",
+                    "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.local.variable_workflow_01917IXBJ5C0R6rDuaRbtMEgKaPg1hwCI4C$",
                     "operator": "eq",
-                    "right_operand": "3"
+                    "right_operand": "2"
                   }
                 },
                 "operator": "and",
                 "right_operand": {
-                  "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.local.variable_workflow_01917IXBJ5C0R6rDuaRbtMEgKaPg1hwCI4C$",
+                  "left_operand": "$workflow.definition_workflow_01917IXBURYWH6m0shRV8XX1OorGxgUTW9i.output.variable_workflow_01917IXBJ5L1I40GS7pDX4WLjeixF0Ty0Yp$",
                   "operator": "eq",
-                  "right_operand": "4"
+                  "right_operand": "3"
                 }
               },
               "continue_on_failure": false,
