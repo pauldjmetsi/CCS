@@ -1,0 +1,129 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0181FRRMQEJWJ0teGQN7S86m66DG2aPV7co",
+    "name": "CCP - Get Token",
+    "title": "CCP - Get Token",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "CCS Cookie",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_0181H6M2CAQSB6AQ0GdL9lmnQZ0SHGoqYyB",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "CCP - Get Token",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0181FRZLCUSQG7hyM4yxNmxKFnvdKn3GrD8",
+        "name": "HTTP Request",
+        "title": "HTTP Request",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "username=admin\u0026password=M3tsiT3ch!23",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ],
+          "display_name": "HTTP Request",
+          "method": "POST",
+          "relative_url": "/2/system/login",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "override_workflow_target_group_criteria": false,
+            "target_id": "definition_target_0181EVRBVCS6E3um1RYu64cGd8MX6NcD5sB",
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0181HF1PFRVWY6JNyb4YRxG7jhCak8z8BP7",
+        "name": "Set Variables",
+        "title": "Set Variables - Cookie",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables - Cookie",
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_0181FRRMQEJWJ0teGQN7S86m66DG2aPV7co.output.variable_workflow_0181H6M2CAQSB6AQ0GdL9lmnQZ0SHGoqYyB$",
+              "variable_value_new": "$activity.definition_activity_0181FRZLCUSQG7hyM4yxNmxKFnvdKn3GrD8.output.cookie[0]$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_0181EVRBVCS6E3um1RYu64cGd8MX6NcD5sB": {
+      "unique_name": "definition_target_0181EVRBVCS6E3um1RYu64cGd8MX6NcD5sB",
+      "name": "Cisco Container Platform (MPC)",
+      "title": "Cisco Container Platform (MPC)",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a",
+        "description": "Cisco Container Platform (MPC)",
+        "disable_certificate_validation": true,
+        "display_name": "Cisco Container Platform (MPC)",
+        "host": "172.21.9.15",
+        "no_runtime_user": false,
+        "port": 443,
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a": {
+      "unique_name": "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a",
+      "name": "CCP Admin",
+      "title": "CCP Admin",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "basic_password": "*****",
+        "basic_username": "*****",
+        "display_name": "CCP Admin"
+      }
+    }
+  }
+}
