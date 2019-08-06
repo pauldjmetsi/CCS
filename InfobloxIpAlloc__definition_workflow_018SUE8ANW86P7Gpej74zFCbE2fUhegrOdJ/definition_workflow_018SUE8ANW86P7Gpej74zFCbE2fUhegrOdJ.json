@@ -9,6 +9,17 @@
       {
         "schema_id": "datatype.string",
         "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "IPAddress",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_018SY11T67NTC2bn4whcEtnWd7g2UGuBoqi",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
           "value": "172.21.8.0/24",
           "scope": "input",
           "name": "Subnet",
@@ -199,6 +210,24 @@
           ]
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018SY1DNYKRXZ0fqLB7wxcT7RlBXqQ3D50n",
+        "name": "Set Variables",
+        "title": "Set Variables",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables",
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_018SUE8ANW86P7Gpej74zFCbE2fUhegrOdJ.output.variable_workflow_018SY11T67NTC2bn4whcEtnWd7g2UGuBoqi$",
+              "variable_value_new": "$activity.definition_activity_018SWWI3REI912tZjrZfNqqo9PPZfIhENjQ.output.xpath_queries.ipaddress$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
@@ -250,9 +279,226 @@
         "value": [
           {
             "column_data": {
-              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLmFvdGVzdDU",
-              "hostname": "aotest5",
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkajAwMQ",
+              "hostname": "pdj001",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkajAwMg",
+              "hostname": "pdj002",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkajAwMw",
+              "hostname": "pdj003",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
               "ipaddr": "172.21.8.61"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLnBkamFvMw",
+              "hostname": "pdjao3",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLmNxanctZDFkMTM2OTI0",
+              "hostname": "cqjw-d1d136924",
+              "ipaddr": "172.21.8.54"
+            }
+          },
+          {
+            "column_data": {
+              "hostid": "ZG5zLmhvc3QkLl9kZWZhdWx0LmxvY2FsLm1ldHNpbGFicy5uaWMxLmNxanctMGM1YjE1NGE1",
+              "hostname": "cqjw-0c5b154a5",
+              "ipaddr": "172.21.8.54"
             }
           }
         ],
