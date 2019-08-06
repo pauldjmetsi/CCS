@@ -11,10 +11,10 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "NODE_ID",
+          "name": "CC_RUN_ID",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_017IRNY0QTLJZ2Mm6GqJUXeMps74HvYWXEW",
+        "unique_name": "variable_workflow_017IRNS1QAV8N6lZ04nJ2RQLkDtl9RDpAcC",
         "object_type": "variable_workflow"
       },
       {
@@ -22,10 +22,10 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "CC_RUN_ID",
+          "name": "NODE_ID",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_017IRNS1QAV8N6lZ04nJ2RQLkDtl9RDpAcC",
+        "unique_name": "variable_workflow_017IRNY0QTLJZ2Mm6GqJUXeMps74HvYWXEW",
         "object_type": "variable_workflow"
       }
     ],
@@ -34,7 +34,6 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "depends_on": "CC",
       "description": "Testing AO integration with WM ",
       "display_name": "WM_Integration",
       "favorite": false,
@@ -163,6 +162,73 @@
           ]
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_017KHAD2NB2U25mSuwB7HRO5MZDwR6GK5U7",
+        "name": "Get Workload Manager Context",
+        "title": "2 Get Workload Manager Context",
+        "type": "ccs.get_cloud_context",
+        "base_type": "activity",
+        "properties": {
+          "action_id": "65",
+          "action_timeout": 180,
+          "cc_configuration": {
+            "execute_action": "on_vm",
+            "reboot_vm": false,
+            "resource_mappings": [
+              {
+                "applied_to": {
+                  "app_ids": [
+                    {
+                      "id": "100",
+                      "name": "AO_Integration"
+                    }
+                  ]
+                },
+                "resource_type": "app_profile",
+                "resource_type_meta_info": {
+                  "app_profile": {}
+                }
+              }
+            ],
+            "sync_vm": false,
+            "wf_availability_type": "lifecycle"
+          },
+          "cc_run_id": "$workflow.definition_workflow_017IRMJP0Y3JC2sch4DvzuyXBr38UU2nxqd.input.variable_workflow_017IRNS1QAV8N6lZ04nJ2RQLkDtl9RDpAcC$",
+          "continue_on_failure": false,
+          "display_name": "2 Get Workload Manager Context",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_017KHAPZ29JUP3hazoIVrftCJgYzYFlOcEt",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query",
+          "input_json": "$activity.definition_activity_017KHAD2NB2U25mSuwB7HRO5MZDwR6GK5U7.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.*.id",
+              "jsonpath_query_name": "VMId",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ]
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
@@ -209,6 +275,28 @@
         "type": "generic.workflow",
         "base_type": "workflow",
         "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "NODE_ID",
+              "type": "datatype.string"
+            },
+            "unique_name": "variable_workflow_01620OASBPNAC5Lr3qK9iIy0HBgX4MbAkNr",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Action Type",
+              "type": "datatype.string"
+            },
+            "unique_name": "variable_workflow_01620OASBPPYW5H9Kx7geoPlxz7gXg3iTmx",
+            "object_type": "variable_workflow"
+          },
           {
             "schema_id": "datatype.string",
             "properties": {
@@ -271,28 +359,6 @@
               "type": "datatype.integer"
             },
             "unique_name": "variable_workflow_01620OASBPEKL2L5kROJGJPwBK3RCN24Zge",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "NODE_ID",
-              "type": "datatype.string"
-            },
-            "unique_name": "variable_workflow_01620OASBPNAC5Lr3qK9iIy0HBgX4MbAkNr",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Action Type",
-              "type": "datatype.string"
-            },
-            "unique_name": "variable_workflow_01620OASBPPYW5H9Kx7geoPlxz7gXg3iTmx",
             "object_type": "variable_workflow"
           }
         ],
