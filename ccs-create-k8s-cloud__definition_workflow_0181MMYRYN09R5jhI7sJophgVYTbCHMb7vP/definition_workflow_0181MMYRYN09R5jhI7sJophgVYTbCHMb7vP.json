@@ -1,0 +1,1016 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0181MMYRYN09R5jhI7sJophgVYTbCHMb7vP",
+    "name": "CCS - Create K8s Cloud",
+    "title": "CCS - Create K8s Cloud",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "CC_RUN_ID",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_0181MT9KK65ML05e1L8EwLhGXmj5ghlbCkD",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "depends_on": "CC",
+      "display_name": "CCS - Create K8s Cloud",
+      "favorite": false,
+      "target": {
+        "target_type": "ccsuite.endpoint",
+        "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0181MNGVV8R304LwLV91xVg4uRluQbtJYUF",
+        "name": "Get Workload Manager Context",
+        "title": "Get Workload Manager Context",
+        "type": "ccs.get_cloud_context",
+        "base_type": "activity",
+        "properties": {
+          "action_id": "78",
+          "action_timeout": 180,
+          "cc_configuration": {
+            "execute_action": "external",
+            "reboot_vm": false,
+            "resource_mappings": [
+              {
+                "applied_to": {
+                  "app_ids": [
+                    {
+                      "id": "84",
+                      "name": "3 Tier App"
+                    },
+                    {
+                      "id": "96",
+                      "name": "3 Tier App (demo)"
+                    },
+                    {
+                      "id": "100",
+                      "name": "AO_Integration"
+                    },
+                    {
+                      "id": "69",
+                      "name": "AO_Workflow_Test"
+                    },
+                    {
+                      "id": "38",
+                      "name": "Apache"
+                    },
+                    {
+                      "id": "40",
+                      "name": "Apache Tomcat 7"
+                    },
+                    {
+                      "id": "31",
+                      "name": "CentOS 6"
+                    },
+                    {
+                      "id": "29",
+                      "name": "CentOS 7"
+                    },
+                    {
+                      "id": "92",
+                      "name": "Centos7_Temp"
+                    },
+                    {
+                      "id": "42",
+                      "name": "Cisco CSR 1000v"
+                    },
+                    {
+                      "id": "44",
+                      "name": "F5 Load Balancer"
+                    },
+                    {
+                      "id": "46",
+                      "name": "IBM Cloud Private"
+                    },
+                    {
+                      "id": "48",
+                      "name": "IIS"
+                    },
+                    {
+                      "id": "50",
+                      "name": "MySQL"
+                    },
+                    {
+                      "id": "64",
+                      "name": "NGINX (k8s)"
+                    },
+                    {
+                      "id": "52",
+                      "name": "NGINX (Linux)"
+                    },
+                    {
+                      "id": "54",
+                      "name": "Oracle Database Linux"
+                    },
+                    {
+                      "id": "56",
+                      "name": "Oracle Database Windows"
+                    },
+                    {
+                      "id": "74",
+                      "name": "PetClinic AO (testing)"
+                    },
+                    {
+                      "id": "94",
+                      "name": "PetClinic (S3)"
+                    },
+                    {
+                      "id": "58",
+                      "name": "SharePoint"
+                    },
+                    {
+                      "id": "60",
+                      "name": "SQL 2016"
+                    },
+                    {
+                      "id": "62",
+                      "name": "SQL 2016 Cluster"
+                    },
+                    {
+                      "id": "102",
+                      "name": "Windows2016"
+                    },
+                    {
+                      "id": "36",
+                      "name": "Windows Server 2016"
+                    },
+                    {
+                      "id": "33",
+                      "name": "WordPress"
+                    },
+                    {
+                      "id": "71",
+                      "name": "WordPress (con)"
+                    },
+                    {
+                      "id": "66",
+                      "name": "WordPress (k8s)"
+                    }
+                  ]
+                },
+                "resource_type": "app_profile",
+                "resource_type_meta_info": {
+                  "app_profile": {
+                    "app_ids": "All"
+                  }
+                }
+              },
+              {
+                "applied_to": {
+                  "service": [
+                    {
+                      "id": "51",
+                      "name": "sqlserver2k12"
+                    },
+                    {
+                      "id": "62",
+                      "name": "puppet"
+                    },
+                    {
+                      "id": "14",
+                      "name": "geronimo3"
+                    },
+                    {
+                      "id": "6",
+                      "name": "varnish"
+                    },
+                    {
+                      "id": "75",
+                      "name": "svc_cnt"
+                    },
+                    {
+                      "id": "77",
+                      "name": "springapi"
+                    },
+                    {
+                      "id": "81",
+                      "name": "BY_W2K16"
+                    },
+                    {
+                      "id": "82",
+                      "name": "haproxymysql"
+                    },
+                    {
+                      "id": "79",
+                      "name": "springapinoproxy"
+                    },
+                    {
+                      "id": "33",
+                      "name": "rabbitmq"
+                    },
+                    {
+                      "id": "70",
+                      "name": "csr1000v"
+                    },
+                    {
+                      "id": "76",
+                      "name": "sql2016"
+                    },
+                    {
+                      "id": "83",
+                      "name": "ccp_k8s_cloud"
+                    },
+                    {
+                      "id": "78",
+                      "name": "windowsfront3tier"
+                    },
+                    {
+                      "id": "80",
+                      "name": "windowsfront3tierno"
+                    },
+                    {
+                      "id": "71",
+                      "name": "f5lb"
+                    },
+                    {
+                      "id": "72",
+                      "name": "k8snginx"
+                    },
+                    {
+                      "id": "43",
+                      "name": "CentOS"
+                    },
+                    {
+                      "id": "73",
+                      "name": "k8swordpress"
+                    },
+                    {
+                      "id": "5",
+                      "name": "rubyonrails"
+                    },
+                    {
+                      "id": "3",
+                      "name": "jmeter"
+                    },
+                    {
+                      "id": "2",
+                      "name": "hadoop"
+                    },
+                    {
+                      "id": "47",
+                      "name": "Windows"
+                    },
+                    {
+                      "id": "46",
+                      "name": "Ubuntu"
+                    },
+                    {
+                      "id": "74",
+                      "name": "k8smysql"
+                    },
+                    {
+                      "id": "12",
+                      "name": "nginx"
+                    },
+                    {
+                      "id": "11",
+                      "name": "memcached"
+                    },
+                    {
+                      "id": "9",
+                      "name": "haproxy"
+                    },
+                    {
+                      "id": "22",
+                      "name": "mysql"
+                    },
+                    {
+                      "id": "17",
+                      "name": "gluster2"
+                    },
+                    {
+                      "id": "7",
+                      "name": "tomcat6"
+                    },
+                    {
+                      "id": "15",
+                      "name": "activemq"
+                    },
+                    {
+                      "id": "10",
+                      "name": "mongodb"
+                    },
+                    {
+                      "id": "13",
+                      "name": "tomcat7"
+                    },
+                    {
+                      "id": "16",
+                      "name": "apache2"
+                    },
+                    {
+                      "id": "50",
+                      "name": "rdsmysql"
+                    },
+                    {
+                      "id": "63",
+                      "name": "chef"
+                    },
+                    {
+                      "id": "30",
+                      "name": "sqlserver2k8r2"
+                    },
+                    {
+                      "id": "45",
+                      "name": "SLES"
+                    },
+                    {
+                      "id": "44",
+                      "name": "RHEL"
+                    },
+                    {
+                      "id": "67",
+                      "name": "mysqlcontainer"
+                    },
+                    {
+                      "id": "31",
+                      "name": "iis"
+                    },
+                    {
+                      "id": "65",
+                      "name": "apache2container"
+                    },
+                    {
+                      "id": "66",
+                      "name": "mongocontainer"
+                    },
+                    {
+                      "id": "64",
+                      "name": "nginxcontainer"
+                    },
+                    {
+                      "id": "54",
+                      "name": "awselb"
+                    },
+                    {
+                      "id": "8",
+                      "name": "cassandra"
+                    },
+                    {
+                      "id": "34",
+                      "name": "jetty"
+                    },
+                    {
+                      "id": "55",
+                      "name": "docker"
+                    }
+                  ]
+                },
+                "resource_type": "service",
+                "resource_type_meta_info": {
+                  "service": {
+                    "service": "All"
+                  }
+                }
+              },
+              {
+                "applied_to": {
+                  "cloud_region": [
+                    {
+                      "id": "6",
+                      "name": "EU (Frankfurt)"
+                    },
+                    {
+                      "id": "10",
+                      "name": "UK South (London)"
+                    },
+                    {
+                      "id": "15",
+                      "name": "default"
+                    },
+                    {
+                      "id": "7",
+                      "name": "Northern Europe (Finland)"
+                    },
+                    {
+                      "id": "4",
+                      "name": "default"
+                    },
+                    {
+                      "id": "1",
+                      "name": "default"
+                    },
+                    {
+                      "id": "9",
+                      "name": "default"
+                    }
+                  ]
+                },
+                "resource_type": "cloud_region",
+                "resource_type_meta_info": {
+                  "cloud_region": {
+                    "cloud_region": "All"
+                  }
+                }
+              }
+            ],
+            "sync_vm": false,
+            "wf_availability_type": "lifecycle"
+          },
+          "cc_run_id": "$workflow.definition_workflow_0181MMYRYN09R5jhI7sJophgVYTbCHMb7vP.input.variable_workflow_0181MT9KK65ML05e1L8EwLhGXmj5ghlbCkD$",
+          "continue_on_failure": false,
+          "display_name": "Get Workload Manager Context",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0181NHS48YAKP5p3HmdY2aj3qnalhom4DhX",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query",
+          "input_json": "$activity.definition_activity_0181MNGVV8R304LwLV91xVg4uRluQbtJYUF.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.parameters.globalParams[?(@.name=='wmCloudName')].value",
+              "jsonpath_query_name": "wmCloudName",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            },
+            {
+              "jsonpath_query": "$.parameters.globalParams[?(@.name=='k8sClusterName')].value",
+              "jsonpath_query_name": "k8sClusterName",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0181NIIF6QAN56LQNuNL5fzSjdj6VxOvpPh",
+        "name": "CCP - Create K8s Cluster",
+        "title": "CCP - Create K8s Cluster",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "CCP - Create K8s Cluster",
+          "input": {
+            "variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC": "$activity.definition_activity_0181NHS48YAKP5p3HmdY2aj3qnalhom4DhX.output.jsonpath_queries.k8sClusterName$",
+            "variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL": "$activity.definition_activity_0181NHS48YAKP5p3HmdY2aj3qnalhom4DhX.output.jsonpath_queries.wmCloudName$"
+          },
+          "target": {
+            "execute_on_this_target": false,
+            "no_target": false,
+            "override_workflow_target": false,
+            "use_workflow_target": false
+          },
+          "workflow_id": "definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf": {
+      "unique_name": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf",
+      "name": "CCS Admin",
+      "title": "CCS Admin",
+      "type": "ccsuite.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_016J2UBE5MNC13AwWHPyfO0IwLmZ2BQXv4i",
+        "display_name": "CCS Admin",
+        "host": "172.21.8.94",
+        "port": 17565,
+        "protocol": "https"
+      }
+    },
+    "definition_target_0181EVRBVCS6E3um1RYu64cGd8MX6NcD5sB": {
+      "unique_name": "definition_target_0181EVRBVCS6E3um1RYu64cGd8MX6NcD5sB",
+      "name": "Cisco Container Platform (MPC)",
+      "title": "Cisco Container Platform (MPC)",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a",
+        "description": "Cisco Container Platform (MPC)",
+        "disable_certificate_validation": true,
+        "display_name": "Cisco Container Platform (MPC)",
+        "host": "172.21.9.15",
+        "no_runtime_user": false,
+        "port": 443,
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_016J2UBE5MNC13AwWHPyfO0IwLmZ2BQXv4i": {
+      "unique_name": "definition_runtime_user_016J2UBE5MNC13AwWHPyfO0IwLmZ2BQXv4i",
+      "name": "CCS Admin",
+      "title": "CCS Admin",
+      "type": "runtime_user.ccs_explicit_user",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "CCS Admin",
+        "password": "*****",
+        "tenant_id": "*****",
+        "username": "*****"
+      }
+    },
+    "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a": {
+      "unique_name": "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a",
+      "name": "CCP Admin",
+      "title": "CCP Admin",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "basic_password": "*****",
+        "basic_username": "*****",
+        "display_name": "CCP Admin"
+      }
+    }
+  },
+  "variables": {
+    "variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A": {
+      "unique_name": "variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A",
+      "properties": {
+        "value": "\n",
+        "scope": "global",
+        "name": "Carriage return",
+        "type": "datatype.string"
+      },
+      "object_type": "variable"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r",
+        "name": "CCP - Create K8s Cluster",
+        "title": "CCP - Create K8s Cluster",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "wm cloud name",
+              "type": "datatype.string"
+            },
+            "unique_name": "variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "kube token",
+              "type": "datatype.string"
+            },
+            "unique_name": "variable_workflow_0181M5SGRV1PU1JJxb7fIQUffHqSYT2poYW",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "k8s cluster name",
+              "type": "datatype.string"
+            },
+            "unique_name": "variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "CCP - Create K8s Cluster",
+          "favorite": false,
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_0181H7YHYI3254tDiPyWfIfVJ8LJYPx2p29",
+            "name": "CCP - Get Token",
+            "title": "CCP - Get Token",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "CCP - Get Token",
+              "input": {},
+              "target": {
+                "no_target": true,
+                "override_workflow_target": false
+              },
+              "workflow_id": "definition_workflow_0181FRRMQEJWJ0teGQN7S86m66DG2aPV7co"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181HAAEXQBDS3PHqZEvox5ziy7P8ThskWY",
+            "name": "HTTP Request",
+            "title": "HTTP Request - Create Cluster",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 900,
+              "allow_auto_redirect": true,
+              "body": "{\r\n\t\"provider_client_config_uuid\": \"d0377334-1516-441e-80e9-12a72c960aab\",\r\n\t\"type\": 1,\r\n\t\"cluster\": \"Cluster\",\r\n\t\"name\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC$\",\r\n\t\"description\": \"\",\r\n\t\"workers\": 1,\r\n\t\"masters\": 1,\r\n\t\"datacenter\": \"Datacenter\",\r\n\t\"datastore\": \"vsanDatastore\",\r\n\t\"networks\": [\"V108_CCP01_PG\"],\r\n\t\"ingress_vip_pool_id\": \"fc0ef3a0-bc5d-4b94-8d7a-a4b9f3079697\",\r\n\t\"load_balancer_ip_num\": 1,\r\n\t\"resource_pool\": \"Cluster/Resources/CCP\",\r\n\t\"ssh_user\": \"ccpuser\",\r\n\t\"ssh_key\": \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7ePHODw3f97S52qNz3H+VMvkWjF3gwZakarDT/zQog mikes@ubuntu\",\r\n\t\"deployer_type\": \"kubeadm\",\r\n\t\"kubernetes_version\": \"1.13.5\",\r\n\t\"deployer\": {\r\n\t\t\"provider_type\": \"vsphere\",\r\n\t\t\"provider\": {\r\n\t\t\t\"vsphere_datacenter\": \"Datacenter\",\r\n\t\t\t\"vsphere_datastore\": \"vsanDatastore\",\r\n\t\t\t\"vsphere_client_config_uuid\": \"d0377334-1516-441e-80e9-12a72c960aab\",\r\n\t\t\t\"vsphere_working_dir\": \"\\/DataCenter\\/vm\"\r\n\t\t}\r\n\t},\r\n\t\"master_node_pool\": {\r\n\t\t\t\"template\": \"CCP/ccp-tenant-image-1.13.5-ubuntu18-4.1.0\",\r\n\t\t\t\"vcpus\": 2,\r\n\t\t\t\"memory\": 4096\r\n\t\t},\r\n\t\"worker_node_pool\": {\r\n\t\t\t\"template\": \"CCP/ccp-tenant-image-1.13.5-ubuntu18-4.1.0\",\r\n\t\t\t\"vcpus\": 2,\r\n\t\t\t\"memory\": 4096\r\n\t}\r\n}",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "cookie": [
+                "$activity.definition_activity_0181H7YHYI3254tDiPyWfIfVJ8LJYPx2p29.output.variable_workflow_0181H6M2CAQSB6AQ0GdL9lmnQZ0SHGoqYyB$"
+              ],
+              "display_name": "HTTP Request - Create Cluster",
+              "method": "POST",
+              "relative_url": "/2/clusters",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "target": {
+                "override_workflow_target": true,
+                "override_workflow_target_group_criteria": false,
+                "target_id": "definition_target_0181EVRBVCS6E3um1RYu64cGd8MX6NcD5sB",
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181JRG9VHX551yyKNvR8lnhddMPJlcQ8ip",
+            "name": "HTTP Request",
+            "title": "HTTP Request - Get Cluster Details",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "cookie": [
+                "$activity.definition_activity_0181H7YHYI3254tDiPyWfIfVJ8LJYPx2p29.output.variable_workflow_0181H6M2CAQSB6AQ0GdL9lmnQZ0SHGoqYyB$"
+              ],
+              "display_name": "HTTP Request - Get Cluster Details",
+              "method": "GET",
+              "relative_url": "/2/clusters/$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "target": {
+                "override_workflow_target": true,
+                "override_workflow_target_group_criteria": false,
+                "target_id": "definition_target_0181EVRBVCS6E3um1RYu64cGd8MX6NcD5sB",
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181JT8980BY82lR0sI8YDvnPiL52ShYFxM",
+            "name": "JSONPath Query",
+            "title": "JSONPath Query - Get Cluster Details",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "JSONPath Query - Get Cluster Details",
+              "input_json": "$activity.definition_activity_0181JRG9VHX551yyKNvR8lnhddMPJlcQ8ip.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.uuid",
+                  "jsonpath_query_name": "uuid",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": ""
+                },
+                {
+                  "jsonpath_query": "$..master_vip",
+                  "jsonpath_query_name": "master_vip",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": ""
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181JUFT6TN3O0FeaTiipKp9veATZMXqsOo",
+            "name": "HTTP Request",
+            "title": "HTTP Request - Get Kube Config",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "cookie": [
+                "$activity.definition_activity_0181H7YHYI3254tDiPyWfIfVJ8LJYPx2p29.output.variable_workflow_0181H6M2CAQSB6AQ0GdL9lmnQZ0SHGoqYyB$"
+              ],
+              "display_name": "HTTP Request - Get Kube Config",
+              "method": "GET",
+              "relative_url": "/2/clusters/$activity.definition_activity_0181JT8980BY82lR0sI8YDvnPiL52ShYFxM.output.jsonpath_queries.uuid$/env",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "target": {
+                "override_workflow_target": true,
+                "override_workflow_target_group_criteria": false,
+                "target_id": "definition_target_0181EVRBVCS6E3um1RYu64cGd8MX6NcD5sB",
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181M2V8S4ED37cgA600GOSQM8HSknBGmer",
+            "name": "Split String",
+            "title": "Split String",
+            "type": "core.splitstring",
+            "base_type": "activity",
+            "properties": {
+              "boundaries": [
+                {
+                  "boundary": ":"
+                }
+              ],
+              "continue_on_failure": false,
+              "display_name": "Split String",
+              "input_string": "$activity.definition_activity_0181JUFT6TN3O0FeaTiipKp9veATZMXqsOo.output.response_body$"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181M6O7EDMJC4IeQiAfLOmZ65Zr2O4rlnp",
+            "name": "Replace String",
+            "title": "Replace String",
+            "type": "core.replacestring",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Replace String",
+              "input_string": "$activity.definition_activity_0181M2V8S4ED37cgA600GOSQM8HSknBGmer.output.parts[-1]$",
+              "replace_list": [
+                {
+                  "replaced_string": " ",
+                  "replacement_string": ""
+                },
+                {
+                  "replaced_string": "$global.variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A.global.variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A$",
+                  "replacement_string": ""
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181M5UR1V66Z6XWu646msLAcMTzeoEJZ5Z",
+            "name": "Set Variables",
+            "title": "Set Variables - kube token",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set Variables - kube token",
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.local.variable_workflow_0181M5SGRV1PU1JJxb7fIQUffHqSYT2poYW$",
+                  "variable_value_new": "$activity.definition_activity_0181M6O7EDMJC4IeQiAfLOmZ65Zr2O4rlnp.output.result_string$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181MA8RIF5J02ZnfQzHQiJbu3HUtXiInVY",
+            "name": "Generic CCS API Request",
+            "title": "Generic CCS API Request - Create Cloud",
+            "type": "ccs.api_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "api_body": "{\n    \"cloudFamily\": \"Kubernetes\",\n    \"cloudFamilyType\": \"Container\",\n    \"tenantId\": 1,\n    \"enableProxyForCloudEndpoint\": false,\n    \"enableProxyForWorker\": false,\n    \"amqpAccessibleFromCloud\": true,\n    \"name\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL$\",\n    \"description\": \"\",\n    \"regionEndpoint\": \"https://$activity.definition_activity_0181JT8980BY82lR0sI8YDvnPiL52ShYFxM.output.jsonpath_queries.master_vip$:6443\"\n}",
+              "api_call_method": "POST",
+              "continue_on_failure": false,
+              "display_name": "Generic CCS API Request - Create Cloud",
+              "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN",
+            "name": "JSONPath Query",
+            "title": "JSONPath Query - Get Cloud Id",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "JSONPath Query - Get Cloud Id",
+              "input_json": "$activity.definition_activity_0181MA8RIF5J02ZnfQzHQiJbu3HUtXiInVY.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.id",
+                  "jsonpath_query_name": "cloud id",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": ""
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181PDD1PXUFP0BZuSaajGCiQKVcyvyft1E",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "sleep_interval": 120
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0181P7TRLLZN67b7kOU8PP5GG9nDnAguWHa",
+            "name": "Generic CCS API Request",
+            "title": "Generic CCS API Request - Create Cloud Account",
+            "type": "ccs.api_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "api_body": "{\r\n\t\"displayName\": \"kube\",\r\n\t\"accountDescription\": \"\",\r\n\t\"enableAccountFor\": \"PROVISIONING_REPORTING\",\r\n\t\"userId\": 1,\r\n\t\"cloudId\": \"$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$\",\r\n\t\"allowedUsers\": [],\r\n\t\"enableReportingByOrg\": false,\r\n\t\"accountName\": \"kube\",\r\n\t\"accountPassword\": \"$activity.definition_activity_0181M6O7EDMJC4IeQiAfLOmZ65Zr2O4rlnp.output.result_string$\",\r\n\t\"accountId\": \"kube\",\r\n\t\"accountProperties\": []\r\n}\r\n",
+              "api_call_method": "POST",
+              "continue_on_failure": true,
+              "display_name": "Generic CCS API Request - Create Cloud Account",
+              "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$/accounts",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      },
+      "subworkflows": [
+        {
+          "workflow": {
+            "unique_name": "definition_workflow_0181FRRMQEJWJ0teGQN7S86m66DG2aPV7co",
+            "name": "CCP - Get Token",
+            "title": "CCP - Get Token",
+            "type": "generic.workflow",
+            "base_type": "workflow",
+            "variables": [
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "output",
+                  "name": "CCS Cookie",
+                  "type": "datatype.string"
+                },
+                "unique_name": "variable_workflow_0181H6M2CAQSB6AQ0GdL9lmnQZ0SHGoqYyB",
+                "object_type": "variable_workflow"
+              }
+            ],
+            "properties": {
+              "atomic": {
+                "is_atomic": false
+              },
+              "delete_workflow_instance": false,
+              "display_name": "CCP - Get Token",
+              "favorite": false,
+              "target": {
+                "execute_on_target_group": false,
+                "execute_on_workflow_target": false,
+                "no_target": true,
+                "specify_on_workflow_start": false
+              }
+            },
+            "object_type": "definition_workflow",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0181FRZLCUSQG7hyM4yxNmxKFnvdKn3GrD8",
+                "name": "HTTP Request",
+                "title": "HTTP Request",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "body": "username=admin\u0026password=M3tsiT3ch!23",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/x-www-form-urlencoded"
+                    }
+                  ],
+                  "display_name": "HTTP Request",
+                  "method": "POST",
+                  "relative_url": "/2/system/login",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "target": {
+                    "override_workflow_target": true,
+                    "override_workflow_target_group_criteria": false,
+                    "target_id": "definition_target_0181EVRBVCS6E3um1RYu64cGd8MX6NcD5sB",
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_0181HF1PFRVWY6JNyb4YRxG7jhCak8z8BP7",
+                "name": "Set Variables",
+                "title": "Set Variables - Cookie",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables - Cookie",
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_0181FRRMQEJWJ0teGQN7S86m66DG2aPV7co.output.variable_workflow_0181H6M2CAQSB6AQ0GdL9lmnQZ0SHGoqYyB$",
+                      "variable_value_new": "$activity.definition_activity_0181FRZLCUSQG7hyM4yxNmxKFnvdKn3GrD8.output.cookie[0]$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ],
+            "categories": [
+              "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
