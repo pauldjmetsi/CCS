@@ -10,6 +10,31 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
+          "scope": "local",
+          "name": "id",
+          "type": "datatype.string",
+          "description": "AWS Cluster ID",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A1060O5KJNS01ABl1aF0kEX06788yvMb9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "kubeconfig token",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
           "scope": "output",
           "name": "url",
           "type": "datatype.string",
@@ -52,31 +77,6 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
-          "name": "id",
-          "type": "datatype.string",
-          "description": "AWS Cluster ID",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A1060O5KJNS01ABl1aF0kEX06788yvMb9",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
-          "name": "kubeconfig token",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN",
         "object_type": "variable_workflow"
       }
     ],
@@ -414,16 +414,16 @@
         ]
       },
       {
-        "unique_name": "definition_activity_01A4KDJDLGIOU4Ildm6YO9Ob1clzwaW4muH",
-        "name": "GetAwsK8sToken",
-        "title": "GetAwsK8sToken",
+        "unique_name": "definition_activity_01A64PXZT69ZD4hk7wlnYhzXYB345K9wY5U",
+        "name": "GetAwsK8sClusterToken",
+        "title": "GetAwsK8sClusterToken",
         "type": "workflow.sub_workflow",
         "base_type": "subworkflow",
         "properties": {
           "continue_on_failure": false,
-          "display_name": "GetAwsK8sToken",
+          "display_name": "GetAwsK8sClusterToken",
           "input": {
-            "variable_workflow_01A4KGCINCR793Mci8CSVDeSeZ9FEa6qSBs": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl$"
+            "variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl$"
           },
           "runtime_user": {
             "target_default": true
@@ -434,7 +434,7 @@
             "target_id": "definition_target_01A1ZZS054XZR60I7Ygs5UyI2Fkq493DhgO",
             "target_type": "terminal.unix_linux_endpoint"
           },
-          "workflow_id": "definition_workflow_01A1ZWZVXLBH27c2kBbLDFX68UgVTx4VRAT"
+          "workflow_id": "definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6"
         },
         "object_type": "definition_activity"
       },
@@ -451,7 +451,7 @@
           "variables_to_update": [
             {
               "variable_to_update": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN$",
-              "variable_value_new": "$activity.definition_activity_01A4KDJDLGIOU4Ildm6YO9Ob1clzwaW4muH.output.variable_workflow_01A4IDA2P3T0Z3eiiOZDpVhmzVMQqyQlGKc$"
+              "variable_value_new": "$activity.definition_activity_01A64PXZT69ZD4hk7wlnYhzXYB345K9wY5U.output.variable_workflow_01A64JFT3HIXQ4EL2BA0dgOSO1uSgFWwoat$"
             }
           ]
         },
@@ -526,7 +526,7 @@
         "base_type": "activity",
         "properties": {
           "action_timeout": 180,
-          "api_body": "{\n\t\"displayName\": \"kube\",\n\t\"accountDescription\": \"\",\n\t\"enableAccountFor\": \"PROVISIONING_REPORTING\",\n\t\"userId\": 1,\n\t\"cloudId\": \"$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$\",\n\t\"allowedUsers\": [],\n\t\"enableReportingByOrg\": false,\n\t\"accountName\": \"kube\",\n\t\"accountPassword\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN$\",\n\t\"accountId\": \"kube\",\n\t\"accountProperties\": []\n}",
+          "api_body": "{\n\t\"displayName\": \"k8s-ccp-user\",\n\t\"accountDescription\": \"\",\n\t\"enableAccountFor\": \"PROVISIONING_REPORTING\",\n\t\"userId\": 1,\n\t\"cloudId\": \"$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$\",\n\t\"allowedUsers\": [],\n\t\"enableReportingByOrg\": false,\n\t\"accountName\": \"k8s-ccp-user\",\n\t\"accountPassword\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN$\",\n\t\"accountId\": \"k8s-ccp-user\",\n\t\"accountProperties\": []\n}",
           "api_call_method": "POST",
           "continue_on_failure": false,
           "display_name": "Generic CCS API Request - Create Cloud Account",
@@ -731,123 +731,47 @@
             "object_type": "definition_activity"
           },
           {
-            "unique_name": "definition_activity_01A57RCDM9U777lLSluB4xnEOfmopIJBNSW",
-            "name": "Split String",
-            "title": "Split String",
-            "type": "core.splitstring",
+            "unique_name": "definition_activity_01A5YVXZKHCZP7Izjf3zmYf3jf8D86KgMhF",
+            "name": "Replace String",
+            "title": "Replace String",
+            "type": "core.replacestring",
             "base_type": "activity",
             "properties": {
-              "boundaries": [
+              "continue_on_failure": false,
+              "display_name": "Replace String",
+              "input_string": "$activity.definition_activity_01A02FMA0XVFY0FJcieyaXGtp8qVi2hAo7x.output.cookie[0]$",
+              "replace_list": [
                 {
-                  "boundary": "="
+                  "replaced_string": "CXAccessToken=",
+                  "replacement_string": ""
+                },
+                {
+                  "replaced_string": "; Path=/",
+                  "replacement_string": ""
                 }
               ],
-              "continue_on_failure": false,
-              "display_name": "Split String",
-              "input_string": "$activity.definition_activity_01A02FMA0XVFY0FJcieyaXGtp8qVi2hAo7x.output.cookie[0]$",
               "skip_execution": false
             },
             "object_type": "definition_activity"
           },
           {
-            "unique_name": "definition_activity_01A57UUG27ENR6BIR17iclT2ErGd7sJ2Ac5",
-            "name": "For Each",
-            "title": "For Each",
-            "type": "logic.for_each",
+            "unique_name": "definition_activity_01A033GKXE5PW2axtZfPUf2DKFjQr8lV2C1",
+            "name": "Set Variables",
+            "title": "Set Variables - Cookie",
+            "type": "core.set_multiple_variables",
             "base_type": "activity",
             "properties": {
               "continue_on_failure": false,
-              "display_name": "For Each",
+              "display_name": "Set Variables - Cookie",
               "skip_execution": false,
-              "source_array": "$activity.definition_activity_01A57RCDM9U777lLSluB4xnEOfmopIJBNSW.output.parts$"
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01A02D75Y32MS3HaRgIe01J02tMc99IhT5P.output.variable_workflow_01A02DVB2KJYZ0PoofI8vZLrq3JQkLUNWAD$",
+                  "variable_value_new": "$activity.definition_activity_01A5YVXZKHCZP7Izjf3zmYf3jf8D86KgMhF.output.result_string$"
+                }
+              ]
             },
-            "object_type": "definition_activity",
-            "actions": [
-              {
-                "unique_name": "definition_activity_01A57V4G9U40Z5G9KrQOnf2ZqRYrVl7NbWP",
-                "name": "Condition Block",
-                "title": "Condition Block",
-                "type": "logic.if_else",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Condition Block",
-                  "skip_execution": false
-                },
-                "object_type": "definition_activity",
-                "blocks": [
-                  {
-                    "unique_name": "definition_activity_01A57V4J1UTWC3XJLsOBznkyx5L6WWDDyny",
-                    "name": "Condition Branch",
-                    "title": "Condition Branch",
-                    "type": "logic.condition_block",
-                    "base_type": "activity",
-                    "properties": {
-                      "condition": {
-                        "left_operand": "$activity.definition_activity_01A57UUG27ENR6BIR17iclT2ErGd7sJ2Ac5.input.source_array[@]$",
-                        "operator": "ne",
-                        "right_operand": "CXAccessToken"
-                      },
-                      "continue_on_failure": false,
-                      "display_name": "Condition Branch",
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity",
-                    "actions": [
-                      {
-                        "unique_name": "definition_activity_01A57YPT9XC7Q06t2yETLWmJesjmjtSerYm",
-                        "name": "Trim String",
-                        "title": "Trim String",
-                        "type": "core.trim_string",
-                        "base_type": "activity",
-                        "properties": {
-                          "characters_to_trim": "; Path",
-                          "continue_on_failure": false,
-                          "display_name": "Trim String",
-                          "skip_execution": false,
-                          "source": "$activity.definition_activity_01A57UUG27ENR6BIR17iclT2ErGd7sJ2Ac5.input.source_array[@]$",
-                          "trim_leading": false,
-                          "trim_trailing": true
-                        },
-                        "object_type": "definition_activity"
-                      },
-                      {
-                        "unique_name": "definition_activity_01A033GKXE5PW2axtZfPUf2DKFjQr8lV2C1",
-                        "name": "Set Variables",
-                        "title": "Set Variables - Cookie",
-                        "type": "core.set_multiple_variables",
-                        "base_type": "activity",
-                        "properties": {
-                          "continue_on_failure": false,
-                          "display_name": "Set Variables - Cookie",
-                          "skip_execution": false,
-                          "variables_to_update": [
-                            {
-                              "variable_to_update": "$workflow.definition_workflow_01A02D75Y32MS3HaRgIe01J02tMc99IhT5P.output.variable_workflow_01A02DVB2KJYZ0PoofI8vZLrq3JQkLUNWAD$",
-                              "variable_value_new": "$activity.definition_activity_01A57YPT9XC7Q06t2yETLWmJesjmjtSerYm.output.trimmed$"
-                            }
-                          ]
-                        },
-                        "object_type": "definition_activity"
-                      },
-                      {
-                        "unique_name": "definition_activity_01A581ZGISKZ17Z1fTFSw9CkUKg2KKzaZHh",
-                        "name": "Break",
-                        "title": "Break",
-                        "type": "logic.break",
-                        "base_type": "activity",
-                        "properties": {
-                          "continue_on_failure": false,
-                          "display_name": "Break",
-                          "skip_execution": false
-                        },
-                        "object_type": "definition_activity"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+            "object_type": "definition_activity"
           }
         ],
         "categories": [
@@ -857,22 +781,22 @@
     },
     {
       "workflow": {
-        "unique_name": "definition_workflow_01A1ZWZVXLBH27c2kBbLDFX68UgVTx4VRAT",
-        "name": "GetTokenK8sCluster",
-        "title": "GetTokenK8sCluster",
+        "unique_name": "definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6",
+        "name": "GetAwsK8sClusterToken",
+        "title": "GetAwsK8sClusterToken",
         "type": "generic.workflow",
         "base_type": "workflow",
         "variables": [
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "\n",
-              "scope": "local",
-              "name": "cr",
+              "value": "",
+              "scope": "input",
+              "name": "clustername",
               "type": "datatype.string",
               "is_required": false
             },
-            "unique_name": "variable_workflow_01A4I3HEDGGBM4j5hqPaa01f61uWZUU7n6K",
+            "unique_name": "variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y",
             "object_type": "variable_workflow"
           },
           {
@@ -884,19 +808,7 @@
               "type": "datatype.string",
               "is_required": false
             },
-            "unique_name": "variable_workflow_01A4IDA2P3T0Z3eiiOZDpVhmzVMQqyQlGKc",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "clustername",
-              "type": "datatype.string",
-              "is_required": false
-            },
-            "unique_name": "variable_workflow_01A4KGCINCR793Mci8CSVDeSeZ9FEa6qSBs",
+            "unique_name": "variable_workflow_01A64JFT3HIXQ4EL2BA0dgOSO1uSgFWwoat",
             "object_type": "variable_workflow"
           }
         ],
@@ -905,7 +817,7 @@
             "is_atomic": false
           },
           "delete_workflow_instance": false,
-          "display_name": "GetTokenK8sCluster",
+          "display_name": "GetAwsK8sClusterToken",
           "runtime_user": {
             "override_target_runtime_user": false,
             "specify_on_workflow_start": false,
@@ -920,17 +832,17 @@
         "object_type": "definition_workflow",
         "actions": [
           {
-            "unique_name": "definition_activity_01A4F1R62DFPK3pjgOEavaaRw5ORSBf5gC1",
+            "unique_name": "definition_activity_01A64JXV17H4V0XUdRgdnPMkdo5aFYHhRHd",
             "name": "Execute Linux/Unix SSH Command",
-            "title": "Execute Linux/Unix SSH Command",
+            "title": "Execute Linux/Unix SSH Command - create kubeconfig",
             "type": "terminal.ssh_command",
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
-              "command": "export PATH=~/.local/bin:$PATH\naws eks --region us-west-2 update-kubeconfig --name $workflow.definition_workflow_01A1ZWZVXLBH27c2kBbLDFX68UgVTx4VRAT.input.variable_workflow_01A4KGCINCR793Mci8CSVDeSeZ9FEa6qSBs$",
+              "command": "export PATH=~/.local/bin:$PATH\naws eks --region us-west-2 update-kubeconfig --name $workflow.definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6.input.variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y$",
               "command_timeout": 60,
               "continue_on_failure": false,
-              "display_name": "Execute Linux/Unix SSH Command",
+              "display_name": "Execute Linux/Unix SSH Command - create kubeconfig",
               "runtime_user": {
                 "override_target_runtime_user": false,
                 "target_default": true
@@ -946,17 +858,17 @@
             "object_type": "definition_activity"
           },
           {
-            "unique_name": "definition_activity_01A4D6VAX4BGZ7GchW5KCJnWmaN2Ksd1mbF",
+            "unique_name": "definition_activity_01A64KKASW6VW6WLCYTlqwQBNCmm22iRYaS",
             "name": "Execute Linux/Unix SSH Command",
-            "title": "Execute Linux/Unix SSH Command",
+            "title": "Execute Linux/Unix SSH Command - get kubeconfig",
             "type": "terminal.ssh_command",
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
-              "command": "export PATH=~/.local/bin:$PATH\nkubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')",
+              "command": "export PATH=~/.local/bin:$PATH\nkubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}') | fgrep token: | awk '{print $2}'| head -n 1",
               "command_timeout": 60,
               "continue_on_failure": false,
-              "display_name": "Execute Linux/Unix SSH Command",
+              "display_name": "Execute Linux/Unix SSH Command - get kubeconfig",
               "runtime_user": {
                 "override_target_runtime_user": false,
                 "target_default": true
@@ -972,138 +884,23 @@
             "object_type": "definition_activity"
           },
           {
-            "unique_name": "definition_activity_01A4HV5SB47R33F6k0nZ6RY1uYMhyroxHTV",
-            "name": "Split String",
-            "title": "Split String",
-            "type": "core.splitstring",
+            "unique_name": "definition_activity_01A67KPT7KAZ12wWlUFHtzuA0cvYtV86k8R",
+            "name": "Set Variables",
+            "title": "Set Variables - token",
+            "type": "core.set_multiple_variables",
             "base_type": "activity",
             "properties": {
-              "boundaries": [
+              "continue_on_failure": false,
+              "display_name": "Set Variables - token",
+              "skip_execution": false,
+              "variables_to_update": [
                 {
-                  "boundary": "$workflow.definition_workflow_01A1ZWZVXLBH27c2kBbLDFX68UgVTx4VRAT.local.variable_workflow_01A4I3HEDGGBM4j5hqPaa01f61uWZUU7n6K$"
+                  "variable_to_update": "$workflow.definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6.output.variable_workflow_01A64JFT3HIXQ4EL2BA0dgOSO1uSgFWwoat$",
+                  "variable_value_new": "$activity.definition_activity_01A64KKASW6VW6WLCYTlqwQBNCmm22iRYaS.output.response_body$"
                 }
-              ],
-              "continue_on_failure": false,
-              "display_name": "Split String",
-              "input_string": "$activity.definition_activity_01A4D6VAX4BGZ7GchW5KCJnWmaN2Ksd1mbF.output.response_body$",
-              "skip_execution": false
+              ]
             },
             "object_type": "definition_activity"
-          },
-          {
-            "unique_name": "definition_activity_01A4I5SSI1Z567dzTR9H9H0NlKC1yehsvQC",
-            "name": "For Each",
-            "title": "For Each",
-            "type": "logic.for_each",
-            "base_type": "activity",
-            "properties": {
-              "continue_on_failure": false,
-              "display_name": "For Each",
-              "skip_execution": false,
-              "source_array": "$activity.definition_activity_01A4HV5SB47R33F6k0nZ6RY1uYMhyroxHTV.output.parts$"
-            },
-            "object_type": "definition_activity",
-            "actions": [
-              {
-                "unique_name": "definition_activity_01A4ICR8Q9EWF4TjCSB430jvvmGdtmbxxpK",
-                "name": "Find String",
-                "title": "Find String",
-                "type": "core.find_string",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Find String",
-                  "searched_string": "token:",
-                  "skip_execution": false,
-                  "source": "$activity.definition_activity_01A4I5SSI1Z567dzTR9H9H0NlKC1yehsvQC.input.source_array[@]$"
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_01A4IK6JMSZWH7REQFfPiPRIFmx4RFdfaPI",
-                "name": "Condition Block",
-                "title": "Condition Block",
-                "type": "logic.if_else",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Condition Block",
-                  "skip_execution": false
-                },
-                "object_type": "definition_activity",
-                "blocks": [
-                  {
-                    "unique_name": "definition_activity_01A4IK6NA9NWC56eB2DeCzDFTtDcJBS8HKM",
-                    "name": "Condition Branch",
-                    "title": "Condition Branch",
-                    "type": "logic.condition_block",
-                    "base_type": "activity",
-                    "properties": {
-                      "condition": {
-                        "left_operand": "$activity.definition_activity_01A4ICR8Q9EWF4TjCSB430jvvmGdtmbxxpK.output.has_match$",
-                        "operator": "eq",
-                        "right_operand": true
-                      },
-                      "continue_on_failure": false,
-                      "display_name": "Condition Branch",
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity",
-                    "actions": [
-                      {
-                        "unique_name": "definition_activity_01A58AKNSXQK60ja7GS5BhEHrsjw2QU8SGP",
-                        "name": "Trim String",
-                        "title": "Trim String",
-                        "type": "core.trim_string",
-                        "base_type": "activity",
-                        "properties": {
-                          "characters_to_trim": "token:",
-                          "continue_on_failure": false,
-                          "display_name": "Trim String",
-                          "skip_execution": false,
-                          "source": "$activity.definition_activity_01A4I5SSI1Z567dzTR9H9H0NlKC1yehsvQC.input.source_array[@]$",
-                          "trim_leading": true,
-                          "trim_trailing": false
-                        },
-                        "object_type": "definition_activity"
-                      },
-                      {
-                        "unique_name": "definition_activity_01A4IK30Z6Y8G6qYIgWdn7vkXocXmvvdj6F",
-                        "name": "Set Variables",
-                        "title": "Set Variables",
-                        "type": "core.set_multiple_variables",
-                        "base_type": "activity",
-                        "properties": {
-                          "continue_on_failure": false,
-                          "display_name": "Set Variables",
-                          "skip_execution": false,
-                          "variables_to_update": [
-                            {
-                              "variable_to_update": "$workflow.definition_workflow_01A1ZWZVXLBH27c2kBbLDFX68UgVTx4VRAT.output.variable_workflow_01A4IDA2P3T0Z3eiiOZDpVhmzVMQqyQlGKc$",
-                              "variable_value_new": "$activity.definition_activity_01A58AKNSXQK60ja7GS5BhEHrsjw2QU8SGP.output.trimmed$"
-                            }
-                          ]
-                        },
-                        "object_type": "definition_activity"
-                      },
-                      {
-                        "unique_name": "definition_activity_01A4ILYMP15HB7HBOxv1BwbKtLyOEcXdgAd",
-                        "name": "Break",
-                        "title": "Break",
-                        "type": "logic.break",
-                        "base_type": "activity",
-                        "properties": {
-                          "continue_on_failure": false,
-                          "display_name": "Break",
-                          "skip_execution": false
-                        },
-                        "object_type": "definition_activity"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
           }
         ],
         "categories": [
