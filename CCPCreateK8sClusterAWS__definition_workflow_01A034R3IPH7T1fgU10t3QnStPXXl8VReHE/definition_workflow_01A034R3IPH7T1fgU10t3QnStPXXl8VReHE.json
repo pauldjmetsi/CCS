@@ -10,6 +10,54 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
+          "scope": "input",
+          "name": "wm environment name",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7XBHIHL8N95aFpx0fulsMtDTxEKVoDvS",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "k8s cluster name",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "kube token",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A035NWUZNYD4mMpiSxR3EuaRC1f01DjLa",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "wm cloud name",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
           "scope": "local",
           "name": "id",
           "type": "datatype.string",
@@ -47,36 +95,12 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "input",
-          "name": "k8s cluster name",
+          "scope": "output",
+          "name": "aws url",
           "type": "datatype.string",
           "is_required": false
         },
-        "unique_name": "variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
-          "name": "kube token",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A035NWUZNYD4mMpiSxR3EuaRC1f01DjLa",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "wm cloud name",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB",
+        "unique_name": "variable_workflow_01A690O1JZ46B5mgwIG28RR3aPWUXAFnWRp",
         "object_type": "variable_workflow"
       }
     ],
@@ -248,170 +272,60 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01A5BTA09XIA90rMxLWl7v2FHNy9mJoX52P",
-        "name": "Split String",
-        "title": "Split String",
-        "type": "core.splitstring",
+        "unique_name": "definition_activity_01A68Y72F6JAY3xT5dhMqmWuROaucys1npV",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query - get kubeconfig",
+        "type": "corejava.jsonpathquery",
         "base_type": "activity",
         "properties": {
-          "boundaries": [
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query - get kubeconfig",
+          "input_json": "$activity.definition_activity_01A4LGLDU0T3915TFmSw8ndI1EIY8ZsY351.output.response_body$",
+          "jsonpath_queries": [
             {
-              "boundary": "$global.variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A.global.variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A$"
+              "jsonpath_query": "$.kubeconfig",
+              "jsonpath_query_name": "kubeconfig",
+              "jsonpath_query_type": "string"
             }
           ],
-          "continue_on_failure": false,
-          "display_name": "Split String",
-          "input_string": "$activity.definition_activity_01A4LGLDU0T3915TFmSw8ndI1EIY8ZsY351.output.response_body$",
           "skip_execution": false
         },
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01A5BU9X4QOQ20po7ewVeuBgWrxn7UAdzft",
-        "name": "For Each",
-        "title": "For Each",
-        "type": "logic.for_each",
+        "unique_name": "definition_activity_01A68Z8FPI27C77YhKLfY1a5CYmKpTQYiJk",
+        "name": "Match Regular Expression",
+        "title": "Match Regular Expression",
+        "type": "core.matchregex",
         "base_type": "activity",
         "properties": {
           "continue_on_failure": false,
-          "display_name": "For Each",
-          "skip_execution": false,
-          "source_array": "$activity.definition_activity_01A5BTA09XIA90rMxLWl7v2FHNy9mJoX52P.output.parts$"
+          "display_name": "Match Regular Expression",
+          "input_regex": "(https:).*?(.com)",
+          "input_string": "$activity.definition_activity_01A68Y72F6JAY3xT5dhMqmWuROaucys1npV.output.jsonpath_queries.kubeconfig$",
+          "skip_execution": false
         },
-        "object_type": "definition_activity",
-        "actions": [
-          {
-            "unique_name": "definition_activity_01A5BUGVMPPG52Z3QM1ZJOl9pGg1tREkO37",
-            "name": "Find String",
-            "title": "Find String",
-            "type": "core.find_string",
-            "base_type": "activity",
-            "properties": {
-              "continue_on_failure": false,
-              "display_name": "Find String",
-              "searched_string": "server:",
-              "skip_execution": false,
-              "source": "$activity.definition_activity_01A5BU9X4QOQ20po7ewVeuBgWrxn7UAdzft.input.source_array[@]$"
-            },
-            "object_type": "definition_activity"
-          },
-          {
-            "unique_name": "definition_activity_01A5BVFOY6YGL3QQXYG601wOA2w0xL4b4ic",
-            "name": "Condition Block",
-            "title": "Condition Block",
-            "type": "logic.if_else",
-            "base_type": "activity",
-            "properties": {
-              "continue_on_failure": false,
-              "display_name": "Condition Block",
-              "skip_execution": false
-            },
-            "object_type": "definition_activity",
-            "blocks": [
-              {
-                "unique_name": "definition_activity_01A5BVFSL7EJH39j9JytgsQ2M7MQGObkGqI",
-                "name": "Condition Branch",
-                "title": "Condition Branch",
-                "type": "logic.condition_block",
-                "base_type": "activity",
-                "properties": {
-                  "condition": {
-                    "left_operand": "$activity.definition_activity_01A5BUGVMPPG52Z3QM1ZJOl9pGg1tREkO37.output.has_match$",
-                    "operator": "eq",
-                    "right_operand": true
-                  },
-                  "continue_on_failure": false,
-                  "display_name": "Condition Branch",
-                  "skip_execution": false
-                },
-                "object_type": "definition_activity",
-                "actions": [
-                  {
-                    "unique_name": "definition_activity_01A5BW3UA6RSU3SusL3oEgGsqvjZs1WoWDe",
-                    "name": "Split String",
-                    "title": "Split String 1",
-                    "type": "core.splitstring",
-                    "base_type": "activity",
-                    "properties": {
-                      "boundaries": [
-                        {
-                          "boundary": "server:"
-                        }
-                      ],
-                      "continue_on_failure": false,
-                      "display_name": "Split String 1",
-                      "input_string": "$activity.definition_activity_01A5BU9X4QOQ20po7ewVeuBgWrxn7UAdzft.input.source_array[@]$",
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_01A5BWWHJ5O6G3YrUnq82VUVSoDFHu4VL4z",
-                    "name": "Split String",
-                    "title": "Split String 2",
-                    "type": "core.splitstring",
-                    "base_type": "activity",
-                    "properties": {
-                      "boundaries": [
-                        {
-                          "boundary": "name:"
-                        }
-                      ],
-                      "continue_on_failure": false,
-                      "display_name": "Split String 2",
-                      "input_string": "$activity.definition_activity_01A5BW3UA6RSU3SusL3oEgGsqvjZs1WoWDe.output.parts[-1]$",
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_01A5ECXHWWDTC5Rg4zNomD4kuPi4kFDg7tE",
-                    "name": "Replace String",
-                    "title": "Replace String",
-                    "type": "core.replacestring",
-                    "base_type": "activity",
-                    "properties": {
-                      "continue_on_failure": false,
-                      "display_name": "Replace String",
-                      "input_string": "$activity.definition_activity_01A5BWWHJ5O6G3YrUnq82VUVSoDFHu4VL4z.output.parts[0]$",
-                      "replace_list": [
-                        {
-                          "replaced_string": "\\n",
-                          "replacement_string": ""
-                        },
-                        {
-                          "replaced_string": " ",
-                          "replacement_string": ""
-                        }
-                      ],
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_01A5BY41W7WXE4PtsqE2IyngqnPQ3svPMbT",
-                    "name": "Set Variables",
-                    "title": "Set Variables - url",
-                    "type": "core.set_multiple_variables",
-                    "base_type": "activity",
-                    "properties": {
-                      "continue_on_failure": false,
-                      "display_name": "Set Variables - url",
-                      "skip_execution": false,
-                      "variables_to_update": [
-                        {
-                          "variable_to_update": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.output.variable_workflow_01A5BYF3WVF6S1B1oDX8SWXvINyWNcdLDE0$",
-                          "variable_value_new": "$activity.definition_activity_01A5ECXHWWDTC5Rg4zNomD4kuPi4kFDg7tE.output.result_string$"
-                        }
-                      ]
-                    },
-                    "object_type": "definition_activity"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A690U52KZY72MzzZdeBmYxgj8Mlj9I6ik",
+        "name": "Set Variables",
+        "title": "Set Variables - aws url",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables - aws url",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.output.variable_workflow_01A690O1JZ46B5mgwIG28RR3aPWUXAFnWRp$",
+              "variable_value_new": "$activity.definition_activity_01A68Z8FPI27C77YhKLfY1a5CYmKpTQYiJk.output.matching_strings[0]$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
       },
       {
         "unique_name": "definition_activity_01A64PXZT69ZD4hk7wlnYhzXYB345K9wY5U",
@@ -465,7 +379,7 @@
         "base_type": "activity",
         "properties": {
           "action_timeout": 180,
-          "api_body": "{\n    \"cloudFamily\": \"Kubernetes\",\n    \"cloudFamilyType\": \"Container\",\n    \"tenantId\": 1,\n    \"enableProxyForCloudEndpoint\": false,\n    \"enableProxyForWorker\": false,\n    \"amqpAccessibleFromCloud\": true,\n    \"name\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB$\",\n    \"description\": \"\",\n    \"regionEndpoint\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.output.variable_workflow_01A5BYF3WVF6S1B1oDX8SWXvINyWNcdLDE0$\"\n}",
+          "api_body": "{\n    \"cloudFamily\": \"Kubernetes\",\n    \"cloudFamilyType\": \"Container\",\n    \"tenantId\": 1,\n    \"enableProxyForCloudEndpoint\": false,\n    \"enableProxyForWorker\": false,\n    \"amqpAccessibleFromCloud\": true,\n    \"name\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB$\",\n    \"description\": \"\",\n    \"regionEndpoint\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.output.variable_workflow_01A690O1JZ46B5mgwIG28RR3aPWUXAFnWRp$\"\n}",
           "api_call_method": "POST",
           "continue_on_failure": false,
           "display_name": "Generic CCS API Request - Create Cloud",
@@ -526,7 +440,7 @@
         "base_type": "activity",
         "properties": {
           "action_timeout": 180,
-          "api_body": "{\n\t\"displayName\": \"k8s-ccp-user\",\n\t\"accountDescription\": \"\",\n\t\"enableAccountFor\": \"PROVISIONING_REPORTING\",\n\t\"userId\": 1,\n\t\"cloudId\": \"$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$\",\n\t\"allowedUsers\": [],\n\t\"enableReportingByOrg\": false,\n\t\"accountName\": \"k8s-ccp-user\",\n\t\"accountPassword\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN$\",\n\t\"accountId\": \"k8s-ccp-user\",\n\t\"accountProperties\": []\n}",
+          "api_body": "{\n\t\"displayName\": \"pauldj\",\n\t\"accountDescription\": \"\",\n\t\"enableAccountFor\": \"PROVISIONING_REPORTING\",\n\t\"userId\": 1,\n\t\"cloudId\": \"$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$\",\n\t\"allowedUsers\": [],\n\t\"enableReportingByOrg\": false,\n\t\"accountName\": \"pauldj\",\n\t\"accountPassword\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN$\",\n\t\"accountId\": \"pauldj\",\n\t\"accountProperties\": []\n}",
           "api_call_method": "POST",
           "continue_on_failure": false,
           "display_name": "Generic CCS API Request - Create Cloud Account",
@@ -539,6 +453,152 @@
           "target": {
             "override_workflow_target": true,
             "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7W7HSNQ0S06TXUBGeVrNQ6CgjhvG7Wys",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Instance Type Small",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"Small\",\n\t\"description\": null,\n\t\"type\": \"small\",\n\t\"cloudId\": \"22\",\n\t\"regionId\": \"22\",\n\t\"costPerHour\": 0.02,\n\t\"costPerHourPreferredCurrency\": 0.02,\n\t\"memorySize\": 64,\n\t\"numOfCpus\": 100,\n\t\"cpuUnit\": \"VIRTUAL_CPU\",\n\t\"numOfNics\": 0,\n\t\"localStorageCount\": 0,\n\t\"localStorageSize\": 0,\n\t\"supportsCuda\": false,\n\t\"supportsSsd\": false,\n\t\"supports32Bit\": false,\n\t\"supports64Bit\": false,\n\t\"supportsHardwareProvision\": false,\n\t\"serviceCategory\": \"COMPUTE\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Instance Type Small",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$/regions/$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$/instanceTypes",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7W8UUPR7CZ2BSoSXDbY0hxDBbzuVi4dQ",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Instance Type Medium",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"Medium\",\n\t\"description\": null,\n\t\"type\": \"medium\",\n\t\"cloudId\": \"22\",\n\t\"regionId\": \"22\",\n\t\"costPerHour\": 0.05,\n\t\"costPerHourPreferredCurrency\": 0.04,\n\t\"memorySize\": 128,\n\t\"numOfCpus\": 250,\n\t\"cpuUnit\": \"VIRTUAL_CPU\",\n\t\"numOfNics\": 0,\n\t\"localStorageCount\": 0,\n\t\"localStorageSize\": 0,\n\t\"supportsCuda\": false,\n\t\"supportsSsd\": false,\n\t\"supports32Bit\": false,\n\t\"supports64Bit\": false,\n\t\"supportsHardwareProvision\": false,\n\t\"serviceCategory\": \"COMPUTE\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Instance Type Medium",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$/regions/$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$/instanceTypes",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7W95BXN6BO6Da4wjhYQHVmLOzwmQRfO4",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Instance Type Large",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"Large\",\n\t\"description\": null,\n\t\"type\": \"large\",\n\t\"cloudId\": \"22\",\n\t\"regionId\": \"22\",\n\t\"costPerHour\": 0.08,\n\t\"costPerHourPreferredCurrency\": 0.06,\n\t\"memorySize\": 256,\n\t\"numOfCpus\": 500,\n\t\"cpuUnit\": \"VIRTUAL_CPU\",\n\t\"numOfNics\": 0,\n\t\"localStorageCount\": 0,\n\t\"localStorageSize\": 0,\n\t\"supportsCuda\": false,\n\t\"supportsSsd\": false,\n\t\"supports32Bit\": false,\n\t\"supports64Bit\": false,\n\t\"supportsHardwareProvision\": false,\n\t\"serviceCategory\": \"COMPUTE\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Instance Type Large",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$/regions/$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$/instanceTypes",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7X8SF0ZIXS2EwgIt6KR4W9GY7TLAPzyn",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Get Cloud Account",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Get Cloud Account",
+          "relative_url": "cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$/accounts",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7X9OS7Z5RI1sdr0JDajFrNP7hT0mYMEA",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query - Get Account Id",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query - Get Account Id",
+          "input_json": "$activity.definition_activity_01A7X8SF0ZIXS2EwgIt6KR4W9GY7TLAPzyn.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "account id",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7XA8U2D4IK5RWu0s6WXXDAirBCp8FVxH",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Create Environment",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A7XBHIHL8N95aFpx0fulsMtDTxEKVoDvS$\",\n\t\"description\": \"\",\n\t\"defaultSettings\": \"\",\n\t\"owner\": 1,\n\t\"vendorName\": \"metsi\",\n\t\"requiresApproval\": false,\n\t\"associatedClouds\": [\n\t\t{\n\t\t\t\"regionId\": \"$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$\",\n\t\t\t\"regionName\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB$-default\",\n\t\t\t\"regionDisplayName\": \"default\",\n\t\t\t\"cloudFamily\": \"Kubernetes\",\n\t\t\t\"cloudId\": \"$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$\",\n\t\t\t\"cloudAccountId\": \"$activity.definition_activity_01A7X9OS7Z5RI1sdr0JDajFrNP7hT0mYMEA.output.jsonpath_queries.account id$\",\n\t\t\t\"cloudName\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB$\",\n\t\t\t\"cloudAccountName\": \"pauldj\",\n\t\t\t\"networkSettings\": [],\n\t\t\t\"defaultInstance\": {\n\t\t\t\t\"instanceTypeSelection\": \"ALL_INSTANCES\"\n\t\t\t},\n\t\t\t\"defaultSshKey\": {\n\t\t\t\t\"keyName\": null,\n\t\t\t\t\"keyText\": null,\n\t\t\t\t\"persistPrivateKey\": false,\n\t\t\t\t\"preference\": \"VISIBLE_UNLOCKED\"\n\t\t\t},\n\t\t\t\"basicSettings\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"preference\": \"VISIBLE_UNLOCKED\",\n\t\t\t\"defaultCloudSettings\": [],\n\t\t\t\"enableResourcePlacement\": false,\n\t\t\t\"enableResourceValidation\": false,\n\t\t\t\"resourcePlacementScript\": null,\n\t\t\t\"resourceValidationScript\": null,\n\t\t\t\"calloutPackage\": null,\n\t\t\t\"cloudAssociationDefaults\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"default\": true\n\t\t}\n\t]\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Create Environment",
+          "relative_url": "/cloudcenter-ccm-backend/api/v1/environments/",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
           }
         },
         "object_type": "definition_activity"
@@ -639,19 +699,6 @@
         "password": "*****",
         "user": "*****"
       }
-    }
-  },
-  "variables": {
-    "variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A": {
-      "unique_name": "variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A",
-      "properties": {
-        "value": "\n",
-        "scope": "global",
-        "name": "Carriage return",
-        "type": "datatype.string",
-        "is_required": false
-      },
-      "object_type": "variable"
     }
   },
   "subworkflows": [
@@ -832,17 +879,18 @@
         "object_type": "definition_workflow",
         "actions": [
           {
-            "unique_name": "definition_activity_01A64JXV17H4V0XUdRgdnPMkdo5aFYHhRHd",
+            "unique_name": "definition_activity_01A7Q1NO218BB46ox5JpNtZ1Sh6xvNIYvVJ",
             "name": "Execute Linux/Unix SSH Command",
-            "title": "Execute Linux/Unix SSH Command - create kubeconfig",
+            "title": "Execute Linux/Unix SSH Command - dashboard and svc account",
             "type": "terminal.ssh_command",
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
-              "command": "export PATH=~/.local/bin:$PATH\naws eks --region us-west-2 update-kubeconfig --name $workflow.definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6.input.variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y$",
+              "command": "export PATH=~/.local/bin:$PATH\naws eks --region us-west-2 update-kubeconfig --name $workflow.definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6.input.variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y$\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml\nkubectl apply -f eks-admin-service-account.yaml",
               "command_timeout": 60,
               "continue_on_failure": false,
-              "display_name": "Execute Linux/Unix SSH Command - create kubeconfig",
+              "description": "Install dashboard and create service account",
+              "display_name": "Execute Linux/Unix SSH Command - dashboard and svc account",
               "runtime_user": {
                 "override_target_runtime_user": false,
                 "target_default": true
@@ -858,9 +906,9 @@
             "object_type": "definition_activity"
           },
           {
-            "unique_name": "definition_activity_01A64KKASW6VW6WLCYTlqwQBNCmm22iRYaS",
+            "unique_name": "definition_activity_01A7Q4F66VBR00EANjwsXHLuikcFa1oOwPz",
             "name": "Execute Linux/Unix SSH Command",
-            "title": "Execute Linux/Unix SSH Command - get kubeconfig",
+            "title": "Execute Linux/Unix SSH Command - get token",
             "type": "terminal.ssh_command",
             "base_type": "activity",
             "properties": {
@@ -868,7 +916,7 @@
               "command": "export PATH=~/.local/bin:$PATH\nkubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}') | fgrep token: | awk '{print $2}'| head -n 1",
               "command_timeout": 60,
               "continue_on_failure": false,
-              "display_name": "Execute Linux/Unix SSH Command - get kubeconfig",
+              "display_name": "Execute Linux/Unix SSH Command - get token",
               "runtime_user": {
                 "override_target_runtime_user": false,
                 "target_default": true
@@ -896,7 +944,7 @@
               "variables_to_update": [
                 {
                   "variable_to_update": "$workflow.definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6.output.variable_workflow_01A64JFT3HIXQ4EL2BA0dgOSO1uSgFWwoat$",
-                  "variable_value_new": "$activity.definition_activity_01A64KKASW6VW6WLCYTlqwQBNCmm22iRYaS.output.response_body$"
+                  "variable_value_new": "$activity.definition_activity_01A7Q4F66VBR00EANjwsXHLuikcFa1oOwPz.output.response_body$"
                 }
               ]
             },
