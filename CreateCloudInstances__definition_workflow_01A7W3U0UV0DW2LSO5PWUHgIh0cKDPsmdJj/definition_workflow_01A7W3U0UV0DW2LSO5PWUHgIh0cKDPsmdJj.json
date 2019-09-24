@@ -1,0 +1,109 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01A7W3U0UV0DW2LSO5PWUHgIh0cKDPsmdJj",
+    "name": "Create Instance Types",
+    "title": "Create Instance Types",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Create Instance Types",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01A7W3YH90BJU45CGmS62vYkWQ0RwNJDkYX",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - instance small",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"Small\",\n\t\"description\": null,\n\t\"type\": \"small\",\n\t\"cloudId\": \"22\",\n\t\"regionId\": \"22\",\n\t\"costPerHour\": 0.02,\n\t\"costPerHourPreferredCurrency\": 0.02,\n\t\"memorySize\": 64,\n\t\"numOfCpus\": 100,\n\t\"cpuUnit\": \"VIRTUAL_CPU\",\n\t\"numOfNics\": 0,\n\t\"localStorageCount\": 0,\n\t\"localStorageSize\": 0,\n\t\"supportsCuda\": false,\n\t\"supportsSsd\": false,\n\t\"supports32Bit\": false,\n\t\"supports64Bit\": false,\n\t\"supportsHardwareProvision\": false,\n\t\"serviceCategory\": \"COMPUTE\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - instance small",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/22/regions/22/instanceTypes",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7W518QGCFB3ph8WYnngstqqokwFOkryj",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - instance medium",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"Medium\",\n\t\"description\": null,\n\t\"type\": \"medium\",\n\t\"cloudId\": \"22\",\n\t\"regionId\": \"22\",\n\t\"costPerHour\": 0.05,\n\t\"costPerHourPreferredCurrency\": 0.04,\n\t\"memorySize\": 128,\n\t\"numOfCpus\": 250,\n\t\"cpuUnit\": \"VIRTUAL_CPU\",\n\t\"numOfNics\": 0,\n\t\"localStorageCount\": 0,\n\t\"localStorageSize\": 0,\n\t\"supportsCuda\": false,\n\t\"supportsSsd\": false,\n\t\"supports32Bit\": false,\n\t\"supports64Bit\": false,\n\t\"supportsHardwareProvision\": false,\n\t\"serviceCategory\": \"COMPUTE\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - instance medium",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/22/regions/22/instanceTypes",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01A7W5VISHT9L70FM7grrVGAzYQhzoSAwiM",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - instance large",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"Large\",\n\t\"description\": null,\n\t\"type\": \"large\",\n\t\"cloudId\": \"22\",\n\t\"regionId\": \"22\",\n\t\"costPerHour\": 0.08,\n\t\"costPerHourPreferredCurrency\": 0.06,\n\t\"memorySize\": 256,\n\t\"numOfCpus\": 500,\n\t\"cpuUnit\": \"VIRTUAL_CPU\",\n\t\"numOfNics\": 0,\n\t\"localStorageCount\": 0,\n\t\"localStorageSize\": 0,\n\t\"supportsCuda\": false,\n\t\"supportsSsd\": false,\n\t\"supports32Bit\": false,\n\t\"supports64Bit\": false,\n\t\"supportsHardwareProvision\": false,\n\t\"serviceCategory\": \"COMPUTE\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - instance large",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/22/regions/22/instanceTypes",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
