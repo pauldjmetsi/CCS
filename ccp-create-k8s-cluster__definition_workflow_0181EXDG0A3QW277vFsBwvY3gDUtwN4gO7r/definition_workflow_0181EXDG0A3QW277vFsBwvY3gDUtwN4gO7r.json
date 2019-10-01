@@ -11,19 +11,9 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "k8s cluster name",
-          "type": "datatype.string"
-        },
-        "unique_name": "variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
           "name": "wm cloud name",
-          "type": "datatype.string"
+          "type": "datatype.string",
+          "is_required": false
         },
         "unique_name": "variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL",
         "object_type": "variable_workflow"
@@ -34,9 +24,34 @@
           "value": "",
           "scope": "local",
           "name": "kube token",
-          "type": "datatype.string"
+          "type": "datatype.string",
+          "is_required": false
         },
         "unique_name": "variable_workflow_0181M5SGRV1PU1JJxb7fIQUffHqSYT2poYW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "wm environment name",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AH5HTZAM03F2pkfNLPw3alZPR8PWTChc0",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "k8s cluster name",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC",
         "object_type": "variable_workflow"
       }
     ],
@@ -47,6 +62,11 @@
       "delete_workflow_instance": false,
       "display_name": "CCP - Create K8s Cluster",
       "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
       "target": {
         "execute_on_target_group": false,
         "execute_on_workflow_target": false,
@@ -66,6 +86,7 @@
           "continue_on_failure": false,
           "display_name": "CCP - Get Token",
           "input": {},
+          "runtime_user": {},
           "target": {
             "no_target": true,
             "override_workflow_target": false
@@ -83,7 +104,7 @@
         "properties": {
           "action_timeout": 900,
           "allow_auto_redirect": true,
-          "body": "{\r\n\t\"provider_client_config_uuid\": \"d0377334-1516-441e-80e9-12a72c960aab\",\r\n\t\"type\": 1,\r\n\t\"cluster\": \"Cluster\",\r\n\t\"name\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC$\",\r\n\t\"description\": \"\",\r\n\t\"workers\": 1,\r\n\t\"masters\": 1,\r\n\t\"datacenter\": \"Datacenter\",\r\n\t\"datastore\": \"vsanDatastore\",\r\n\t\"networks\": [\"V108_CCP01_PG\"],\r\n\t\"ingress_vip_pool_id\": \"fc0ef3a0-bc5d-4b94-8d7a-a4b9f3079697\",\r\n\t\"load_balancer_ip_num\": 1,\r\n\t\"resource_pool\": \"Cluster/Resources/CCP\",\r\n\t\"ssh_user\": \"ccpuser\",\r\n\t\"ssh_key\": \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7ePHODw3f97S52qNz3H+VMvkWjF3gwZakarDT/zQog mikes@ubuntu\",\r\n\t\"deployer_type\": \"kubeadm\",\r\n\t\"kubernetes_version\": \"1.13.5\",\r\n\t\"deployer\": {\r\n\t\t\"provider_type\": \"vsphere\",\r\n\t\t\"provider\": {\r\n\t\t\t\"vsphere_datacenter\": \"Datacenter\",\r\n\t\t\t\"vsphere_datastore\": \"vsanDatastore\",\r\n\t\t\t\"vsphere_client_config_uuid\": \"d0377334-1516-441e-80e9-12a72c960aab\",\r\n\t\t\t\"vsphere_working_dir\": \"\\/DataCenter\\/vm\"\r\n\t\t}\r\n\t},\r\n\t\"master_node_pool\": {\r\n\t\t\t\"template\": \"CCP/ccp-tenant-image-1.13.5-ubuntu18-4.1.0\",\r\n\t\t\t\"vcpus\": 2,\r\n\t\t\t\"memory\": 4096\r\n\t\t},\r\n\t\"worker_node_pool\": {\r\n\t\t\t\"template\": \"CCP/ccp-tenant-image-1.13.5-ubuntu18-4.1.0\",\r\n\t\t\t\"vcpus\": 2,\r\n\t\t\t\"memory\": 4096\r\n\t}\r\n}",
+          "body": "{\n\t\"provider_client_config_uuid\": \"4dca608e-2e57-4983-a871-5c1e2b917227\",\n\t\"type\": 1,\n\t\"cluster\": \"Cluster\",\n\t\"name\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC$\",\n\t\"description\": \"\",\n\t\"workers\": 1,\n\t\"masters\": 1,\n\t\"datacenter\": \"Datacenter\",\n\t\"datastore\": \"vsanDatastore\",\n\t\"networks\": [\"V108_CCP01_PG\"],\n\t\"ingress_vip_pool_id\": \"60836a77-9e69-44b3-b768-00c2e2893373\",\n\t\"load_balancer_ip_num\": 1,\n\t\"resource_pool\": \"Cluster/Resources/CCP\",\n\t\"ssh_user\": \"ccpuser\",\n\t\"ssh_key\": \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7ePHODw3f97S52qNz3H+VMvkWjF3gwZakarDT/zQog mikes@ubuntu\",\n\t\"deployer_type\": \"kubeadm\",\n\t\"kubernetes_version\": \"1.13.5\",\n\t\"deployer\": {\n\t\t\"provider_type\": \"vsphere\",\n\t\t\"provider\": {\n\t\t\t\"vsphere_datacenter\": \"Datacenter\",\n\t\t\t\"vsphere_datastore\": \"vsanDatastore\",\n\t\t\t\"vsphere_client_config_uuid\": \"4dca608e-2e57-4983-a871-5c1e2b917227\",\n\t\t\t\"vsphere_working_dir\": \"\\/DataCenter\\/vm\"\n\t\t}\n\t},\n\t\"master_node_pool\": {\n\t\t\t\"template\": \"ccp-tenant-image-1.13.5-ubuntu18-4.2.0\",\n\t\t\t\"vcpus\": 2,\n\t\t\t\"memory\": 4096\n\t\t},\n\t\"worker_node_pool\": {\n\t\t\t\"template\": \"ccp-tenant-image-1.13.5-ubuntu18-4.2.0\",\n\t\t\t\"vcpus\": 2,\n\t\t\t\"memory\": 4096\n\t}\n}",
           "content_type": "application/json",
           "continue_on_error_status_code": false,
           "continue_on_failure": false,
@@ -97,6 +118,7 @@
             "override_target_runtime_user": false,
             "target_default": true
           },
+          "skip_execution": false,
           "target": {
             "override_workflow_target": true,
             "override_workflow_target_group_criteria": false,
@@ -128,6 +150,7 @@
             "override_target_runtime_user": false,
             "target_default": true
           },
+          "skip_execution": false,
           "target": {
             "override_workflow_target": true,
             "override_workflow_target_group_criteria": false,
@@ -161,7 +184,8 @@
               "jsonpath_query_type": "string",
               "zdate_type_format": ""
             }
-          ]
+          ],
+          "skip_execution": false
         },
         "object_type": "definition_activity"
       },
@@ -187,6 +211,7 @@
             "override_target_runtime_user": false,
             "target_default": true
           },
+          "skip_execution": false,
           "target": {
             "override_workflow_target": true,
             "override_workflow_target_group_criteria": false,
@@ -210,7 +235,8 @@
           ],
           "continue_on_failure": false,
           "display_name": "Split String",
-          "input_string": "$activity.definition_activity_0181JUFT6TN3O0FeaTiipKp9veATZMXqsOo.output.response_body$"
+          "input_string": "$activity.definition_activity_0181JUFT6TN3O0FeaTiipKp9veATZMXqsOo.output.response_body$",
+          "skip_execution": false
         },
         "object_type": "definition_activity"
       },
@@ -230,10 +256,11 @@
               "replacement_string": ""
             },
             {
-              "replaced_string": "$global.variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A.global.variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A$",
+              "replaced_string": "$global.variable_01ABAGEYTU1D73FHRxcVyc7T1RK0yyndu8g.global.variable_01ABAGEYTU1D73FHRxcVyc7T1RK0yyndu8g$",
               "replacement_string": ""
             }
-          ]
+          ],
+          "skip_execution": false
         },
         "object_type": "definition_activity"
       },
@@ -246,6 +273,7 @@
         "properties": {
           "continue_on_failure": false,
           "display_name": "Set Variables - kube token",
+          "skip_execution": false,
           "variables_to_update": [
             {
               "variable_to_update": "$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.local.variable_workflow_0181M5SGRV1PU1JJxb7fIQUffHqSYT2poYW$",
@@ -272,6 +300,7 @@
             "override_target_runtime_user": false,
             "target_default": true
           },
+          "skip_execution": false,
           "target": {
             "override_workflow_target": true,
             "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
@@ -297,7 +326,8 @@
               "jsonpath_query_type": "string",
               "zdate_type_format": ""
             }
-          ]
+          ],
+          "skip_execution": false
         },
         "object_type": "definition_activity"
       },
@@ -310,7 +340,8 @@
         "properties": {
           "continue_on_failure": false,
           "display_name": "Sleep",
-          "sleep_interval": 120
+          "skip_execution": false,
+          "sleep_interval": 240
         },
         "object_type": "definition_activity"
       },
@@ -331,6 +362,199 @@
             "override_target_runtime_user": false,
             "target_default": true
           },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AH59Z84X5P30Lv4Uup27Rcw2jLhvJmcq2",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Get Cloud Info",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Get Cloud Info",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$/regions/",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query - Region Id",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query - Region Id",
+          "input_json": "$activity.definition_activity_01AH59Z84X5P30Lv4Uup27Rcw2jLhvJmcq2.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.cloudRegions[:1].id",
+              "jsonpath_query_name": "regionid",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AH5BOKANQK67mSuSHWmgELG3AUFV5Dywy",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Instance Type Small",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"Small\",\n\t\"description\": null,\n\t\"type\": \"small\",\n\t\"cloudId\": \"$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$\",\n\t\"regionId\": \"$activity.definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY.output.jsonpath_queries.regionid$\",\n\t\"costPerHour\": 0.02,\n\t\"costPerHourPreferredCurrency\": 0.02,\n\t\"memorySize\": 64,\n\t\"numOfCpus\": 100,\n\t\"cpuUnit\": \"VIRTUAL_CPU\",\n\t\"numOfNics\": 0,\n\t\"localStorageCount\": 0,\n\t\"localStorageSize\": 0,\n\t\"supportsCuda\": false,\n\t\"supportsSsd\": false,\n\t\"supports32Bit\": false,\n\t\"supports64Bit\": false,\n\t\"supportsHardwareProvision\": false,\n\t\"serviceCategory\": \"COMPUTE\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Instance Type Small",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$/regions/$activity.definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY.output.jsonpath_queries.regionid$/instanceTypes",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AH5DKUCEC2A1zYh0R7EiYr6yp5CkYqj7u",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Instance Type Medium",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"Medium\",\n\t\"description\": null,\n\t\"type\": \"medium\",\n\t\"cloudId\": \"$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$\",\n\t\"regionId\": \"$activity.definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY.output.jsonpath_queries.regionid$\",\n\t\"costPerHour\": 0.05,\n\t\"costPerHourPreferredCurrency\": 0.04,\n\t\"memorySize\": 128,\n\t\"numOfCpus\": 250,\n\t\"cpuUnit\": \"VIRTUAL_CPU\",\n\t\"numOfNics\": 0,\n\t\"localStorageCount\": 0,\n\t\"localStorageSize\": 0,\n\t\"supportsCuda\": false,\n\t\"supportsSsd\": false,\n\t\"supports32Bit\": false,\n\t\"supports64Bit\": false,\n\t\"supportsHardwareProvision\": false,\n\t\"serviceCategory\": \"COMPUTE\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Instance Type Medium",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$/regions/$activity.definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY.output.jsonpath_queries.regionid$/instanceTypes",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AH5E8SRCWNF4xoYQk6Q8KmWrHpq39AoGi",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Instance Type Large",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"Large\",\n\t\"description\": null,\n\t\"type\": \"large\",\n\t\"cloudId\": \"$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$\",\n\t\"regionId\": \"$activity.definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY.output.jsonpath_queries.regionid$\",\n\t\"costPerHour\": 0.08,\n\t\"costPerHourPreferredCurrency\": 0.06,\n\t\"memorySize\": 256,\n\t\"numOfCpus\": 500,\n\t\"cpuUnit\": \"VIRTUAL_CPU\",\n\t\"numOfNics\": 0,\n\t\"localStorageCount\": 0,\n\t\"localStorageSize\": 0,\n\t\"supportsCuda\": false,\n\t\"supportsSsd\": false,\n\t\"supports32Bit\": false,\n\t\"supports64Bit\": false,\n\t\"supportsHardwareProvision\": false,\n\t\"serviceCategory\": \"COMPUTE\"\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Instance Type Large",
+          "relative_url": "/cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$/regions/$activity.definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY.output.jsonpath_queries.regionid$/instanceTypes",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AH5F3YD8XM56eAxbIEzu3sf3fPDjJAx3U",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Get Cloud Account",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Get Cloud Account",
+          "relative_url": "cloudcenter-cloud-setup/api/v1/tenants/1/clouds/$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$/accounts",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AH5GC4IP2G17gC7jF2eWCJmdaDu81Ywwc",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query - Get Account Id",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query - Get Account Id",
+          "input_json": "$activity.definition_activity_01AH5F3YD8XM56eAxbIEzu3sf3fPDjJAx3U.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "account id",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AH5GUVMI8LU2L6cAOwJAUM4tSnmtAwCmr",
+        "name": "Generic CCS API Request",
+        "title": "Generic CCS API Request - Create Environment",
+        "type": "ccs.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_body": "{\n\t\"name\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_01AH5HTZAM03F2pkfNLPw3alZPR8PWTChc0$\",\n\t\"description\": \"\",\n\t\"defaultSettings\": \"\",\n\t\"owner\": 1,\n\t\"vendorName\": \"metsi\",\n\t\"requiresApproval\": false,\n\t\"associatedClouds\": [\n\t\t{\n\t\t\t\"regionId\": \"$activity.definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY.output.jsonpath_queries.regionid$\",\n\t\t\t\"regionName\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL$-default\",\n\t\t\t\"regionDisplayName\": \"default\",\n\t\t\t\"cloudFamily\": \"Kubernetes\",\n\t\t\t\"cloudId\": \"$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$\",\n\t\t\t\"cloudAccountId\": \"$activity.definition_activity_01AH5GC4IP2G17gC7jF2eWCJmdaDu81Ywwc.output.jsonpath_queries.account id$\",\n\t\t\t\"cloudName\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL$\",\n\t\t\t\"cloudAccountName\": \"pauldj\",\n\t\t\t\"networkSettings\": [],\n\t\t\t\"defaultInstance\": {\n\t\t\t\t\"instanceTypeSelection\": \"ALL_INSTANCES\"\n\t\t\t},\n\t\t\t\"defaultSshKey\": {\n\t\t\t\t\"keyName\": null,\n\t\t\t\t\"keyText\": null,\n\t\t\t\t\"persistPrivateKey\": false,\n\t\t\t\t\"preference\": \"VISIBLE_UNLOCKED\"\n\t\t\t},\n\t\t\t\"basicSettings\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"preference\": \"VISIBLE_UNLOCKED\",\n\t\t\t\"defaultCloudSettings\": [],\n\t\t\t\"enableResourcePlacement\": false,\n\t\t\t\"enableResourceValidation\": false,\n\t\t\t\"resourcePlacementScript\": null,\n\t\t\t\"resourceValidationScript\": null,\n\t\t\t\"calloutPackage\": null,\n\t\t\t\"cloudAssociationDefaults\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"default\": true\n\t\t}\n\t]\n}",
+          "api_call_method": "POST",
+          "continue_on_failure": false,
+          "display_name": "Generic CCS API Request - Create Environment",
+          "relative_url": "/cloudcenter-ccm-backend/api/v1/environments/",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
           "target": {
             "override_workflow_target": true,
             "target_id": "definition_target_016K3ZWK8QGW50gzw2hmwiUndbcNg9AJ8sf"
@@ -352,10 +576,10 @@
       "base_type": "target",
       "object_type": "definition_target",
       "properties": {
-        "default_runtime_user_id": "definition_runtime_user_016J2UBE5MNC13AwWHPyfO0IwLmZ2BQXv4i",
+        "default_runtime_user_id": "definition_runtime_user_01AB9S0KCYMU41LbIgVW9R3ENmhH4v3YIXY",
         "display_name": "CCS Admin",
-        "host": "172.21.8.94",
-        "port": 17565,
+        "host": "172.21.8.91",
+        "port": 41697,
         "protocol": "https"
       }
     },
@@ -371,7 +595,7 @@
         "description": "Cisco Container Platform (MPC)",
         "disable_certificate_validation": true,
         "display_name": "Cisco Container Platform (MPC)",
-        "host": "172.21.9.15",
+        "host": "172.21.9.2",
         "no_runtime_user": false,
         "port": 443,
         "protocol": "https"
@@ -379,8 +603,22 @@
     }
   },
   "runtime_users": {
-    "definition_runtime_user_016J2UBE5MNC13AwWHPyfO0IwLmZ2BQXv4i": {
-      "unique_name": "definition_runtime_user_016J2UBE5MNC13AwWHPyfO0IwLmZ2BQXv4i",
+    "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a": {
+      "unique_name": "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a",
+      "name": "CCP Admin",
+      "title": "CCP Admin",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "auth_option": "*****",
+        "basic_password": "*****",
+        "basic_username": "*****",
+        "display_name": "CCP Admin"
+      }
+    },
+    "definition_runtime_user_01AB9S0KCYMU41LbIgVW9R3ENmhH4v3YIXY": {
+      "unique_name": "definition_runtime_user_01AB9S0KCYMU41LbIgVW9R3ENmhH4v3YIXY",
       "name": "CCS Admin",
       "title": "CCS Admin",
       "type": "runtime_user.ccs_explicit_user",
@@ -392,29 +630,17 @@
         "tenant_id": "*****",
         "username": "*****"
       }
-    },
-    "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a": {
-      "unique_name": "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a",
-      "name": "CCP Admin",
-      "title": "CCP Admin",
-      "type": "runtime_user.web-service_basic_credentials",
-      "base_type": "runtime_user",
-      "object_type": "definition_runtime_user",
-      "properties": {
-        "basic_password": "*****",
-        "basic_username": "*****",
-        "display_name": "CCP Admin"
-      }
     }
   },
   "variables": {
-    "variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A": {
-      "unique_name": "variable_0181OA2KKOA3E3pEkVNPWb7QAl2oUq2UZ2A",
+    "variable_01ABAGEYTU1D73FHRxcVyc7T1RK0yyndu8g": {
+      "unique_name": "variable_01ABAGEYTU1D73FHRxcVyc7T1RK0yyndu8g",
       "properties": {
         "value": "\n",
         "scope": "global",
-        "name": "Carriage return",
-        "type": "datatype.string"
+        "name": "CarriageReturn",
+        "type": "datatype.string",
+        "is_required": false
       },
       "object_type": "variable"
     }
@@ -434,7 +660,8 @@
               "value": "",
               "scope": "output",
               "name": "CCS Cookie",
-              "type": "datatype.string"
+              "type": "datatype.string",
+              "is_required": false
             },
             "unique_name": "variable_workflow_0181H6M2CAQSB6AQ0GdL9lmnQZ0SHGoqYyB",
             "object_type": "variable_workflow"
@@ -481,6 +708,7 @@
                 "override_target_runtime_user": false,
                 "target_default": true
               },
+              "skip_execution": false,
               "target": {
                 "override_workflow_target": true,
                 "override_workflow_target_group_criteria": false,
@@ -499,6 +727,7 @@
             "properties": {
               "continue_on_failure": false,
               "display_name": "Set Variables - Cookie",
+              "skip_execution": false,
               "variables_to_update": [
                 {
                   "variable_to_update": "$workflow.definition_workflow_0181FRRMQEJWJ0teGQN7S86m66DG2aPV7co.output.variable_workflow_0181H6M2CAQSB6AQ0GdL9lmnQZ0SHGoqYyB$",
