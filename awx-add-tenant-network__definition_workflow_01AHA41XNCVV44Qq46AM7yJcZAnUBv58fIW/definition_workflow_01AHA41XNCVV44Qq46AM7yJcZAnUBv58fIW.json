@@ -11,59 +11,11 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "vlanid_1",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01AHA7A1H74V45rjdwq7JlXUuFFVdqoU8tI",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "vlanid_2",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01AHA7GA565390NEtD83qiyK9M6S9i10dt9",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "vlanid_3",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01AHA7LLX58XZ6i4QAiW0RUKhEaCZ1xeRbl",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "tenant_1",
+          "name": "tenants",
           "type": "datatype.string",
           "is_required": false
         },
         "unique_name": "variable_workflow_01AHA5H9Z57B67iA2etl7cWbmPMvZjW1f3P",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "tenant_2",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01AHA5N6XE3DZ3Gk2c8QsZ4X1vOlKCDzmnD",
         "object_type": "variable_workflow"
       },
       {
@@ -88,6 +40,18 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01AHA5YBPH4BY4BdbA1ir0NVDPvtcl5qjag",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "vlanids",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AHA7A1H74V45rjdwq7JlXUuFFVdqoU8tI",
         "object_type": "variable_workflow"
       }
     ],
@@ -120,7 +84,7 @@
         "properties": {
           "action_timeout": 180,
           "allow_auto_redirect": true,
-          "body": "{\n\t\"extra_vars\": {\n\t\t\"tenant\": [\"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA5H9Z57B67iA2etl7cWbmPMvZjW1f3P$\", \"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA5N6XE3DZ3Gk2c8QsZ4X1vOlKCDzmnD$\"],\n\t\t\"vlanid\": [\"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA7A1H74V45rjdwq7JlXUuFFVdqoU8tI$\",\"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA7GA565390NEtD83qiyK9M6S9i10dt9$\",\"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA7LLX58XZ6i4QAiW0RUKhEaCZ1xeRbl$\"],\n\t  \"state\": \"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA5T5TNMF60uUF50IFPEUBZd1uKJ8zDq$\",\n\t\t\"apics\": \"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA5YBPH4BY4BdbA1ir0NVDPvtcl5qjag$\"\n\t}\n}",
+          "body": "{\n\t\"extra_vars\": {\n\t\t\"tenant\": [\"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA5H9Z57B67iA2etl7cWbmPMvZjW1f3P$\"],\n\t\t\"vlanid\": [\"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA7A1H74V45rjdwq7JlXUuFFVdqoU8tI$\"],\n\t  \"state\": \"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA5T5TNMF60uUF50IFPEUBZd1uKJ8zDq$\",\n\t\t\"apics\": \"$workflow.definition_workflow_01AHA41XNCVV44Qq46AM7yJcZAnUBv58fIW.input.variable_workflow_01AHA5YBPH4BY4BdbA1ir0NVDPvtcl5qjag$\"\n\t}\n}",
           "content_type": "application/json",
           "continue_on_error_status_code": false,
           "continue_on_failure": false,
