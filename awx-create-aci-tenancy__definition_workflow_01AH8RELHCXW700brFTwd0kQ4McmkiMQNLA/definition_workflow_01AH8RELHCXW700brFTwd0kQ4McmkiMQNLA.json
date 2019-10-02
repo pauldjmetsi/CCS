@@ -11,35 +11,11 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "apics",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01AH9GS5HUJOY5n0ChoclotYsxJUF77RUjS",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "tenant_1",
+          "name": "tenants",
           "type": "datatype.string",
           "is_required": false
         },
         "unique_name": "variable_workflow_01AH8SY8T8Y2P2Z3ofU2bBOb4PqR7I0QFfw",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "tenant_2",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01AH8T3IQI0TP0ymdWFldg18leFJ0Dd9lwX",
         "object_type": "variable_workflow"
       },
       {
@@ -52,6 +28,18 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01AH9GLN0A3KU6cX99JyUlB3ELpevywWwt2",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "apics",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AH9GS5HUJOY5n0ChoclotYsxJUF77RUjS",
         "object_type": "variable_workflow"
       }
     ],
@@ -84,7 +72,7 @@
         "properties": {
           "action_timeout": 180,
           "allow_auto_redirect": true,
-          "body": "{\n\t\"extra_vars\": {\n\t\t\"tenant\": [\"$workflow.definition_workflow_01AH8RELHCXW700brFTwd0kQ4McmkiMQNLA.input.variable_workflow_01AH8SY8T8Y2P2Z3ofU2bBOb4PqR7I0QFfw$\", \"$workflow.definition_workflow_01AH8RELHCXW700brFTwd0kQ4McmkiMQNLA.input.variable_workflow_01AH8T3IQI0TP0ymdWFldg18leFJ0Dd9lwX$\"],\n\t  \"state\": \"$workflow.definition_workflow_01AH8RELHCXW700brFTwd0kQ4McmkiMQNLA.input.variable_workflow_01AH9GLN0A3KU6cX99JyUlB3ELpevywWwt2$\",\n\t\t\"apics\": \"$workflow.definition_workflow_01AH8RELHCXW700brFTwd0kQ4McmkiMQNLA.input.variable_workflow_01AH9GS5HUJOY5n0ChoclotYsxJUF77RUjS$\"\n\t}\n}",
+          "body": "{\n\t\"extra_vars\": {\n\t\t\"tenant\": [\"$workflow.definition_workflow_01AH8RELHCXW700brFTwd0kQ4McmkiMQNLA.input.variable_workflow_01AH8SY8T8Y2P2Z3ofU2bBOb4PqR7I0QFfw$\"],\n\t  \"state\": \"$workflow.definition_workflow_01AH8RELHCXW700brFTwd0kQ4McmkiMQNLA.input.variable_workflow_01AH9GLN0A3KU6cX99JyUlB3ELpevywWwt2$\",\n\t\t\"apics\": \"$workflow.definition_workflow_01AH8RELHCXW700brFTwd0kQ4McmkiMQNLA.input.variable_workflow_01AH9GS5HUJOY5n0ChoclotYsxJUF77RUjS$\"\n\t}\n}",
           "content_type": "application/json",
           "continue_on_error_status_code": false,
           "continue_on_failure": false,
