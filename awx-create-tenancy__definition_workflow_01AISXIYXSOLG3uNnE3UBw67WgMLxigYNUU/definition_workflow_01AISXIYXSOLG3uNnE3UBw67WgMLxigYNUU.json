@@ -1,0 +1,334 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01AISXIYXSOLG3uNnE3UBw67WgMLxigYNUU",
+    "name": "WM - Create AWX Tenancy",
+    "title": "WM - Create AWX Tenancy",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "CC_RUN_ID",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AISY1YIACZM5qGGzvkboRdolnz2ocJigo",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "depends_on": "CC",
+      "display_name": "WM - Create AWX Tenancy",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01AISXOGISHWB6YpJxpwQiKBMEgrWJMEftN",
+        "name": "Get Workload Manager Context",
+        "title": "Get Workload Manager Context",
+        "type": "ccs.get_cloud_context",
+        "base_type": "activity",
+        "properties": {
+          "action_id": "59",
+          "action_timeout": 180,
+          "cc_configuration": {
+            "execute_action": "external",
+            "reboot_vm": false,
+            "resource_mappings": [
+              {
+                "applied_to": {
+                  "app_ids": [
+                    {
+                      "id": "ALL",
+                      "name": "All"
+                    }
+                  ]
+                },
+                "resource_type": "app_profile",
+                "resource_type_meta_info": {
+                  "app_profile": {
+                    "app_ids": "All"
+                  }
+                }
+              }
+            ],
+            "sync_vm": false,
+            "wf_availability_type": "lifecycle"
+          },
+          "cc_run_id": "$workflow.definition_workflow_01AISXIYXSOLG3uNnE3UBw67WgMLxigYNUU.input.variable_workflow_01AISY1YIACZM5qGGzvkboRdolnz2ocJigo$",
+          "continue_on_failure": false,
+          "display_name": "Get Workload Manager Context",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AITJKWDLKMC6lkQIEVnr5x9OuxoR3WcVT",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query",
+          "input_json": "$activity.definition_activity_01AISXOGISHWB6YpJxpwQiKBMEgrWJMEftN.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.parameters.globalParams[?(@.name=='tenants')].value",
+              "jsonpath_query_name": "tenants",
+              "jsonpath_query_type": "string"
+            },
+            {
+              "jsonpath_query": "$.parameters.globalParams[?(@.name=='state')].value",
+              "jsonpath_query_name": "state",
+              "jsonpath_query_type": "string"
+            },
+            {
+              "jsonpath_query": "$.parameters.globalParams[?(@.name=='apics')].value",
+              "jsonpath_query_name": "apics",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AITLJ231ZDN6ijhpMDb6QQXBmGYSHizIH",
+        "name": "Replace String",
+        "title": "Replace String - tenants",
+        "type": "core.replacestring",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Replace String - tenants",
+          "input_string": "$activity.definition_activity_01AITJKWDLKMC6lkQIEVnr5x9OuxoR3WcVT.output.jsonpath_queries.tenants$",
+          "replace_list": [
+            {
+              "replaced_string": ",",
+              "replacement_string": "\",\""
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AITPKWXYQRU02TN84YAxEa3kAmwEUpfHz",
+        "name": "AWX - Create ACI Tenancy",
+        "title": "AWX - Create ACI Tenancy",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "AWX - Create ACI Tenancy",
+          "input": {
+            "variable_workflow_01AISUWALK3F33xFnTjwfIXe9WyFDXzwBAG": "$activity.definition_activity_01AITLJ231ZDN6ijhpMDb6QQXBmGYSHizIH.output.result_string$",
+            "variable_workflow_01AISV4GRWGS92oqDpkSuzqNF079WAan0b0": "$activity.definition_activity_01AITJKWDLKMC6lkQIEVnr5x9OuxoR3WcVT.output.jsonpath_queries.state$",
+            "variable_workflow_01AISV99KEXNF3lwlnggtAt13PNjcvypaq9": "$activity.definition_activity_01AITJKWDLKMC6lkQIEVnr5x9OuxoR3WcVT.output.jsonpath_queries.apics$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01AIST4J8FPMN7P2TvFO6KhcDdHcXYfIIXN"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01AH9I7CF4U513HKxE2C7F5tRBHpDzuGYlo",
+      "category_01AH9ISOYIZ733sm3qMo1FcaAq5lTSYzVzW"
+    ]
+  },
+  "categories": {
+    "category_01AH9I7CF4U513HKxE2C7F5tRBHpDzuGYlo": {
+      "unique_name": "category_01AH9I7CF4U513HKxE2C7F5tRBHpDzuGYlo",
+      "name": "AWX",
+      "title": "AWX",
+      "type": "basic.category",
+      "base_type": "category",
+      "description": "AWX Tower workflows",
+      "category_type": "custom",
+      "object_type": "category"
+    },
+    "category_01AH9ISOYIZ733sm3qMo1FcaAq5lTSYzVzW": {
+      "unique_name": "category_01AH9ISOYIZ733sm3qMo1FcaAq5lTSYzVzW",
+      "name": "WM Calls",
+      "title": "WM Calls",
+      "type": "basic.category",
+      "base_type": "category",
+      "description": "Workflows that can be called from Workload Manager",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "targets": {
+    "definition_target_01AH8R3UFR93S5xjh2c4xxrxpVjZLc8g8mN": {
+      "unique_name": "definition_target_01AH8R3UFR93S5xjh2c4xxrxpVjZLc8g8mN",
+      "name": "AWX Tower",
+      "title": "AWX Tower",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01AH8QCA4CW8V6HrFXHjaquJTfTKjbCq37f",
+        "description": "AWX Tower IP 172.20.1.70",
+        "disable_certificate_validation": false,
+        "display_name": "AWX Tower",
+        "host": "172.20.1.70",
+        "no_runtime_user": false,
+        "port": 80,
+        "protocol": "http"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01AH8QCA4CW8V6HrFXHjaquJTfTKjbCq37f": {
+      "unique_name": "definition_runtime_user_01AH8QCA4CW8V6HrFXHjaquJTfTKjbCq37f",
+      "name": "AWX network-sa",
+      "title": "AWX network-sa",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "auth_option": "*****",
+        "basic_password": "*****",
+        "basic_username": "*****",
+        "description": "AWS account network-sa",
+        "display_name": "AWX network-sa"
+      }
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01AIST4J8FPMN7P2TvFO6KhcDdHcXYfIIXN",
+        "name": "AWX - Create ACI Tenancy",
+        "title": "AWX - Create ACI Tenancy",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "apics",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01AISV99KEXNF3lwlnggtAt13PNjcvypaq9",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "tenants",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01AISUWALK3F33xFnTjwfIXe9WyFDXzwBAG",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "state",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01AISV4GRWGS92oqDpkSuzqNF079WAan0b0",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "AWX - Create ACI Tenancy",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01AISTJQYB3BW2ebOprz8i2fN2WH4Cm47l6",
+            "name": "HTTP Request",
+            "title": "HTTP Request",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "body": "{\n\t\"extra_vars\": {\n\t\t\"tenant\": [\"$workflow.definition_workflow_01AIST4J8FPMN7P2TvFO6KhcDdHcXYfIIXN.input.variable_workflow_01AISUWALK3F33xFnTjwfIXe9WyFDXzwBAG$\"],\n\t\t\"state\": \"$workflow.definition_workflow_01AIST4J8FPMN7P2TvFO6KhcDdHcXYfIIXN.input.variable_workflow_01AISV4GRWGS92oqDpkSuzqNF079WAan0b0$\",\n\t\t\"apics\": \"$workflow.definition_workflow_01AIST4J8FPMN7P2TvFO6KhcDdHcXYfIIXN.input.variable_workflow_01AISV99KEXNF3lwlnggtAt13PNjcvypaq9$\"\n\t}\n}",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "HTTP Request",
+              "method": "POST",
+              "relative_url": "api/v2/job_templates/Create ACI Tenancy/launch/",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01AH8R3UFR93S5xjh2c4xxrxpVjZLc8g8mN"
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_01AH9I7CF4U513HKxE2C7F5tRBHpDzuGYlo"
+        ]
+      }
+    }
+  ]
+}
