@@ -11,6 +11,18 @@
         "properties": {
           "value": "",
           "scope": "input",
+          "name": "k8s cluster name",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
           "name": "wm cloud name",
           "type": "datatype.string",
           "is_required": false
@@ -40,18 +52,6 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01AH5HTZAM03F2pkfNLPw3alZPR8PWTChc0",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "k8s cluster name",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_0181MLS4UBB630kgE8QkiZWikNiQe9hJGxC",
         "object_type": "variable_workflow"
       }
     ],
@@ -545,7 +545,7 @@
         "base_type": "activity",
         "properties": {
           "action_timeout": 180,
-          "api_body": "{\n\t\"name\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_01AH5HTZAM03F2pkfNLPw3alZPR8PWTChc0$\",\n\t\"description\": \"\",\n\t\"defaultSettings\": \"\",\n\t\"owner\": 1,\n\t\"vendorName\": \"metsi\",\n\t\"requiresApproval\": false,\n\t\"associatedClouds\": [\n\t\t{\n\t\t\t\"regionId\": \"$activity.definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY.output.jsonpath_queries.regionid$\",\n\t\t\t\"regionName\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL$-default\",\n\t\t\t\"regionDisplayName\": \"default\",\n\t\t\t\"cloudFamily\": \"Kubernetes\",\n\t\t\t\"cloudId\": \"$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$\",\n\t\t\t\"cloudAccountId\": \"$activity.definition_activity_01AH5GC4IP2G17gC7jF2eWCJmdaDu81Ywwc.output.jsonpath_queries.account id$\",\n\t\t\t\"cloudName\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL$\",\n\t\t\t\"cloudAccountName\": \"pauldj\",\n\t\t\t\"networkSettings\": [],\n\t\t\t\"defaultInstance\": {\n\t\t\t\t\"instanceTypeSelection\": \"ALL_INSTANCES\"\n\t\t\t},\n\t\t\t\"defaultSshKey\": {\n\t\t\t\t\"keyName\": null,\n\t\t\t\t\"keyText\": null,\n\t\t\t\t\"persistPrivateKey\": false,\n\t\t\t\t\"preference\": \"VISIBLE_UNLOCKED\"\n\t\t\t},\n\t\t\t\"basicSettings\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"preference\": \"VISIBLE_UNLOCKED\",\n\t\t\t\"defaultCloudSettings\": [],\n\t\t\t\"enableResourcePlacement\": false,\n\t\t\t\"enableResourceValidation\": false,\n\t\t\t\"resourcePlacementScript\": null,\n\t\t\t\"resourceValidationScript\": null,\n\t\t\t\"calloutPackage\": null,\n\t\t\t\"cloudAssociationDefaults\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"default\": true\n\t\t}\n\t]\n}",
+          "api_body": "{\n\t\"name\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_01AH5HTZAM03F2pkfNLPw3alZPR8PWTChc0$\",\n\t\"description\": \"\",\n\t\"defaultSettings\": \"\",\n\t\"owner\": 1,\n\t\"vendorName\": \"metsi\",\n\t\"requiresApproval\": false,\n\t\"associatedClouds\": [\n\t\t{\n\t\t\t\"regionId\": \"$activity.definition_activity_01AH5AT73E82S3V3JobmXXuv3dJPRniexzY.output.jsonpath_queries.regionid$\",\n\t\t\t\"regionName\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL$-default\",\n\t\t\t\"regionDisplayName\": \"default\",\n\t\t\t\"cloudFamily\": \"Kubernetes\",\n\t\t\t\"cloudId\": \"$activity.definition_activity_0181MD2XW45U90P5PkWw2KdNg7cDUElDGmN.output.jsonpath_queries.cloud id$\",\n\t\t\t\"cloudAccountId\": \"$activity.definition_activity_01AH5GC4IP2G17gC7jF2eWCJmdaDu81Ywwc.output.jsonpath_queries.account id$\",\n\t\t\t\"cloudName\": \"$workflow.definition_workflow_0181EXDG0A3QW277vFsBwvY3gDUtwN4gO7r.input.variable_workflow_0181MM1VFTJE51yEU6Yx0EV1LYyU2DdOhyL$\",\n\t\t\t\"cloudAccountName\": \"pauldj\",\n\t\t\t\"networkSettings\": [],\n\t\t\t\"defaultInstance\": {\n\t\t\t\t\"instanceTypeSelection\": \"ALL_INSTANCES\"\n\t\t\t},\n\t\t\t\"defaultSshKey\": {\n\t\t\t\t\"keyName\": null,\n\t\t\t\t\"keyText\": null,\n\t\t\t\t\"persistPrivateKey\": false,\n\t\t\t\t\"preference\": \"VISIBLE_UNLOCKED\"\n\t\t\t},\n\t\t\t\"basicSettings\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"preference\": \"VISIBLE_UNLOCKED\",\n\t\t\t\"defaultCloudSettings\": [],\n\t\t\t\"enableResourcePlacement\": false,\n\t\t\t\"enableResourceValidation\": false,\n\t\t\t\"resourcePlacementScript\": null,\n\t\t\t\"resourceValidationScript\": null,\n\t\t\t\"calloutPackage\": null,\n\t\t\t\"cloudAssociationDefaults\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"default\": true\n\t\t}\n\t],\n  \"policySettings\":{\n        \"agingPolicySettings\": {\n            \"visibleState\": \"VISIBLE_DISABLED\",\n            \"allPolicies\": false,\n            \"mandatory\": false,\n            \"policies\": []\n        },\n        \"suspensionPolicySettings\": {\n            \"visibleState\": \"VISIBLE_DISABLED\",\n            \"allPolicies\": false,\n            \"mandatory\": false,\n            \"policies\": []\n        },\n        \"securityPolicySettings\": {\n            \"visibleState\": \"VISIBLE_DISABLED\",\n            \"allPolicies\": false,\n            \"policies\": []\n        },\n        \"allowTerminateProtection\": false\n    }\n}",
           "api_call_method": "POST",
           "continue_on_failure": false,
           "display_name": "Generic CCS API Request - Create Environment",
