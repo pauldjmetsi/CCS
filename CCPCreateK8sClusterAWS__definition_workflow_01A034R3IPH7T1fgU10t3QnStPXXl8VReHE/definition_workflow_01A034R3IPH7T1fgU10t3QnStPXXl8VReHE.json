@@ -11,6 +11,91 @@
         "properties": {
           "value": "",
           "scope": "local",
+          "name": "kubeconfig token",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "k8s cluster name",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "wm environment name",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A7XBHIHL8N95aFpx0fulsMtDTxEKVoDvS",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "status",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AI3I391S7S11kEefrueKpaAby0utNXNJs",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "id",
+          "type": "datatype.string",
+          "description": "AWS Cluster ID",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A1060O5KJNS01ABl1aF0kEX06788yvMb9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "loopCount",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AIOLETWVLFB4H9yy4FB7JfUS5ZictSE8P",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "url",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A5BYF3WVF6S1B1oDX8SWXvINyWNcdLDE0",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
           "name": "kube token",
           "type": "datatype.string",
           "is_required": false
@@ -34,73 +119,12 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "local",
-          "name": "id",
-          "type": "datatype.string",
-          "description": "AWS Cluster ID",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A1060O5KJNS01ABl1aF0kEX06788yvMb9",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
-          "name": "kubeconfig token",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "url",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A5BYF3WVF6S1B1oDX8SWXvINyWNcdLDE0",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
           "scope": "output",
           "name": "aws url",
           "type": "datatype.string",
           "is_required": false
         },
         "unique_name": "variable_workflow_01A690O1JZ46B5mgwIG28RR3aPWUXAFnWRp",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "wm environment name",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A7XBHIHL8N95aFpx0fulsMtDTxEKVoDvS",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "k8s cluster name",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl",
         "object_type": "variable_workflow"
       }
     ],
@@ -182,18 +206,161 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01A5CDQFHBTT52vhv3tzV382zJPXv9hwtRM",
-        "name": "Sleep",
-        "title": "Sleep",
-        "type": "core.sleep",
+        "unique_name": "definition_activity_01AI3GLI5CJ7A7YEerloRjJbqJpgyhP5hIJ",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query - Get Cluster ID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query - Get Cluster ID",
+          "input_json": "$activity.definition_activity_01A0366UQY3EG5cGSr3aLyalLhyegwF90ed.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.id",
+              "jsonpath_query_name": "id",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01AI3FZT9CCFO5iBl7S3QmiaYkAvT650vhg",
+        "name": "While Loop",
+        "title": "While Loop",
+        "type": "logic.while",
         "base_type": "activity",
         "properties": {
           "continue_on_failure": false,
-          "display_name": "Sleep",
-          "skip_execution": false,
-          "sleep_interval": 900
+          "display_name": "While Loop",
+          "skip_execution": false
         },
-        "object_type": "definition_activity"
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01AI3FZWVNQZB02GU8dCSShwaGoFIVUtphM",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01AI3I391S7S11kEefrueKpaAby0utNXNJs$",
+                  "operator": "ne",
+                  "right_operand": "READY"
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01AIOLETWVLFB4H9yy4FB7JfUS5ZictSE8P$",
+                  "operator": "lt",
+                  "right_operand": 30
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01AI3IW7VHEH77UjFoU72Ewelrndm0r693X",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 60
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AI3G2TMD6C94gviJl4YhykNg6J8oYluAE",
+                "name": "HTTP Request",
+                "title": "HTTP Request - Get Cluster Status",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "X-Auth-Token",
+                      "value": "$activity.definition_activity_01A03623TY9OM2drNu8ZYfWWYj7y9lG6l9e.output.variable_workflow_01A02DVB2KJYZ0PoofI8vZLrq3JQkLUNWAD$"
+                    }
+                  ],
+                  "display_name": "HTTP Request - Get Cluster Status",
+                  "method": "GET",
+                  "relative_url": "/v3/clusters/$activity.definition_activity_01AI3GLI5CJ7A7YEerloRjJbqJpgyhP5hIJ.output.jsonpath_queries.id$",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_01A02HABTW7342oR17U09tYEK8FDpqNb4no"
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AI3H92NENOG3T6Doc9hCMt35nUdz8Gyfn",
+                "name": "JSONPath Query",
+                "title": "JSONPath Query",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "JSONPath Query",
+                  "input_json": "$activity.definition_activity_01AI3G2TMD6C94gviJl4YhykNg6J8oYluAE.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.status",
+                      "jsonpath_query_name": "status",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01AI3I6UWGHTW1xnfr6HoJargHZ2ikmB9Ha",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01AI3I391S7S11kEefrueKpaAby0utNXNJs$",
+                      "variable_value_new": "$activity.definition_activity_01AI3H92NENOG3T6Doc9hCMt35nUdz8Gyfn.output.jsonpath_queries.status$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01AIOLETWVLFB4H9yy4FB7JfUS5ZictSE8P$",
+                      "variable_value_new": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01AIOLETWVLFB4H9yy4FB7JfUS5ZictSE8P$+1"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
       },
       {
         "unique_name": "definition_activity_01A1066LF61PD1239lLDvUoy3paMe9xKpbW",
@@ -632,7 +799,7 @@
         "base_type": "activity",
         "properties": {
           "action_timeout": 180,
-          "api_body": "{\n\t\"name\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A7XBHIHL8N95aFpx0fulsMtDTxEKVoDvS$\",\n\t\"description\": \"\",\n\t\"defaultSettings\": \"\",\n\t\"owner\": 1,\n\t\"vendorName\": \"metsi\",\n\t\"requiresApproval\": false,\n\t\"associatedClouds\": [\n\t\t{\n\t\t\t\"regionId\": \"$activity.definition_activity_01ADVICJYV83A6rz06b12iWQP20flpZfxqM.output.jsonpath_queries.regionid$\",\n\t\t\t\"regionName\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB$-default\",\n\t\t\t\"regionDisplayName\": \"default\",\n\t\t\t\"cloudFamily\": \"Kubernetes\",\n\t\t\t\"cloudId\": \"$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$\",\n\t\t\t\"cloudAccountId\": \"$activity.definition_activity_01A7X9OS7Z5RI1sdr0JDajFrNP7hT0mYMEA.output.jsonpath_queries.account id$\",\n\t\t\t\"cloudName\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB$\",\n\t\t\t\"cloudAccountName\": \"pauldj\",\n\t\t\t\"networkSettings\": [],\n\t\t\t\"defaultInstance\": {\n\t\t\t\t\"instanceTypeSelection\": \"ALL_INSTANCES\"\n\t\t\t},\n\t\t\t\"defaultSshKey\": {\n\t\t\t\t\"keyName\": null,\n\t\t\t\t\"keyText\": null,\n\t\t\t\t\"persistPrivateKey\": false,\n\t\t\t\t\"preference\": \"VISIBLE_UNLOCKED\"\n\t\t\t},\n\t\t\t\"basicSettings\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"preference\": \"VISIBLE_UNLOCKED\",\n\t\t\t\"defaultCloudSettings\": [],\n\t\t\t\"enableResourcePlacement\": false,\n\t\t\t\"enableResourceValidation\": false,\n\t\t\t\"resourcePlacementScript\": null,\n\t\t\t\"resourceValidationScript\": null,\n\t\t\t\"calloutPackage\": null,\n\t\t\t\"cloudAssociationDefaults\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"default\": true\n\t\t}\n\t]\n}",
+          "api_body": "{\n\t\"name\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A7XBHIHL8N95aFpx0fulsMtDTxEKVoDvS$\",\n\t\"description\": \"\",\n\t\"defaultSettings\": \"\",\n\t\"owner\": 1,\n\t\"vendorName\": \"metsi\",\n\t\"requiresApproval\": false,\n\t\"associatedClouds\": [\n\t\t{\n\t\t\t\"regionId\": \"$activity.definition_activity_01ADVICJYV83A6rz06b12iWQP20flpZfxqM.output.jsonpath_queries.regionid$\",\n\t\t\t\"regionName\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB$-default\",\n\t\t\t\"regionDisplayName\": \"default\",\n\t\t\t\"cloudFamily\": \"Kubernetes\",\n\t\t\t\"cloudId\": \"$activity.definition_activity_01A5C2DNMKY4E2RWwTPeTFRK8rKgbiaP22B.output.jsonpath_queries.cloud id$\",\n\t\t\t\"cloudAccountId\": \"$activity.definition_activity_01A7X9OS7Z5RI1sdr0JDajFrNP7hT0mYMEA.output.jsonpath_queries.account id$\",\n\t\t\t\"cloudName\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB$\",\n\t\t\t\"cloudAccountName\": \"pauldj\",\n\t\t\t\"networkSettings\": [],\n\t\t\t\"defaultInstance\": {\n\t\t\t\t\"instanceTypeSelection\": \"ALL_INSTANCES\"\n\t\t\t},\n\t\t\t\"defaultSshKey\": {\n\t\t\t\t\"keyName\": null,\n\t\t\t\t\"keyText\": null,\n\t\t\t\t\"persistPrivateKey\": false,\n\t\t\t\t\"preference\": \"VISIBLE_UNLOCKED\"\n\t\t\t},\n\"policySettings\": {\n\t\t\"agingPolicySettings\": {\n\t\t\t\"mandatory\": false,\n\t\t\t\"allPolicies\": false,\n\t\t\t\"policies\": [],\n\t\t\t\"visibleState\": \"VISIBLE_DISABLED\"\n\t\t},\n\t\t\"suspensionPolicySettings\": {\n\t\t\t\"mandatory\": false,\n\t\t\t\"allPolicies\": false,\n\t\t\t\"policies\": [],\n\t\t\t\"visibleState\": \"VISIBLE_DISABLED\"\n\t\t},\n\t\t\"securityPolicySettings\": {\n\t\t\t\"allPolicies\": false,\n\t\t\t\"policies\": [],\n\t\t\t\"visibleState\": \"VISIBLE_DISABLED\"\n\t\t},\n\t\t\"allowTerminateProtection\": false\n\t},\n\t\t\t\"basicSettings\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"preference\": \"VISIBLE_UNLOCKED\",\n\t\t\t\"defaultCloudSettings\": [],\n\t\t\t\"enableResourcePlacement\": false,\n\t\t\t\"enableResourceValidation\": false,\n\t\t\t\"resourcePlacementScript\": null,\n\t\t\t\"resourceValidationScript\": null,\n\t\t\t\"calloutPackage\": null,\n\t\t\t\"cloudAssociationDefaults\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"namespace\",\n\t\t\t\t\t\"value\": \"default\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"default\": true\n\t\t}\n\t],\n  \"policySettings\":{\n        \"agingPolicySettings\": {\n            \"visibleState\": \"VISIBLE_DISABLED\",\n            \"allPolicies\": false,\n            \"mandatory\": false,\n            \"policies\": []\n        },\n        \"suspensionPolicySettings\": {\n            \"visibleState\": \"VISIBLE_DISABLED\",\n            \"allPolicies\": false,\n            \"mandatory\": false,\n            \"policies\": []\n        },\n        \"securityPolicySettings\": {\n            \"visibleState\": \"VISIBLE_DISABLED\",\n            \"allPolicies\": false,\n            \"policies\": []\n        },\n        \"allowTerminateProtection\": false\n    }\n}",
           "api_call_method": "POST",
           "continue_on_failure": false,
           "display_name": "Generic CCS API Request - Create Environment",
@@ -885,24 +1052,24 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "clustername",
-              "type": "datatype.string",
-              "is_required": false
-            },
-            "unique_name": "variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "output",
               "name": "token",
               "type": "datatype.string",
               "is_required": false
             },
             "unique_name": "variable_workflow_01A64JFT3HIXQ4EL2BA0dgOSO1uSgFWwoat",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "clustername",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y",
             "object_type": "variable_workflow"
           }
         ],
