@@ -1,0 +1,375 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01ADUANCH4XXE7ONwbbKHmfHsrPCElm6dLH",
+    "name": "WM Deploy OVA to vCenter",
+    "title": "WM Deploy OVA to vCenter",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "CC_RUN_ID",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01ADUBZKI9Z8O42mR5HSoaoHAdKonkuScOU",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "depends_on": "CC",
+      "display_name": "WM Deploy OVA to vCenter",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01ADUBLNUO4BD1oxqDRbJbQ8UBUrcAu3Ffu",
+        "name": "Get Workload Manager Context",
+        "title": "Get Workload Manager Context",
+        "type": "ccs.get_cloud_context",
+        "base_type": "activity",
+        "properties": {
+          "action_id": "55",
+          "action_timeout": 180,
+          "cc_configuration": {
+            "execute_action": "external",
+            "reboot_vm": false,
+            "resource_mappings": [
+              {
+                "applied_to": {
+                  "app_ids": [
+                    {
+                      "id": "37",
+                      "name": "3 Tier App"
+                    },
+                    {
+                      "id": "29",
+                      "name": "3 Tier App CU"
+                    },
+                    {
+                      "id": "33",
+                      "name": "3 Tier App - demo"
+                    },
+                    {
+                      "id": "57",
+                      "name": "Apache"
+                    },
+                    {
+                      "id": "59",
+                      "name": "Apache Tomcat 7"
+                    },
+                    {
+                      "id": "61",
+                      "name": "CentOS 6"
+                    },
+                    {
+                      "id": "63",
+                      "name": "CentOS 7"
+                    },
+                    {
+                      "id": "65",
+                      "name": "CentOS 7 Custom Naming"
+                    },
+                    {
+                      "id": "67",
+                      "name": "Cisco CSR 1000v"
+                    },
+                    {
+                      "id": "97",
+                      "name": "Create Amazon K8s Cloud"
+                    },
+                    {
+                      "id": "95",
+                      "name": "Create K8s Cloud"
+                    },
+                    {
+                      "id": "69",
+                      "name": "F5 Load Balancer"
+                    },
+                    {
+                      "id": "71",
+                      "name": "IBM Cloud Private"
+                    },
+                    {
+                      "id": "73",
+                      "name": "IIS"
+                    },
+                    {
+                      "id": "75",
+                      "name": "Jenkins Test"
+                    },
+                    {
+                      "id": "77",
+                      "name": "MySQL"
+                    },
+                    {
+                      "id": "79",
+                      "name": "NGINX AWS k8s "
+                    },
+                    {
+                      "id": "81",
+                      "name": "NGINX - k8s"
+                    },
+                    {
+                      "id": "83",
+                      "name": "NGINX (Linux)"
+                    },
+                    {
+                      "id": "85",
+                      "name": "Oracle Database Linux"
+                    },
+                    {
+                      "id": "87",
+                      "name": "Oracle Database Windows"
+                    },
+                    {
+                      "id": "89",
+                      "name": "PetClinic (CloudFamily)"
+                    },
+                    {
+                      "id": "43",
+                      "name": "PetClinic (GitHub)"
+                    },
+                    {
+                      "id": "91",
+                      "name": "SharePoint"
+                    },
+                    {
+                      "id": "45",
+                      "name": "SQL 2016"
+                    },
+                    {
+                      "id": "93",
+                      "name": "SQL 2016 Cluster"
+                    },
+                    {
+                      "id": "47",
+                      "name": "Tomcat - k8s"
+                    },
+                    {
+                      "id": "49",
+                      "name": "Windows Server 2016"
+                    },
+                    {
+                      "id": "54",
+                      "name": "WordPress"
+                    },
+                    {
+                      "id": "51",
+                      "name": "WordPress - k8s"
+                    }
+                  ]
+                },
+                "resource_type": "app_profile",
+                "resource_type_meta_info": {
+                  "app_profile": {
+                    "app_ids": "All"
+                  }
+                }
+              }
+            ],
+            "sync_vm": false,
+            "wf_availability_type": "lifecycle"
+          },
+          "cc_run_id": "$workflow.definition_workflow_01ADUANCH4XXE7ONwbbKHmfHsrPCElm6dLH.input.variable_workflow_01ADUBZKI9Z8O42mR5HSoaoHAdKonkuScOU$",
+          "continue_on_failure": false,
+          "display_name": "Get Workload Manager Context",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01ADUDI0I94X91wSWFcThHZPbEeCGD3iVbF",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query",
+          "input_json": "$activity.definition_activity_01ADUBLNUO4BD1oxqDRbJbQ8UBUrcAu3Ffu.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.parameters.globalParams[?(@.name=='ovaName')].value",
+              "jsonpath_query_name": "ovaName",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01ADUEENK8B9B3eAky1K1nvNKLIV46My6Ye",
+        "name": "Deploy OVA to vCenter",
+        "title": "Deploy OVA to vCenter",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Deploy OVA to vCenter",
+          "input": {
+            "variable_workflow_01ADU9BIBFJLV4hYcvfdUMUJZ6Y6HtTi9vl": "$activity.definition_activity_01ADUDI0I94X91wSWFcThHZPbEeCGD3iVbF.output.jsonpath_queries.ovaName$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "execute_on_this_target": true,
+            "target_id": "definition_target_01ADTVPLH58J001NpA7BTGYfIoa46XvOAym",
+            "target_type": "terminal.unix_linux_endpoint"
+          },
+          "workflow_id": "definition_workflow_01ADSZ3LK4X681P1mOVScAM3q4YibtN52E2"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01AH9ISOYIZ733sm3qMo1FcaAq5lTSYzVzW"
+    ]
+  },
+  "categories": {
+    "category_01AH9ISOYIZ733sm3qMo1FcaAq5lTSYzVzW": {
+      "unique_name": "category_01AH9ISOYIZ733sm3qMo1FcaAq5lTSYzVzW",
+      "name": "WM Calls",
+      "title": "WM Calls",
+      "type": "basic.category",
+      "base_type": "category",
+      "description": "Workflows that can be called from Workload Manager",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "targets": {
+    "definition_target_01ADTVPLH58J001NpA7BTGYfIoa46XvOAym": {
+      "unique_name": "definition_target_01ADTVPLH58J001NpA7BTGYfIoa46XvOAym",
+      "name": "philrpythonhost",
+      "title": "philrpythonhost",
+      "type": "terminal.unix_linux_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "bash_shell": "/bin/bash",
+        "default_runtime_user_id": "definition_runtime_user_01ADTVH172E5O4GqQvntd93VuLn4lCkNWHs",
+        "description": "VM for deploying ova/ovf to vCenter",
+        "display_name": "philrpythonhost",
+        "host": "172.20.1.60",
+        "port": 22
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01ADTVH172E5O4GqQvntd93VuLn4lCkNWHs": {
+      "unique_name": "definition_runtime_user_01ADTVH172E5O4GqQvntd93VuLn4lCkNWHs",
+      "name": "user1",
+      "title": "user1",
+      "type": "runtime_user.terminal_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "admin_password": "*****",
+        "description": "User account for vm philrpythonhost",
+        "display_name": "user1",
+        "password": "*****",
+        "user": "*****"
+      }
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01ADSZ3LK4X681P1mOVScAM3q4YibtN52E2",
+        "name": "Deploy OVA to vCenter",
+        "title": "Deploy OVA to vCenter",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "OVA/OVF File Name",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01ADU9BIBFJLV4hYcvfdUMUJZ6Y6HtTi9vl",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "Deploy OVA to vCenter",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "target_type": "terminal.unix_linux_endpoint",
+            "target_id": "definition_target_01ADTVPLH58J001NpA7BTGYfIoa46XvOAym",
+            "execute_on_workflow_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01ADTWDSNQ1PA4K9NLm1EdnUkAM0v8CZMcm",
+            "name": "Execute Linux/Unix SSH Command",
+            "title": "Execute Linux/Unix SSH Command",
+            "type": "terminal.ssh_command",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "command": "cd /home/user1/python/\npython3 deploy_ovf.py $workflow.definition_workflow_01ADSZ3LK4X681P1mOVScAM3q4YibtN52E2.input.variable_workflow_01ADU9BIBFJLV4hYcvfdUMUJZ6Y6HtTi9vl$ \u003c\u003c EOF\nyes\nEOF",
+              "command_timeout": 60,
+              "continue_on_failure": false,
+              "display_name": "Execute Linux/Unix SSH Command",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
