@@ -11,6 +11,18 @@
         "properties": {
           "value": "",
           "scope": "local",
+          "name": "port",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01BGVAV5OBVH86F4yWxo5PC5gsBHhBELiYk",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
           "name": "query",
           "type": "datatype.string",
           "is_required": false
@@ -40,18 +52,6 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01BGW7L3C4UBJ3q9zx9MydUP2l7w32oBMEd",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
-          "name": "port",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01BGVAV5OBVH86F4yWxo5PC5gsBHhBELiYk",
         "object_type": "variable_workflow"
       }
     ],
