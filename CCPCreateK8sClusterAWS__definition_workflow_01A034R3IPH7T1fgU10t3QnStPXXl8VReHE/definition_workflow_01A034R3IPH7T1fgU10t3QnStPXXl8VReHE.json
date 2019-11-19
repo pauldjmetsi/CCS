@@ -10,12 +10,85 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
+          "scope": "output",
+          "name": "aws url",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A690O1JZ46B5mgwIG28RR3aPWUXAFnWRp",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "kube token",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A035NWUZNYD4mMpiSxR3EuaRC1f01DjLa",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
           "scope": "local",
           "name": "kubeconfig token",
           "type": "datatype.string",
           "is_required": false
         },
         "unique_name": "variable_workflow_01A4KN787XBL17TLpOUOvhC4anOjx30tVdN",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "loopCount",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01AIOLETWVLFB4H9yy4FB7JfUS5ZictSE8P",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "region",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01BJKXBQNGNK802VImYNCvc4tZ2dKltLgBc",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "id",
+          "type": "datatype.string",
+          "description": "AWS Cluster ID",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01A1060O5KJNS01ABl1aF0kEX06788yvMb9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "ami",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01BJLG2XVMAZY1GEkewV1lbOFiajpstqRJ0",
         "object_type": "variable_workflow"
       },
       {
@@ -35,11 +108,11 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "wm environment name",
+          "name": "wm cloud name",
           "type": "datatype.string",
           "is_required": false
         },
-        "unique_name": "variable_workflow_01A7XBHIHL8N95aFpx0fulsMtDTxEKVoDvS",
+        "unique_name": "variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB",
         "object_type": "variable_workflow"
       },
       {
@@ -58,25 +131,12 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "local",
-          "name": "id",
+          "scope": "input",
+          "name": "wm environment name",
           "type": "datatype.string",
-          "description": "AWS Cluster ID",
           "is_required": false
         },
-        "unique_name": "variable_workflow_01A1060O5KJNS01ABl1aF0kEX06788yvMb9",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.integer",
-        "properties": {
-          "value": 0,
-          "scope": "local",
-          "name": "loopCount",
-          "type": "datatype.integer",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01AIOLETWVLFB4H9yy4FB7JfUS5ZictSE8P",
+        "unique_name": "variable_workflow_01A7XBHIHL8N95aFpx0fulsMtDTxEKVoDvS",
         "object_type": "variable_workflow"
       },
       {
@@ -89,42 +149,6 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01A5BYF3WVF6S1B1oDX8SWXvINyWNcdLDE0",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
-          "name": "kube token",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A035NWUZNYD4mMpiSxR3EuaRC1f01DjLa",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "wm cloud name",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A035VGZAXTL5PmEIBNfSxl3Nc2eOQ9BrB",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "aws url",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01A690O1JZ46B5mgwIG28RR3aPWUXAFnWRp",
         "object_type": "variable_workflow"
       }
     ],
@@ -172,6 +196,99 @@
         "object_type": "definition_activity"
       },
       {
+        "unique_name": "definition_activity_01BJLFJ9WU4N24SM05t4EsnbggeF4IPKxgS",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01BJLFJCOT2PG49kMeIpqS4EpxcDBbXFxrx",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01BJKXBQNGNK802VImYNCvc4tZ2dKltLgBc$",
+                "operator": "eq",
+                "right_operand": "us-west-2"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01BJLH121AG0V4AEhPot1ecNeBLbns41q30",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01BJLG2XVMAZY1GEkewV1lbOFiajpstqRJ0$",
+                      "variable_value_new": "ami-0e4ca62d243acf611"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01BJLFJDM1KZL4n4pv32qBPaHwUb2VJULUo",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01BJKXBQNGNK802VImYNCvc4tZ2dKltLgBc$",
+                "operator": "eq",
+                "right_operand": "us-east-1"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01BJLHQHE0SKO6IiBxo85aJt4RbLlRUcs11",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01BJLG2XVMAZY1GEkewV1lbOFiajpstqRJ0$",
+                      "variable_value_new": "ami-0210a017cd62f9890"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "unique_name": "definition_activity_01A0366UQY3EG5cGSr3aLyalLhyegwF90ed",
         "name": "HTTP Request",
         "title": "HTTP Request - Create Cluster",
@@ -180,7 +297,7 @@
         "properties": {
           "action_timeout": 180,
           "allow_auto_redirect": true,
-          "body": "{\n    \"provider\": \"78dbaf19-cebd-4e45-a4ba-2ceb66842e8c\",\n    \"vpc_sizing\": {\n        \"subnet\": \"10.0.0.0/16\",\n        \"public_subnets\": [\n            \"10.0.1.0/24\",\n            \"10.0.2.0/24\",\n            \"10.0.3.0/24\"\n        ],\n        \"private_subnets\": [\n            \"10.0.4.0/24\",\n            \"10.0.5.0/24\",\n            \"10.0.6.0/24\"\n        ]\n    },\n    \"region\": \"us-west-2\",\n    \"type\": \"eks\",\n    \"ami\": \"ami-0e4ca62d243acf611\",\n    \"instance_type\": \"t2.small\",\n    \"worker_count\": 2,\n    \"k8s_version\": \"1.12\",\n    \"access_role_arn\": \"arn:aws:iam::644383678152:role/k8s-ccp-user\",\n    \"name\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl$\",\n    \"ssh_keys\": [\n        \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7ePHODw3f97S52qNz3H+VMvkWjF3gwZakarDT/zQog mikes@ubuntu\"\n    ]\n}",
+          "body": "{\n    \"provider\": \"78dbaf19-cebd-4e45-a4ba-2ceb66842e8c\",\n    \"vpc_sizing\": {\n        \"subnet\": \"10.0.0.0/16\",\n        \"public_subnets\": [\n            \"10.0.1.0/24\",\n            \"10.0.2.0/24\",\n            \"10.0.3.0/24\"\n        ],\n        \"private_subnets\": [\n            \"10.0.4.0/24\",\n            \"10.0.5.0/24\",\n            \"10.0.6.0/24\"\n        ]\n    },\n    \"region\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01BJKXBQNGNK802VImYNCvc4tZ2dKltLgBc$\",\n    \"type\": \"eks\",\n    \"ami\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.local.variable_workflow_01BJLG2XVMAZY1GEkewV1lbOFiajpstqRJ0$\",\n    \"instance_type\": \"t2.small\",\n    \"worker_count\": 2,\n    \"k8s_version\": \"1.12\",\n    \"access_role_arn\": \"arn:aws:iam::644383678152:role/k8s-ccp-user\",\n    \"name\": \"$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl$\",\n    \"ssh_keys\": [\n        \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7ePHODw3f97S52qNz3H+VMvkWjF3gwZakarDT/zQog mikes@ubuntu\"\n    ]\n}",
           "content_type": "application/json",
           "continue_on_error_status_code": false,
           "continue_on_failure": false,
@@ -200,7 +317,7 @@
           "skip_execution": false,
           "target": {
             "override_workflow_target": true,
-            "target_id": "definition_target_01A02HABTW7342oR17U09tYEK8FDpqNb4no"
+            "target_id": "definition_target_01BACF098SSU70eZcTS2eAAgaNVbNScgUX8"
           }
         },
         "object_type": "definition_activity"
@@ -308,7 +425,7 @@
                   "skip_execution": false,
                   "target": {
                     "override_workflow_target": true,
-                    "target_id": "definition_target_01A02HABTW7342oR17U09tYEK8FDpqNb4no"
+                    "target_id": "definition_target_01BACF098SSU70eZcTS2eAAgaNVbNScgUX8"
                   }
                 },
                 "object_type": "definition_activity"
@@ -432,7 +549,7 @@
           "target": {
             "override_workflow_target": true,
             "override_workflow_target_group_criteria": false,
-            "target_id": "definition_target_01A02HABTW7342oR17U09tYEK8FDpqNb4no",
+            "target_id": "definition_target_01BACF098SSU70eZcTS2eAAgaNVbNScgUX8",
             "use_workflow_target_group": false
           }
         },
@@ -504,7 +621,8 @@
           "continue_on_failure": false,
           "display_name": "GetAwsK8sClusterToken",
           "input": {
-            "variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl$"
+            "variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01A035E1KYK6U5c0QexavQnkJ8pjwISeBsl$",
+            "variable_workflow_01BJMI2127YOH0CuVsQOUL2zftIUDzSTxFE": "$workflow.definition_workflow_01A034R3IPH7T1fgU10t3QnStPXXl8VReHE.input.variable_workflow_01BJKXBQNGNK802VImYNCvc4tZ2dKltLgBc$"
           },
           "runtime_user": {
             "target_default": true
@@ -512,7 +630,7 @@
           "skip_execution": false,
           "target": {
             "execute_on_this_target": true,
-            "target_id": "definition_target_01A1ZZS054XZR60I7Ygs5UyI2Fkq493DhgO",
+            "target_id": "definition_target_01BACKGVV1LXS4VhKvjmVlTbbSdinC6BNhi",
             "target_type": "terminal.unix_linux_endpoint"
           },
           "workflow_id": "definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6"
@@ -586,7 +704,7 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01A5C34DUDACV04dctHl2SiFqgO9WZl3cAM",
+        "unique_name": "definition_activity_01BIMUOHIDMM23L3f17HqzLvarKlosvtbIh",
         "name": "Sleep",
         "title": "Sleep",
         "type": "core.sleep",
@@ -830,50 +948,50 @@
       "base_type": "target",
       "object_type": "definition_target",
       "properties": {
-        "default_runtime_user_id": "definition_runtime_user_01AB9S0KCYMU41LbIgVW9R3ENmhH4v3YIXY",
+        "default_runtime_user_id": "definition_runtime_user_01BACOSJP1ZMR6N59l76lROvF87hFzrcwC8",
+        "description": "CloudCenter Suite root",
         "display_name": "CCS Admin",
-        "host": "172.21.8.91",
-        "port": 41697,
+        "host": "172.21.8.54",
+        "port": 64210,
         "protocol": "https"
       }
     },
-    "definition_target_01A02HABTW7342oR17U09tYEK8FDpqNb4no": {
-      "unique_name": "definition_target_01A02HABTW7342oR17U09tYEK8FDpqNb4no",
-      "name": "CCP 4.2 Admin",
-      "title": "CCP 4.2 Admin",
+    "definition_target_01BACF098SSU70eZcTS2eAAgaNVbNScgUX8": {
+      "unique_name": "definition_target_01BACF098SSU70eZcTS2eAAgaNVbNScgUX8",
+      "name": "CCP Admin",
+      "title": "CCP Admin",
       "type": "web-service.endpoint",
       "base_type": "target",
       "object_type": "definition_target",
       "properties": {
-        "default_runtime_user_id": "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a",
-        "description": "CCP for FreeNet testing",
+        "default_runtime_user_id": "definition_runtime_user_01BACA2ZZHONA1mzfEjKtMog3UKkXUn90w7",
         "disable_certificate_validation": true,
-        "display_name": "CCP 4.2 Admin",
+        "display_name": "CCP Admin",
         "host": "172.21.9.2",
         "no_runtime_user": false,
         "port": 443,
         "protocol": "https"
       }
     },
-    "definition_target_01A1ZZS054XZR60I7Ygs5UyI2Fkq493DhgO": {
-      "unique_name": "definition_target_01A1ZZS054XZR60I7Ygs5UyI2Fkq493DhgO",
-      "name": "cccp-aws-cli",
-      "title": "cccp-aws-cli",
+    "definition_target_01BACKGVV1LXS4VhKvjmVlTbbSdinC6BNhi": {
+      "unique_name": "definition_target_01BACKGVV1LXS4VhKvjmVlTbbSdinC6BNhi",
+      "name": "ccp-aws-cli",
+      "title": "ccp-aws-cli",
       "type": "terminal.unix_linux_endpoint",
       "base_type": "target",
       "object_type": "definition_target",
       "properties": {
         "bash_shell": "/bin/bash",
-        "default_runtime_user_id": "definition_runtime_user_01A1ZZJ7LB693443hhddnEYUez6dl1itDq2",
-        "display_name": "cccp-aws-cli",
-        "host": "172.21.9.33",
+        "default_runtime_user_id": "definition_runtime_user_01BACISLM35GU7fUwpgX0KyQcspJqxaXqIX",
+        "display_name": "ccp-aws-cli",
+        "host": "172.21.9.35",
         "port": 22
       }
     }
   },
   "runtime_users": {
-    "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a": {
-      "unique_name": "definition_runtime_user_0181EVJJV1VJ425vSoV951smRyppl326R7a",
+    "definition_runtime_user_01BACA2ZZHONA1mzfEjKtMog3UKkXUn90w7": {
+      "unique_name": "definition_runtime_user_01BACA2ZZHONA1mzfEjKtMog3UKkXUn90w7",
       "name": "CCP Admin",
       "title": "CCP Admin",
       "type": "runtime_user.web-service_basic_credentials",
@@ -886,29 +1004,30 @@
         "display_name": "CCP Admin"
       }
     },
-    "definition_runtime_user_01A1ZZJ7LB693443hhddnEYUez6dl1itDq2": {
-      "unique_name": "definition_runtime_user_01A1ZZJ7LB693443hhddnEYUez6dl1itDq2",
-      "name": "root for ccp-aws-cli vm",
-      "title": "root for ccp-aws-cli vm",
+    "definition_runtime_user_01BACISLM35GU7fUwpgX0KyQcspJqxaXqIX": {
+      "unique_name": "definition_runtime_user_01BACISLM35GU7fUwpgX0KyQcspJqxaXqIX",
+      "name": "ccp-aws-cli root ",
+      "title": "ccp-aws-cli root ",
       "type": "runtime_user.terminal_password_credentials",
       "base_type": "runtime_user",
       "object_type": "definition_runtime_user",
       "properties": {
         "admin_password": "*****",
-        "display_name": "root for ccp-aws-cli vm",
+        "description": "root login for ccp-aws-cli vm",
+        "display_name": "ccp-aws-cli root ",
         "password": "*****",
         "user": "*****"
       }
     },
-    "definition_runtime_user_01AB9S0KCYMU41LbIgVW9R3ENmhH4v3YIXY": {
-      "unique_name": "definition_runtime_user_01AB9S0KCYMU41LbIgVW9R3ENmhH4v3YIXY",
-      "name": "CCS Admin",
-      "title": "CCS Admin",
+    "definition_runtime_user_01BACOSJP1ZMR6N59l76lROvF87hFzrcwC8": {
+      "unique_name": "definition_runtime_user_01BACOSJP1ZMR6N59l76lROvF87hFzrcwC8",
+      "name": "CCS_Admin",
+      "title": "CCS_Admin",
       "type": "runtime_user.ccs_explicit_user",
       "base_type": "runtime_user",
       "object_type": "definition_runtime_user",
       "properties": {
-        "display_name": "CCS Admin",
+        "display_name": "CCS_Admin",
         "password": "*****",
         "tenant_id": "*****",
         "username": "*****"
@@ -986,7 +1105,7 @@
               "skip_execution": false,
               "target": {
                 "override_workflow_target": true,
-                "target_id": "definition_target_01A02HABTW7342oR17U09tYEK8FDpqNb4no"
+                "target_id": "definition_target_01BACF098SSU70eZcTS2eAAgaNVbNScgUX8"
               }
             },
             "object_type": "definition_activity"
@@ -1052,6 +1171,18 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "input",
+              "name": "region",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01BJMI2127YOH0CuVsQOUL2zftIUDzSTxFE",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "output",
               "name": "token",
               "type": "datatype.string",
@@ -1086,7 +1217,7 @@
           },
           "target": {
             "target_type": "terminal.unix_linux_endpoint",
-            "target_id": "definition_target_01A1ZZS054XZR60I7Ygs5UyI2Fkq493DhgO",
+            "target_id": "definition_target_01BACKGVV1LXS4VhKvjmVlTbbSdinC6BNhi",
             "execute_on_workflow_target": true
           }
         },
@@ -1100,7 +1231,7 @@
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
-              "command": "export PATH=~/.local/bin:$PATH\naws eks --region us-west-2 update-kubeconfig --name $workflow.definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6.input.variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y$\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml\nkubectl apply -f eks-admin-service-account.yaml",
+              "command": "export PATH=~/.local/bin:$PATH\naws eks --region $workflow.definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6.input.variable_workflow_01BJMI2127YOH0CuVsQOUL2zftIUDzSTxFE$ update-kubeconfig --name $workflow.definition_workflow_01A64IBF6VJ1L5JW7jADDbTWbfYRQuoMmw6.input.variable_workflow_01A64J5APRTHB5CjFkCRJMZ8225lELI9P8Y$\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml\nkubectl apply -f eks-admin-service-account.yaml",
               "command_timeout": 60,
               "continue_on_failure": false,
               "description": "Install dashboard and create service account",
