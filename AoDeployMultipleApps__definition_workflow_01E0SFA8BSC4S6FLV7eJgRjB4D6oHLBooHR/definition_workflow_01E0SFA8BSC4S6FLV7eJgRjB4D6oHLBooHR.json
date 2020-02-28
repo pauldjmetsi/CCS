@@ -1,0 +1,866 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01E0SFA8BSC4S6FLV7eJgRjB4D6oHLBooHR",
+    "name": "Project Thor Master Deploy",
+    "title": "Project Thor Master Deploy",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "tabletype_01E0SJ7U2W3HY4boKRgOkR8TFSBB3JEJJMq",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "AppId": "240"
+              }
+            },
+            {
+              "column_data": {
+                "AppId": "242"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "ProjectThorTable",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01E0SJY6GHWAR7bxZs78JkLkmjP2nc59BoG",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "Deploy USN-0xx WM apps",
+      "display_name": "Project Thor Master Deploy",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01E0WSLR28BM62lNdT2GAYakpuWNHdO3lxN",
+        "name": "Execute Python Script",
+        "title": "Generate Random Number",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Execute Python Script",
+          "display_name": "Generate Random Number",
+          "script": "from random import *\nnumber=(randint(1000, 9999))",
+          "script_queries": [
+            {
+              "script_query": "number",
+              "script_query_name": "number",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01E0WU00G0BVK24s8zwDXkBRYuGb6eZ6gkL",
+        "name": "Execute Python Script",
+        "title": "Get Date and Time",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "description": "Execute Python Script",
+          "display_name": "Get Date and Time",
+          "script": "from datetime import datetime\n\n# datetime object containing current date and time\nnow = datetime.now()\n\ndt_string = now.strftime(\"%d%m-%H%M\")\ndatetime=(dt_string)",
+          "script_queries": [
+            {
+              "script_query": "datetime",
+              "script_query_name": "datetime",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01E0SH0ERLZK82MJt93eDeGeBkrM2m18IET",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "skip_execution": false,
+          "source_array": "$workflow.definition_workflow_01E0SFA8BSC4S6FLV7eJgRjB4D6oHLBooHR.local.variable_workflow_01E0SJY6GHWAR7bxZs78JkLkmjP2nc59BoG$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01E0TJ5W4L69R1b5i23gKGBv0j1EUIvxrCz",
+            "name": "WM - Get App Info",
+            "title": "WM - Get App Info",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "WM - Get App Info",
+              "input": {
+                "variable_workflow_01E0SXGT6P1S46hI1YJI9Z5v3eALIYgVCIE": "$activity.definition_activity_01E0SH0ERLZK82MJt93eDeGeBkrM2m18IET.input.source_array[@].AppId$"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "no_target": true
+              },
+              "workflow_id": "definition_workflow_01E0SUZ792X0S6IaY2b20Ls89qraxMrIPh4"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E0SKKE1LIHW19EKIxWPQ0tFG3lLSFIvdh",
+            "name": "Project Thor Submit Job",
+            "title": "Project Thor Submit Job",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Project Thor Submit Job",
+              "input": {
+                "variable_workflow_01DZ31XVCUHXP714u8CvBayNvgmhj7DW3iW": "$activity.definition_activity_01E0SH0ERLZK82MJt93eDeGeBkrM2m18IET.input.source_array[@].AppId$",
+                "variable_workflow_01E0W6FVX68Z94mGWShfxArvX9Ow8ANM5tC": "$activity.definition_activity_01E0TJ5W4L69R1b5i23gKGBv0j1EUIvxrCz.output.variable_workflow_01E0T8O5DMG6O4qoqH0BrL2Sdk35cAstqgP$",
+                "variable_workflow_01E0W6PDJ3Y8O0faKTsg7c8j6nShdz9v7EK": "$activity.definition_activity_01E0TJ5W4L69R1b5i23gKGBv0j1EUIvxrCz.output.variable_workflow_01E0T87R2RXMO3xFBCyKhGBID4c40klGspK$",
+                "variable_workflow_01E0W6ZYNUN0R3JmiBUt3A3CXbPO22O4bUF": "$activity.definition_activity_01E0TJ5W4L69R1b5i23gKGBv0j1EUIvxrCz.output.variable_workflow_01E0T9F0BU3372syZARZeerb2p5HhLiT6Ua$",
+                "variable_workflow_01E0W7B7VL2CL4i3cdONZ6nV1tTzTivjpfz": "$activity.definition_activity_01E0TJ5W4L69R1b5i23gKGBv0j1EUIvxrCz.output.variable_workflow_01E0T8WQWD3ZO1t8aI0IuDX44BZ4xjqI60A$",
+                "variable_workflow_01E0WV85QDSHL4ks4D8WiMCGB98bNgxjP5e": "$activity.definition_activity_01E0WSLR28BM62lNdT2GAYakpuWNHdO3lxN.output.script_queries.number$"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "no_target": true
+              },
+              "workflow_id": "definition_workflow_01DZ31J0ICVEK0WLDH9XAix74Uj2aPcEw1y"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E0SN1FDBAY22l6RootHvVE3MahfO2v1Ym",
+            "name": "JSONPath Query",
+            "title": "JSONPath Query",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "JSONPath Query",
+              "input_json": "$activity.definition_activity_01E0SKKE1LIHW19EKIxWPQ0tFG3lLSFIvdh.output.variable_workflow_01DZ337M6HPCP4I4pQTHOny6jUsUrL4fCgG$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.id",
+                  "jsonpath_query_name": "id",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E0SNQDJ0V533yOyebTPJIhVUloCat3fqF",
+            "name": "Update Row in Table",
+            "title": "Update Row in Table",
+            "type": "core.updaterowintable",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "columns": [
+                {
+                  "column_name": "JobId",
+                  "column_type": "string"
+                }
+              ],
+              "continue_on_failure": false,
+              "display_name": "Update Row in Table",
+              "input_table": "$workflow.definition_workflow_01E0SFA8BSC4S6FLV7eJgRjB4D6oHLBooHR.local.variable_workflow_01E0SJY6GHWAR7bxZs78JkLkmjP2nc59BoG$",
+              "row": [
+                {
+                  "key": "JobId",
+                  "type": "string",
+                  "value": "$activity.definition_activity_01E0SN1FDBAY22l6RootHvVE3MahfO2v1Ym.output.jsonpath_queries.id$"
+                }
+              ],
+              "rows": {
+                "rows_matching_criteria": true,
+                "where_clause": "AppId='$activity.definition_activity_01E0SH0ERLZK82MJt93eDeGeBkrM2m18IET.input.source_array[@].AppId$'"
+              },
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E0W34XD1VB1293K2TeX842osWfnocywCz",
+            "name": "WM - Get Job Status",
+            "title": "WM - Get Job Status",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "WM - Get Job Status",
+              "input": {
+                "variable_workflow_01DEIPDA30F126ZxCUDfz5QST3r7MJfuY6g": "$activity.definition_activity_01E0SN1FDBAY22l6RootHvVE3MahfO2v1Ym.output.jsonpath_queries.id$"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "no_target": true
+              },
+              "workflow_id": "definition_workflow_01DEIPCXH8OKF0LpCt6tMq7Iw1yJwu8zbMD"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "table_types": {
+    "tabletype_01E0SJ7U2W3HY4boKRgOkR8TFSBB3JEJJMq": {
+      "unique_name": "tabletype_01E0SJ7U2W3HY4boKRgOkR8TFSBB3JEJJMq",
+      "data_type": "datatype.tabletype",
+      "display_name": "ProjectThorTable",
+      "columns": [
+        {
+          "name": "AppId",
+          "title": "AppId",
+          "type": "string"
+        },
+        {
+          "name": "JobId",
+          "title": "JobId",
+          "type": "string"
+        },
+        {
+          "name": "Status",
+          "title": "Status",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01E0SUZ792X0S6IaY2b20Ls89qraxMrIPh4",
+        "name": "WM - Get App Info",
+        "title": "WM - Get App Info",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "metadata_id",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0T8O5DMG6O4qoqH0BrL2Sdk35cAstqgP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "tagCollectionId",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0T8WQWD3ZO1t8aI0IuDX44BZ4xjqI60A",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "jobs_tierId",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0T9F0BU3372syZARZeerb2p5HhLiT6Ua",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "AppId",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0SXGT6P1S46hI1YJI9Z5v3eALIYgVCIE",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "appName",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0T87R2RXMO3xFBCyKhGBID4c40klGspK",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "description": "API call to WM to get App profile information",
+          "display_name": "WM - Get App Info",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01E0SVMM2PVN24GnoF47pgLc54v7IqLpUzm",
+            "name": "Generic CCS API Request",
+            "title": "Get App Info",
+            "type": "ccs.api_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "api_call_method": "GET",
+              "continue_on_failure": false,
+              "description": "Generic CCS API Request",
+              "display_name": "Get App Info",
+              "relative_url": "cloudcenter-ccm-backend/api/v2/apps/$workflow.definition_workflow_01E0SUZ792X0S6IaY2b20Ls89qraxMrIPh4.input.variable_workflow_01E0SXGT6P1S46hI1YJI9Z5v3eALIYgVCIE$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E0T7UKQMBH14y9Nulx1stHIiZWfplDEup",
+            "name": "JSONPath Query",
+            "title": "JSONPath Query",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "JSONPath Query",
+              "input_json": "$activity.definition_activity_01E0SVMM2PVN24GnoF47pgLc54v7IqLpUzm.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.appName",
+                  "jsonpath_query_name": "appName",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.metadata..id",
+                  "jsonpath_query_name": "metadata_id",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.childSteps..appId",
+                  "jsonpath_query_name": "job_tierId",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.metadata..tagCollectionId",
+                  "jsonpath_query_name": "tagCollectionId",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E0TL3T5TNSX3mLjBf41WGL2aFx9v5m23R",
+            "name": "Set Variables",
+            "title": "Set Variables",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set Variables",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01E0SUZ792X0S6IaY2b20Ls89qraxMrIPh4.output.variable_workflow_01E0T9F0BU3372syZARZeerb2p5HhLiT6Ua$",
+                  "variable_value_new": "$activity.definition_activity_01E0T7UKQMBH14y9Nulx1stHIiZWfplDEup.output.jsonpath_queries.job_tierId$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01E0SUZ792X0S6IaY2b20Ls89qraxMrIPh4.output.variable_workflow_01E0T8O5DMG6O4qoqH0BrL2Sdk35cAstqgP$",
+                  "variable_value_new": "$activity.definition_activity_01E0T7UKQMBH14y9Nulx1stHIiZWfplDEup.output.jsonpath_queries.metadata_id$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01E0SUZ792X0S6IaY2b20Ls89qraxMrIPh4.output.variable_workflow_01E0T87R2RXMO3xFBCyKhGBID4c40klGspK$",
+                  "variable_value_new": "$activity.definition_activity_01E0T7UKQMBH14y9Nulx1stHIiZWfplDEup.output.jsonpath_queries.appName$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01E0SUZ792X0S6IaY2b20Ls89qraxMrIPh4.output.variable_workflow_01E0T8WQWD3ZO1t8aI0IuDX44BZ4xjqI60A$",
+                  "variable_value_new": "$activity.definition_activity_01E0T7UKQMBH14y9Nulx1stHIiZWfplDEup.output.jsonpath_queries.tagCollectionId$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01DZ31J0ICVEK0WLDH9XAix74Uj2aPcEw1y",
+        "name": "Project Thor Submit Job",
+        "title": "Project Thor Submit Job",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Response",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01DZ337M6HPCP4I4pQTHOny6jUsUrL4fCgG",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "metadata_id",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0W6FVX68Z94mGWShfxArvX9Ow8ANM5tC",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "appName",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0W6PDJ3Y8O0faKTsg7c8j6nShdz9v7EK",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "job_tierId",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0W6ZYNUN0R3JmiBUt3A3CXbPO22O4bUF",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "tagCollectionId",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0W7B7VL2CL4i3cdONZ6nV1tTzTivjpfz",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "number",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01E0WV85QDSHL4ks4D8WiMCGB98bNgxjP5e",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "App ID",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01DZ31XVCUHXP714u8CvBayNvgmhj7DW3iW",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "Project Thor Submit Job",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01DZ323PGA3CJ0Hh8JQoprhs94KRrRKpOpM",
+            "name": "Generic CCS API Request",
+            "title": "Generic CCS API Request",
+            "type": "ccs.api_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "api_body": "{\n        \"appId\": $workflow.definition_workflow_01DZ31J0ICVEK0WLDH9XAix74Uj2aPcEw1y.input.variable_workflow_01DZ31XVCUHXP714u8CvBayNvgmhj7DW3iW$,\n        \"appVersion\": \"1\",\n        \"name\": \"$workflow.definition_workflow_01DZ31J0ICVEK0WLDH9XAix74Uj2aPcEw1y.input.variable_workflow_01E0W6PDJ3Y8O0faKTsg7c8j6nShdz9v7EK$-$workflow.definition_workflow_01DZ31J0ICVEK0WLDH9XAix74Uj2aPcEw1y.input.variable_workflow_01E0WV85QDSHL4ks4D8WiMCGB98bNgxjP5e$\",\n        \"metadata\": [\n                {\n                        \"id\": $workflow.definition_workflow_01DZ31J0ICVEK0WLDH9XAix74Uj2aPcEw1y.input.variable_workflow_01E0W6FVX68Z94mGWShfxArvX9Ow8ANM5tC$,\n                        \"namespace\": \"\",\n                        \"tagName\": \"Name\",\n                        \"tagCollectionId\": $workflow.definition_workflow_01DZ31J0ICVEK0WLDH9XAix74Uj2aPcEw1y.input.variable_workflow_01E0W7B7VL2CL4i3cdONZ6nV1tTzTivjpfz$,\n                        \"value\": \"%JOB_NAME%\",\n                        \"required\": true,\n                        \"editable\": false,\n                        \"name\": \"Name\"\n                }\n        ],\n        \"environmentId\": \"1\",\n        \"tagIds\": [],\n        \"securityProfileIds\": null,\n        \"agingPolicyId\": null,\n        \"suspensionPolicyId\": null,\n        \"policyIds\": null,\n        \"preventTermination\": false,\n        \"parameters\": {\n                \"appParams\": [],\n                \"cloudParams\": {\n                        \"cloudRegionId\": \"1\",\n                        \"accountId\": \"63\"\n                }\n        },\n        \"jobs\": [\n                {\n                        \"tierId\": \"$workflow.definition_workflow_01DZ31J0ICVEK0WLDH9XAix74Uj2aPcEw1y.input.variable_workflow_01E0W6ZYNUN0R3JmiBUt3A3CXbPO22O4bUF$\",\n                        \"policyIds\": null,\n                        \"tagIds\": [],\n                        \"securityProfileIds\": null,\n                        \"parameters\": {\n                                \"appParams\": [\n                                        {\n                                                \"name\": \"referredJob\",\n                                                \"value\": \"\"\n                                        },\n                                        {\n                                                \"name\": \"SSHPreference\",\n                                                \"value\": \"NO_PREFERENCE\"\n                                        }\n                                ],\n                                \"envParams\": [],\n                                \"cloudParams\": {\n                                        \"cloudRegionId\": \"1\",\n                                        \"accountId\": \"63\",\n                                        \"volumes\": [\n                                                {\n                                                        \"name\": \"RootVolume\",\n                                                        \"bootable\": true,\n                                                        \"size\": null,\n                                                        \"type\": \"storage-MPC-default\",\n                                                        \"iops\": null\n                                                }\n                                        ],\n                                        \"rootVolumeSize\": \"0\",\n                                        \"cloudProperties\": [\n                                                {\n                                                        \"name\": \"FullClone\",\n                                                        \"value\": \"true\"\n                                                },\n                                                {\n                                                        \"name\": \"UserDataCenterName\",\n                                                        \"value\": \"Datacenter\"\n                                                },\n                                                {\n                                                        \"name\": \"UserClusterName\",\n                                                        \"value\": \"Cluster\"\n                                                },\n                                                {\n                                                        \"name\": \"UserDatastoreCluster\",\n                                                        \"value\": \"vsanDatastore\"\n                                                },\n                                                {\n                                                        \"name\": \"UserResourcePoolName\",\n                                                        \"value\": \"C3\"\n                                                },\n                                                {\n                                                        \"name\": \"VMGroup\",\n                                                        \"value\": \"\"\n                                                },\n                                                {\n                                                        \"name\": \"UserDatastore\",\n                                                        \"value\": \"\"\n                                                },\n                                                {\n                                                        \"name\": \"UserTargetDeploymentFolder\",\n                                                        \"value\": \"/CCS-Deployments\"\n                                                },\n                                                {\n                                                        \"name\": \"CC_AUTO_SELECT_NETWORK\",\n                                                        \"value\": false\n                                                },\n                                                {\n                                                        \"name\": \"numNICs\",\n                                                        \"value\": \"\"\n                                                }\n                                        ],\n                                        \"nics\": [\n                                                {\n                                                        \"order\": 1,\n                                                        \"id\": \"V107_CCC01_PG (Cluster-vSAN-VDS)\",\n                                                        \"type\": \"NETWORK\"\n                                                }\n                                        ],\n                                        \"instance\": \"micro\"\n                                }\n                        },\n                        \"appServices\": [],\n                        \"numNodesToLaunch\": 1\n                }\n        ],\n        \"timeZone\": \"UTC\",\n        \"responseJobJaxbNotRequired\": true\n}",
+              "api_call_method": "POST",
+              "continue_on_failure": false,
+              "display_name": "Generic CCS API Request",
+              "relative_url": "cloudcenter-ccm-backend/api/v2/jobs",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01DZ33CFHT61B2nkSXzdMjLEFot1bKnWtlb",
+            "name": "Set Variables",
+            "title": "Set Variables",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set Variables",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01DZ31J0ICVEK0WLDH9XAix74Uj2aPcEw1y.output.variable_workflow_01DZ337M6HPCP4I4pQTHOny6jUsUrL4fCgG$",
+                  "variable_value_new": "$activity.definition_activity_01DZ323PGA3CJ0Hh8JQoprhs94KRrRKpOpM.output.response_body$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01DEIPCXH8OKF0LpCt6tMq7Iw1yJwu8zbMD",
+        "name": "WM - Get Job Status",
+        "title": "WM - Get Job Status",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "job Response",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01DEIPDA30D652UEHIMlkyVtYqzve5BpLNy",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "jobId",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01DEIPDA30F126ZxCUDfz5QST3r7MJfuY6g",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "status",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01DEIPDA309R56TsNZEPrREdUPQqoYXhGqn",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "WM - Get Job Status",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01DEIPDDQ7O050d9pj5wGbzSh2GyDdRGx5h",
+            "name": "While Loop",
+            "title": "While Loop",
+            "type": "logic.while",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "While Loop",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01DEIPDH7F98U2T5ge0RkNmN2FuU8749OE5",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_01DEIPCXH8OKF0LpCt6tMq7Iw1yJwu8zbMD.output.variable_workflow_01DEIPDA309R56TsNZEPrREdUPQqoYXhGqn$",
+                    "operator": "ne",
+                    "right_operand": "Deployed"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01DEIPDKSI5L966ZJV5hKxAW5v1mCO1ypf0",
+                    "name": "Sleep",
+                    "title": "Sleep",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep",
+                      "skip_execution": false,
+                      "sleep_interval": 20
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01DEIPDQEKA1235MJFhinLemR1nkmraSp5l",
+                    "name": "Generic CCS API Request",
+                    "title": "Generic CCS API Request",
+                    "type": "ccs.api_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "api_call_method": "GET",
+                      "continue_on_failure": false,
+                      "display_name": "Generic CCS API Request",
+                      "relative_url": "cloudcenter-ccm-backend/api/v2/jobs/$workflow.definition_workflow_01DEIPCXH8OKF0LpCt6tMq7Iw1yJwu8zbMD.input.variable_workflow_01DEIPDA30F126ZxCUDfz5QST3r7MJfuY6g$",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01DEIPDXS3VTR6tbngR0OgBbjYIuQY5pfIO",
+                    "name": "JSONPath Query",
+                    "title": "JSONPath Query",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "JSONPath Query",
+                      "input_json": "$activity.definition_activity_01DEIPDQEKA1235MJFhinLemR1nkmraSp5l.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.deploymentEntity.attributes.status",
+                          "jsonpath_query_name": "status",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01DEIPE30V5Y03ZI9C6Xxz1vUPy908XUwXl",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01DEIPCXH8OKF0LpCt6tMq7Iw1yJwu8zbMD.output.variable_workflow_01DEIPDA309R56TsNZEPrREdUPQqoYXhGqn$",
+                          "variable_value_new": "$activity.definition_activity_01DEIPDXS3VTR6tbngR0OgBbjYIuQY5pfIO.output.jsonpath_queries.status$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01DEIPCXH8OKF0LpCt6tMq7Iw1yJwu8zbMD.output.variable_workflow_01DEIPDA30D652UEHIMlkyVtYqzve5BpLNy$",
+                          "variable_value_new": "$activity.definition_activity_01DEIPDQEKA1235MJFhinLemR1nkmraSp5l.output.response_body$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01DEIPE80RER444cYIQ5Axll5NknXw6EQ4l",
+            "name": "Condition Block",
+            "title": "Check for Failed Job",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Check for Failed Job",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01DEIPEBF1MIW4kznoerSwYBKvbLxuuXS6E",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_01DEIPCXH8OKF0LpCt6tMq7Iw1yJwu8zbMD.output.variable_workflow_01DEIPDA309R56TsNZEPrREdUPQqoYXhGqn$",
+                    "operator": "ne",
+                    "right_operand": "Deployed"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01DEIPEF1VFHJ4LaHcj1ewdSRWoMcyc9F6a",
+                    "name": "Failed",
+                    "title": "Failed",
+                    "type": "logic.completed",
+                    "base_type": "activity",
+                    "properties": {
+                      "completion_type": "failed-completed",
+                      "display_name": "Failed",
+                      "result_message": "The WM Deployed failed:\n\n$workflow.definition_workflow_01DEIPCXH8OKF0LpCt6tMq7Iw1yJwu8zbMD.output.variable_workflow_01DEIPDA30D652UEHIMlkyVtYqzve5BpLNy$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
